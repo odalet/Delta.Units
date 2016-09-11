@@ -1,4 +1,4 @@
-﻿namespace Delta.Units
+﻿namespace Delta.Units.Systems
 {
     /// <summary>
     /// Stores references to units of the SI

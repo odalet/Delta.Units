@@ -40,7 +40,7 @@ namespace Delta.Units
     /// </item>
     /// </list>
     /// </remarks>
-    internal sealed class DimensionFormula : IEnumerable<int>
+    public sealed class DimensionFormula : IEnumerable<int>
     {
         private readonly int[] exponents = new int[BaseDimensions.Count];
 

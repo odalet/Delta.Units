@@ -8,16 +8,7 @@ namespace Delta.Units
     {
         // Some prime numbers to use in GetHashCode implementations (there are 14 of them)
         public static readonly int[] Primes = new[] { 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59 };
-
-        public static bool IsNone(this DimensionFormula formula) => 
-            !formula.ExceptNone().Any(exp => exp != 0) && formula.GetNone() != 0 ;
-
-        public static bool IsNone(this Dimension dimension) => dimension == null || dimension.Formula.IsNone();
-        public static bool IsNone(this Unit unit) => unit == null || unit.Dimension.IsNone();
-
-        private static IEnumerable<int> ExceptNone(this DimensionFormula formula) => formula.Take(formula.Count - 1);
-        private static int GetNone(this DimensionFormula formula) => formula.Last();
-
+        
         public static string CreateDimensionName(Dimension left, Dimension right, string op)
         {
             if (left.IsNone() && right.IsNone()) return string.Empty;
