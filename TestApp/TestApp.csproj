@@ -49,7 +49,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fmas.Physics\Delta.Units.csproj">
+    <ProjectReference Include="..\Delta.Units\Delta.Units.csproj">
       <Project>{243159be-aed6-4b76-9ecf-ca5d3397b143}</Project>
       <Name>Delta.Units</Name>
     </ProjectReference>
