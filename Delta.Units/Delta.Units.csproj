@@ -45,7 +45,13 @@
     <Compile Include="SpecialCharacters.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Systems\Aliases.cs" />
+    <Compile Include="Systems\Dimensionless.cs" />
+    <Compile Include="Systems\SI.Velocity.cs" />
+    <Compile Include="Systems\SI.Volume.cs" />
+    <Compile Include="Systems\SI.Area.cs" />
     <Compile Include="Systems\SI.cs" />
+    <Compile Include="Systems\SIPrefix.cs" />
     <Compile Include="Unit.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

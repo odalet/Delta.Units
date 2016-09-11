@@ -40,6 +40,23 @@ namespace Delta.Units
         }
 
         [Fact]
+        public void MultipliedUnit()
+        {
+            var m = new Unit("metre", "m", BaseDimensions.Length);
+            var cm = new Unit("centimetre", "cm", m, 0.01);
+
+            var valueInCentimetres = 25.0;
+            var expectedValueInMetres = 0.25;
+            var actualValueInMetres = cm.ConvertTo(valueInCentimetres, m);
+            Assert.Equal(expectedValueInMetres, actualValueInMetres);
+
+            var valueInMetres = 2.5;
+            var expectedValueInCentimetres = 250.0;
+            var actualValueInCentimetres = m.ConvertTo(valueInMetres, cm);
+            Assert.Equal(expectedValueInCentimetres, actualValueInCentimetres);
+        }
+
+        [Fact]
         public void SimpleDerivedUnitsLevel1()
         {
             var m = new Unit("metre", "m", BaseDimensions.Length);

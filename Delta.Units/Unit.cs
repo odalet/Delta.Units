@@ -1,4 +1,5 @@
 ﻿using System;
+using Delta.Units.Systems;
 
 namespace Delta.Units
 {
@@ -14,6 +15,11 @@ namespace Delta.Units
         // Allows to build aliases
         public Unit(string name, string symbol, Unit basedOn) :
             this(name, symbol, basedOn, x => x, x => x)
+        { }
+
+        // Allows to build units based on a multiplication factor
+        public Unit(string name, string symbol, Unit basedOn, double toBaseUnitFactor) :
+            this(name, symbol, basedOn, x => x * toBaseUnitFactor, x => x / toBaseUnitFactor)
         { }
 
         // Used to create simple derived units (ie units with the same dimension)
@@ -83,7 +89,7 @@ namespace Delta.Units
         public static Unit operator ^(Unit unit, int exponent) => (unit ?? None).Pow(exponent);
         public static Unit operator *(Unit left, Unit right) => Multiply(left ?? None, right ?? None);
         public static Unit operator /(Unit left, Unit right) => Divide(left ?? None, right ?? None);
-
+        
         #endregion
 
         #region Static Helpers
