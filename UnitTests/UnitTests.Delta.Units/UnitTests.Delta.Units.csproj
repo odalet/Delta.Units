@@ -73,7 +73,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Fmas.Physics\Delta.Units.csproj">
+    <ProjectReference Include="..\..\Delta.Units\Delta.Units.csproj">
       <Project>{243159BE-AED6-4B76-9ECF-CA5D3397B143}</Project>
       <Name>Delta.Units</Name>
     </ProjectReference>
