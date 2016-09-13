@@ -42,6 +42,7 @@
     <Compile Include="DimensionFormula.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Quantity.cs" />
     <Compile Include="SpecialCharacters.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

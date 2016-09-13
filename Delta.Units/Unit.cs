@@ -89,6 +89,9 @@ namespace Delta.Units
         public static Unit operator ^(Unit unit, int exponent) => (unit ?? None).Pow(exponent);
         public static Unit operator *(Unit left, Unit right) => Multiply(left ?? None, right ?? None);
         public static Unit operator /(Unit left, Unit right) => Divide(left ?? None, right ?? None);
+
+        public static Quantity operator *(Unit left, double right) => right * left;
+        public static Quantity operator *(double left, Unit right) => new Quantity(left, right);
         
         #endregion
 
