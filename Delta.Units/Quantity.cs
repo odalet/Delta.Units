@@ -1,4 +1,5 @@
 ﻿using System;
+using Delta.Units.Globalization;
 
 namespace Delta.Units
 {
@@ -52,12 +53,24 @@ namespace Delta.Units
 
         #endregion
 
-        public override string ToString() => $"{Value} {Unit.Symbol}";
+        #region Formatting
 
-        public string ToString(string format, IFormatProvider formatProvider)
-        {
-            // TODO!
-            return ToString();
-        }
+        public override string ToString() => QuantityFormatter.Format(this, null, null);
+
+        public string ToString(string format) => QuantityFormatter.Format(this, format, null);
+
+        public string ToString(IFormatProvider formatProvider) => QuantityFormatter.Format(this, null, formatProvider);
+
+        public string ToString(string format, IFormatProvider formatProvider) => QuantityFormatter.Format(this, format, formatProvider);
+
+        #endregion
+
+        ////public override string ToString() => $"{Value} {Unit.Symbol}";
+
+        ////public string ToString(string format, IFormatProvider formatProvider)
+        ////{
+        ////    // TODO!
+        ////    return ToString();
+        ////}
     }
 }

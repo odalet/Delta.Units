@@ -1,10 +1,52 @@
 ﻿using System;
-using Delta.Units.Systems;
+using System.Globalization;
+using Delta.Units.Globalization;
 
 namespace Delta.Units
 {
-    public sealed class Unit
+    public sealed class Unit : IFormattable
     {
+        private class SpecificUnitTranslationProvider : IUnitTranslationProvider
+        {
+            public SpecificUnitTranslationProvider(Unit unit)
+            {
+                if (unit == null) throw new ArgumentNullException(nameof(unit));
+                Unit = unit;
+            }
+
+            private Unit Unit { get; }
+
+            public string TranslateName(Unit unit, CultureInfo culture)
+            {
+                var u = unit ?? Unit.None;
+                if (u != Unit) throw new ArgumentException("This method can only be called for one specific Unit instance", nameof(unit));
+                if (u.TranslateNameFunction == null) return DefaultUnitTranslationProvider.Current.TranslateName(u, culture);
+                try
+                {
+                    return u.TranslateNameFunction(culture);
+                }
+                catch
+                {
+                    return DefaultUnitTranslationProvider.Current.TranslateName(u, culture);
+                }
+            }
+
+            public string TranslateSymbol(Unit unit, CultureInfo culture)
+            {
+                var u = unit ?? Unit.None;
+                if (u != Unit) throw new ArgumentException("This method can only be called for one specific Unit instance", nameof(unit));
+                if (u.TranslateSymbolFunction == null) return DefaultUnitTranslationProvider.Current.TranslateSymbol(u, culture);
+                try
+                {
+                    return u.TranslateSymbolFunction(culture);
+                }
+                catch
+                {
+                    return DefaultUnitTranslationProvider.Current.TranslateSymbol(u, culture);
+                }
+            }
+        }
+        
         public static Unit None { get; } = new Unit(string.Empty, string.Empty, (Dimension)null);
 
         // Used to create base units
@@ -43,6 +85,7 @@ namespace Delta.Units
             Name = name ?? string.Empty;
             Symbol = symbol ?? string.Empty;
             Dimension = dimension ?? BaseDimensions.None;
+            TranslationProvider = new SpecificUnitTranslationProvider(this);
 
             if (!generateBaseUnit) return;
 
@@ -59,6 +102,10 @@ namespace Delta.Units
         public string Name { get; set; } // The name can be changed
         public string Symbol { get; }
         public Dimension Dimension { get; }
+
+        public Func<CultureInfo, string> TranslateNameFunction { get; set; }
+        public Func<CultureInfo, string> TranslateSymbolFunction { get; set; }
+        public IUnitTranslationProvider TranslationProvider { get; }
 
         internal Unit[] BaseUnits { get; } = new Unit[BaseDimensions.Count];
         internal Func<double, double>[] ToBase { get; } = new Func<double, double>[BaseDimensions.Count];
@@ -92,7 +139,19 @@ namespace Delta.Units
 
         public static Quantity operator *(Unit left, double right) => right * left;
         public static Quantity operator *(double left, Unit right) => new Quantity(left, right);
-        
+
+        #endregion
+
+        #region Formatting
+
+        public override string ToString() => UnitFormatter.Format(this, null, null);
+
+        public string ToString(string format) => UnitFormatter.Format(this, format, null);
+
+        public string ToString(IFormatProvider formatProvider) => UnitFormatter.Format(this, null, formatProvider);
+
+        public string ToString(string format, IFormatProvider formatProvider) => UnitFormatter.Format(this, format, formatProvider);
+
         #endregion
 
         #region Static Helpers
@@ -179,7 +238,7 @@ namespace Delta.Units
                         throw new InvalidOperationException(
                             $"Incompatible units: could not find a common base unit for dimension '{d}'");
                     }
-                    
+
                     target.BaseUnits[index] = left.BaseUnits[index];
                     // The enclosed 'leftFrom(rightTo(x))' expression below is equivalent 
                     // to converting x from right unit to left unit for this dimension.

@@ -41,6 +41,10 @@
     <Compile Include="Dimension.cs" />
     <Compile Include="DimensionFormula.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Globalization\DefaultUnitTranslationProvider.cs" />
+    <Compile Include="Globalization\QuantityFormatter.cs" />
+    <Compile Include="Globalization\UnitFormatter.cs" />
+    <Compile Include="Globalization\IUnitTranslationProvider.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Quantity.cs" />
     <Compile Include="SpecialCharacters.cs" />

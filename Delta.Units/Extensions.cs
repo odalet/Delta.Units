@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Delta.Units.Globalization;
 
 namespace Delta.Units
 {
@@ -40,7 +41,7 @@ namespace Delta.Units
 
         public static bool IsNone(this Dimension dimension) => dimension == null || dimension.Formula.IsNone();
         public static bool IsNone(this Unit unit) => unit == null || unit.Dimension.IsNone();
-
+        
         private static IEnumerable<int> ExceptNone(this DimensionFormula formula) => formula.Take(formula.Count - 1);
         private static int GetNone(this DimensionFormula formula) => formula.Last();
     }
