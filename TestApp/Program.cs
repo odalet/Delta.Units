@@ -7,8 +7,16 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            var M = 0.001 * kg;
+            var M = 0.01 * kg;            
+
             Console.WriteLine($"M = {M}");
+            Console.WriteLine($"M = {M.ConvertTo(g)}");
+
+            var s1 = M + 2.0 * M.ConvertTo(g);
+            var s2 = 2.0 * M.ConvertTo(g) + M;
+
+            Console.WriteLine("s1 = " + s1);
+            Console.WriteLine("s2 = " + s2);
 
             Console.ReadKey();
             ////var M = 0.001 * Kilogram;

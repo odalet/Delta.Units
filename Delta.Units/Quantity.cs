@@ -19,6 +19,39 @@ namespace Delta.Units
         public double Value { get; }
         public Unit Unit { get; }
 
+        public Quantity ConvertTo(Unit target) => new Quantity(
+            Unit.Convert(Value, Unit, target), target);
+
+        #region Operator Overloads
+
+        // double op quantity & quantity op double
+
+        public static Quantity operator +(Quantity left, double right) => right + left;
+        public static Quantity operator +(double left, Quantity right) => new Quantity(left + right.Value, right.Unit);
+
+        public static Quantity operator -(Quantity left, double right) => (-1.0 * right) + left;
+        public static Quantity operator -(double left, Quantity right) => (-1.0 * left) + right;
+
+        public static Quantity operator *(Quantity left, double right) => right * left;
+        public static Quantity operator *(double left, Quantity right) => new Quantity(left * right.Value, right.Unit);
+
+        public static Quantity operator /(Quantity left, double right) => (1.0 / right) * left;
+        public static Quantity operator /(double left, Quantity right) => (1.0 / left) * right;
+
+        // quantity op quantity
+
+        // By convention, the result is expressed in the left quantity's unit.
+        public static Quantity operator +(Quantity left, Quantity right) => new Quantity(
+                left.Value + right.Unit.ConvertTo(right.Value, left.Unit),
+                left.Unit);
+
+        // By convention, the result is expressed in the left quantity's unit.
+        public static Quantity operator -(Quantity left, Quantity right) => new Quantity(
+                left.Value - right.Unit.ConvertTo(right.Value, left.Unit),
+                left.Unit);
+
+        #endregion
+
         public override string ToString() => $"{Value} {Unit.Symbol}";
 
         public string ToString(string format, IFormatProvider formatProvider)
