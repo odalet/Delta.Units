@@ -249,5 +249,14 @@ namespace Delta.Units.Globalization
             Assert.Throws<FormatException>(() => kg.ToString("z"));
             Assert.Throws<FormatException>(() => kg.ToString("zzzz"));
         }
+
+        [Fact]
+        public void FormatUnitWithNullPartsTests()
+        {
+            var nullUnit = new Unit(null, null, BaseDimensions.Mass);
+            Assert.Equal(string.Empty, nullUnit.ToString());
+            Assert.Equal(string.Empty, nullUnit.ToString("S"));
+            Assert.Equal(string.Empty, nullUnit.ToString("N"));
+        }
     }
 }

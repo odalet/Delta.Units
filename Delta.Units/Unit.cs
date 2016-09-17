@@ -10,39 +10,36 @@ namespace Delta.Units
         {
             public SpecificUnitTranslationProvider(Unit unit)
             {
-                if (unit == null) throw new ArgumentNullException(nameof(unit));
                 Unit = unit;
             }
 
             private Unit Unit { get; }
 
-            public string TranslateName(Unit unit, CultureInfo culture)
+            public string TranslateName(Unit _, CultureInfo culture)
             {
-                var u = unit ?? Unit.None;
-                if (u != Unit) throw new ArgumentException("This method can only be called for one specific Unit instance", nameof(unit));
-                if (u.TranslateNameFunction == null) return DefaultUnitTranslationProvider.Current.TranslateName(u, culture);
+                // In this method, we do not care what unit is passed in, we always only translate the Unit that we were created by.
+                if (Unit.TranslateNameFunction == null) return DefaultUnitTranslationProvider.Current.TranslateName(Unit, culture);
                 try
                 {
-                    return u.TranslateNameFunction(culture);
+                    return Unit.TranslateNameFunction(culture);
                 }
                 catch
                 {
-                    return DefaultUnitTranslationProvider.Current.TranslateName(u, culture);
+                    return DefaultUnitTranslationProvider.Current.TranslateName(Unit, culture);
                 }
             }
 
-            public string TranslateSymbol(Unit unit, CultureInfo culture)
+            public string TranslateSymbol(Unit _, CultureInfo culture)
             {
-                var u = unit ?? Unit.None;
-                if (u != Unit) throw new ArgumentException("This method can only be called for one specific Unit instance", nameof(unit));
-                if (u.TranslateSymbolFunction == null) return DefaultUnitTranslationProvider.Current.TranslateSymbol(u, culture);
+                // In this method, we do not care what unit is passed in, we always only translate the Unit that we were created by.
+                if (Unit.TranslateSymbolFunction == null) return DefaultUnitTranslationProvider.Current.TranslateSymbol(Unit, culture);
                 try
                 {
-                    return u.TranslateSymbolFunction(culture);
+                    return Unit.TranslateSymbolFunction(culture);
                 }
                 catch
                 {
-                    return DefaultUnitTranslationProvider.Current.TranslateSymbol(u, culture);
+                    return DefaultUnitTranslationProvider.Current.TranslateSymbol(Unit, culture);
                 }
             }
         }
