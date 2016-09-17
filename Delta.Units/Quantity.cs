@@ -64,13 +64,5 @@ namespace Delta.Units
         public string ToString(string format, IFormatProvider formatProvider) => QuantityFormatter.Format(this, format, formatProvider);
 
         #endregion
-
-        ////public override string ToString() => $"{Value} {Unit.Symbol}";
-
-        ////public string ToString(string format, IFormatProvider formatProvider)
-        ////{
-        ////    // TODO!
-        ////    return ToString();
-        ////}
     }
 }
