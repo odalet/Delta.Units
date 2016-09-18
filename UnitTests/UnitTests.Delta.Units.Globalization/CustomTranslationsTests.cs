@@ -67,9 +67,11 @@ namespace Delta.Units.Globalization
         {
             //lock (lockMe)
             {
+                var previousCulture = CultureInfo.DefaultThreadCurrentCulture;
                 var previous = DefaultUnitTranslationProvider.Current;
                 try
                 {
+                    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-GB");
                     DefaultUnitTranslationProvider.Current = new SimpleProvider();
                     var kg = new Unit("kilogram", "kg", BaseDimensions.Mass);
                     Assert.Equal("kilogramme", kg.ToString("N"));
@@ -77,6 +79,7 @@ namespace Delta.Units.Globalization
                 }
                 finally
                 {
+                    CultureInfo.DefaultThreadCurrentCulture = previousCulture;
                     DefaultUnitTranslationProvider.Current = previous;
                 }
             }
