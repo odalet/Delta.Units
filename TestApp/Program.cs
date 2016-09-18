@@ -3,9 +3,9 @@ using static Delta.Units.Systems.Aliases;
 
 namespace TestApp
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var M = 0.01 * kg;            
 

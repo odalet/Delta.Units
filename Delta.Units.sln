@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delta.Units", "Delta.Units\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.Delta.Units", "UnitTests\UnitTests.Delta.Units\UnitTests.Delta.Units.csproj", "{A1A8E63D-8969-4BCC-BFBA-4CD2C85E9980}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.Delta.Units.Globalization", "UnitTests\UnitTests.Delta.Units.Globalization\UnitTests.Delta.Units.Globalization.csproj", "{D9457332-15A7-4871-8C66-0FFCD631E837}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A1A8E63D-8969-4BCC-BFBA-4CD2C85E9980}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1A8E63D-8969-4BCC-BFBA-4CD2C85E9980}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1A8E63D-8969-4BCC-BFBA-4CD2C85E9980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9457332-15A7-4871-8C66-0FFCD631E837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9457332-15A7-4871-8C66-0FFCD631E837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9457332-15A7-4871-8C66-0FFCD631E837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9457332-15A7-4871-8C66-0FFCD631E837}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

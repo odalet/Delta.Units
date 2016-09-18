@@ -11,4 +11,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "S1764:Identical expressions should not be used on both sides of a binary operator", Justification = "<Pending>", Scope = "member", Target = "~F:Delta.Units.Systems.Dimensionless.unit")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "S100:Methods and properties should be named in camel case", Justification = "<Pending>", Scope = "member", Target = "~M:Delta.Units.Systems.SI.Areas._(System.String)~System.String")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "S100:Methods and properties should be named in camel case", Justification = "<Pending>", Scope = "member", Target = "~M:Delta.Units.Systems.SI.Volumes._(System.String)~System.String")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "S100:Methods and properties should be named in camel case", Justification = "<Pending>", Scope = "member", Target = "~M:Delta.Units.Systems.SI._(System.String)~System.String")]
 
