@@ -71,7 +71,7 @@ namespace Delta.Units.Globalization
                 var previous = DefaultUnitTranslationProvider.Current;
                 try
                 {
-                    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-GB");
+                    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("fr-FR");
                     DefaultUnitTranslationProvider.Current = new SimpleProvider();
                     var kg = new Unit("kilogram", "kg", BaseDimensions.Mass);
                     Assert.Equal("kilogramme", kg.ToString("N"));
