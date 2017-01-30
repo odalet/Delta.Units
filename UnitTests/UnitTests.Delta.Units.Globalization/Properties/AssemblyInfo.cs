@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using Xunit;
 
@@ -17,3 +15,6 @@ using Xunit;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
+
+// Remark: this test assembly cannot be run by xunit.runner.console.x86.exe: it raises a StackOverflowException
+// However, test are successfully executed if using the x64 version of the runner (xunit.runner.console.exe)
