@@ -6,8 +6,8 @@ before_build:
 build:
   verbosity: minimal
 test_script:
-  - cmd xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units\bin\Debug\UnitTests.Delta.Units.dll" -appveyor
-  - cmd xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units.Globalization\bin\Debug\UnitTests.Delta.Units.Globalization.dll" -appveyor
+  - xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units\bin\Debug\UnitTests.Delta.Units.dll" -appveyor
+  - xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units.Globalization\bin\Debug\UnitTests.Delta.Units.Globalization.dll" -appveyor
 artifacts:
 - path: Delta.Units\bin\$(configuration)\Delta.Units.dll
   name: Binaries
