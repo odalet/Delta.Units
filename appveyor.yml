@@ -2,14 +2,14 @@ version: 1.0.{build}
 environment:
   configuration: Debug
 before_build:
-- cmd: where xunit.console
-- cmd: dir %xunit20%
+- cmd: 'where xunit.console'
+- cmd: 'dir %xunit20%'
 - cmd: nuget restore
 build:
   verbosity: minimal
 test_script:
-  - cmd: %xunit20%\xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units\bin\Debug\UnitTests.Delta.Units.dll" -appveyor
-  - cmd: %xunit20%\xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units.Globalization\bin\Debug\UnitTests.Delta.Units.Globalization.dll" -appveyor
+  - cmd: '%xunit20%\xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units\bin\Debug\UnitTests.Delta.Units.dll" -appveyor'
+  - cmd: '%xunit20%\xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units.Globalization\bin\Debug\UnitTests.Delta.Units.Globalization.dll" -appveyor'
 artifacts:
 - path: Delta.Units\bin\$(configuration)\Delta.Units.dll
   name: Binaries
