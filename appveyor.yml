@@ -1,0 +1,13 @@
+version: 1.0.{build}
+environment:
+  configuration: Debug
+before_build:
+- cmd: nuget restore
+build:
+  verbosity: minimal
+test_script:
+  - %xunit20%\xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units\bin\Debug\UnitTests.Delta.Units.dll" -appveyor
+  - %xunit20%\xunit.console "C:\projects\delta-units\UnitTests\UnitTests.Delta.Units.Globalization\bin\Debug\UnitTests.Delta.Units.Globalization.dll" -appveyor
+artifacts:
+- path: Delta.Units\bin\$(configuration)\Delta.Units.dll
+  name: Binaries
