@@ -13,3 +13,4 @@ test_script:
 artifacts:
 - path: Delta.Units\bin\$(configuration)\Delta.Units.dll
   name: Binaries
+  
