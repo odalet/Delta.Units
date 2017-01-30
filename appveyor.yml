@@ -2,8 +2,6 @@ version: 1.0.{build}
 environment:
   configuration: Debug
 before_build:
-- cmd: 'where xunit.console'
-- cmd: 'dir %xunit20%'
 - cmd: nuget restore
 build:
   verbosity: minimal
