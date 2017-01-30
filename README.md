@@ -1,8 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/h4dqt75twhf93fbv?svg=true)](https://ci.appveyor.com/project/odalet/delta-un
-its)
+[![Build status](https://ci.appveyor.com/api/projects/status/h4dqt75twhf93fbv?svg=true)](https://ci.appveyor.com/project/odalet/delta-units)
 
-[![Test status](http://teststatusbadge.azurewebsites.net/api/status/odalet/delta-units)](https://ci.appveyor.com/project/odalet/delta-un
-its)
+[![Test status](http://teststatusbadge.azurewebsites.net/api/status/odalet/delta-units)](https://ci.appveyor.com/project/odalet/delta-units)
 
 Delta.Units
 =============
