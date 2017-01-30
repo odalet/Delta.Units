@@ -77,7 +77,7 @@ namespace Delta.Units.Systems
         public static readonly Unit day = new Unit("day", "d", hour, 24.0);
         public static readonly Unit millisecond = milli * second;
         public static readonly Unit microsecond = micro * second;
-        public static readonly Unit nanogecond = nano * second;
+        public static readonly Unit nanosecond = nano * second;
 
         // Electric current
         public static readonly Unit milliAmpere = milli * Ampere;
