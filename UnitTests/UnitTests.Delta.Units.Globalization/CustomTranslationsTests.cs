@@ -6,7 +6,6 @@ using Xunit;
 namespace Delta.Units.Globalization
 {
     [ExcludeFromCodeCoverage]
-    //[Collection("DoNotParallelize")]
     public class CustomTranslationsTests
     {
         private class SimpleProvider : IUnitTranslationProvider
@@ -39,70 +38,59 @@ namespace Delta.Units.Globalization
                 throw new InvalidOperationException("TEST");
             }
         }
-
-        private readonly object lockMe = new object();
-
+        
         [Fact]
         public void NullTranslationProviderTest()
         {
-            //lock (lockMe)
+            var previous = DefaultUnitTranslationProvider.Current;
+            try
             {
-                var previous = DefaultUnitTranslationProvider.Current;
-                try
-                {
-                    DefaultUnitTranslationProvider.Current = null;
-                    var kg = new Unit("kilogram", "kg", BaseDimensions.Mass);
-                    Assert.Equal("kilogram", kg.ToString("N"));
-                    Assert.Equal("kg", kg.ToString("S"));
-                }
-                finally
-                {
-                    DefaultUnitTranslationProvider.Current = previous;
-                }
+                DefaultUnitTranslationProvider.Current = null;
+                var kg = new Unit("kilogram", "kg", BaseDimensions.Mass);
+                Assert.Equal("kilogram", kg.ToString("N"));
+                Assert.Equal("kg", kg.ToString("S"));
+            }
+            finally
+            {
+                DefaultUnitTranslationProvider.Current = previous;
             }
         }
 
         [Fact]
         public void CustomTranslationProviderTest()
         {
-            //lock (lockMe)
+            var previousCulture = CultureInfo.DefaultThreadCurrentCulture;
+            var previous = DefaultUnitTranslationProvider.Current;
+            try
             {
-                var previousCulture = CultureInfo.DefaultThreadCurrentCulture;
-                var previous = DefaultUnitTranslationProvider.Current;
-                try
-                {
-                    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("fr-FR");
-                    DefaultUnitTranslationProvider.Current = new SimpleProvider();
-                    var kg = new Unit("kilogram", "kg", BaseDimensions.Mass);
-                    Assert.Equal("kilogramme", kg.ToString("N"));
-                    Assert.Equal("kg", kg.ToString("S"));
-                }
-                finally
-                {
-                    CultureInfo.DefaultThreadCurrentCulture = previousCulture;
-                    DefaultUnitTranslationProvider.Current = previous;
-                }
+                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("fr-FR");
+                DefaultUnitTranslationProvider.Current = new SimpleProvider();
+                var kg = new Unit("kilogram", "kg", BaseDimensions.Mass);
+                Assert.Equal("kilogramme", kg.ToString("N"));
+                Assert.Equal("kg", kg.ToString("S"));
+            }
+            finally
+            {
+                CultureInfo.DefaultThreadCurrentCulture = previousCulture;
+                DefaultUnitTranslationProvider.Current = previous;
             }
         }
 
         [Fact]
         public void FailingTranslationProviderTest()
         {
-            //lock (lockMe)
+            var previous = DefaultUnitTranslationProvider.Current;
+            try
             {
-                var previous = DefaultUnitTranslationProvider.Current;
-                try
-                {
-                    DefaultUnitTranslationProvider.Current = new FailingProvider();
-                    var kg = new Unit("kilogram", "kg", BaseDimensions.Mass);
-                    // Even though the provider fails, translation should not throw, and instead revert to the fallback bahavior
-                    Assert.Equal("kilogram", kg.ToString("N"));
-                    Assert.Equal("kg", kg.ToString("S"));
-                }
-                finally
-                {
-                    DefaultUnitTranslationProvider.Current = previous;
-                }
+                DefaultUnitTranslationProvider.Current = new FailingProvider();
+                var kg = new Unit("kilogram", "kg", BaseDimensions.Mass);
+                // Even though the provider fails, translation should not throw, and instead revert to the fallback bahavior
+                Assert.Equal("kilogram", kg.ToString("N"));
+                Assert.Equal("kg", kg.ToString("S"));
+            }
+            finally
+            {
+                DefaultUnitTranslationProvider.Current = previous;
             }
         }
     }

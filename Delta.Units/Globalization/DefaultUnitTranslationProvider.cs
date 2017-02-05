@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 
 namespace Delta.Units.Globalization
 {
@@ -12,7 +13,7 @@ namespace Delta.Units.Globalization
         public static IUnitTranslationProvider Current
         {
             get { return wrapper; }
-            set { wrapper.innerProvider = value; }
+            set { wrapper.innerProvider = value == wrapper ? null : value; }
         }
 
         string IUnitTranslationProvider.TranslateName(Unit unit, CultureInfo culture) 
@@ -30,7 +31,7 @@ namespace Delta.Units.Globalization
 
         string IUnitTranslationProvider.TranslateSymbol(Unit unit, CultureInfo culture)
         {
-            if (innerProvider == null) return unit.Symbol;
+            if (innerProvider == null || innerProvider == this) return unit.Symbol;
             try
             {
                 return innerProvider.TranslateSymbol(unit, culture);
