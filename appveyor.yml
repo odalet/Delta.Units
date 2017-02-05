@@ -9,7 +9,7 @@ build:
   project: Delta.Units.sln
   verbosity: detailed
 test_script:
-- ps: unit-tests.ps1
+- ps: '& .\unit-tests.ps1'
 artifacts:
 - path: Delta.Units\bin\$(configuration)\Delta.Units.dll
   name: Binaries
