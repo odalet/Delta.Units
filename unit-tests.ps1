@@ -2,7 +2,7 @@ C:\projects\delta-units\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe  
 -register:Path64 `
 "-target:C:\projects\delta-units\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" `
 "-targetargs:UnitTests\UnitTests.Delta.Units\bin\$env:CONFIGURATION\UnitTests.Delta.Units.dll UnitTests\UnitTests.Delta.Units.Globalization\bin\$env:CONFIGURATION\UnitTests.Delta.Units.Globalization.dll -appveyor -noshadow" `
-"-filter:-[UnitTests*]*" `
+"-filter:+[Delta.Units*]* -[UnitTests*]*" `
 "-output:opencoverCoverage.xml"
 
 $coveralls = (Resolve-Path "packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
