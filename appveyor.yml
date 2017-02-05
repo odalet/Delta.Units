@@ -6,8 +6,8 @@ branches:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: sAoqj4mz8jCeeQ0em98Z0KAJZubVl0Q76cqb6ZH/2rgzFmaNM7Z3GplBlh+p60xQ
-matrix:
-  fast_finish: true  
+#matrix:
+#  fast_finish: true  
 cache:
   - packages -> **\packages.config   
 assembly_info:
