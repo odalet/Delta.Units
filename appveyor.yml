@@ -1,18 +1,42 @@
+# See https://www.appveyor.com/docs/appveyor-yml/
 version: 1.0.{build}
+branches:
+  only:
+    - master  
 environment:
-  configuration: Debug
   COVERALLS_REPO_TOKEN:
     secure: sAoqj4mz8jCeeQ0em98Z0KAJZubVl0Q76cqb6ZH/2rgzFmaNM7Z3GplBlh+p60xQ
+matrix:
+  fast_finish: true  
+cache:
+  - packages -> **\packages.config   
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}.{build}'
+  assembly_file_version: '{version}.{build}'
+  assembly_informational_version: '{version}.{build}-beta'
+platform: 
+  Any CPU
+configuration: 
+  Debug
 before_build:
-- cmd: nuget restore
-build:
-  project: Delta.Units.sln
-  verbosity: normal 
-test_script:
-- ps: '& .\unit-tests.ps1'
+  - cmd: nuget restore
+#build:
+#  project: Delta.Units.sln
+#  verbosity: minimal 
+build_script:
+  - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
+  - ps: '& .\unit-tests.ps1'
+  - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"    
+# test_script:
+
 artifacts:
-- path: Delta.Units\bin\$(configuration)\Delta.Units.dll
-  name: Binaries
-- path: opencoverCoverage.xml
-  name: Coverage
-  
+  - path: Delta.Units\bin\Debug\Delta.Units.dll
+  - path: Delta.Units\bin\Debug\Delta.Units.pdb  
+    name: Debug Binaries
+  - path: opencoverCoverage.xml
+    name: Coverage
+  - path: Delta.Units\bin\Release\Delta.Units.dll
+  - path: Delta.Units\bin\Release\Delta.Units.pdb  
+    name: Release Binaries
