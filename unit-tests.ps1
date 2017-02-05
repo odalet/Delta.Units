@@ -1,6 +1,6 @@
 .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe  `
 -register:user `
-"-target:C:\projects\$env:APPVEYOR_PROJECT_NAME\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" `
+"-target:C:\projects\delta-units\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" `
 "-targetargs:UnitTests\UnitTests.Delta.Units\bin\$env:CONFIGURATION\UnitTests.Delta.Units.dll UnitTests\UnitTests.Delta.Units.Globalization\bin\$env:CONFIGURATION\UnitTests.Delta.Units.Globalization.dll -appveyor -noshadow" `
 "-filter:-[UnitTests*]*" `
 "-output:opencoverCoverage.xml"
