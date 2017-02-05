@@ -6,8 +6,6 @@ branches:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: sAoqj4mz8jCeeQ0em98Z0KAJZubVl0Q76cqb6ZH/2rgzFmaNM7Z3GplBlh+p60xQ
-#matrix:
-#  fast_finish: true  
 cache:
   - packages -> **\packages.config   
 assembly_info:
@@ -22,15 +20,12 @@ configuration:
   Debug
 before_build:
   - cmd: nuget restore
-#build:
-#  project: Delta.Units.sln
-#  verbosity: minimal 
 build_script:
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
   - ps: '& .\unit-tests.ps1'
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"    
-# test_script:
-
+test_script:
+  - cmd: echo Already Done!
 artifacts:
   - path: Delta.Units\bin\Debug\Delta.Units.dll
   - path: Delta.Units\bin\Debug\Delta.Units.pdb  
