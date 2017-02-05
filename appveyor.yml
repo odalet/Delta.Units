@@ -7,10 +7,12 @@ before_build:
 - cmd: nuget restore
 build:
   project: Delta.Units.sln
-  verbosity: detailed
+  verbosity: normal 
 test_script:
 - ps: '& .\unit-tests.ps1'
 artifacts:
 - path: Delta.Units\bin\$(configuration)\Delta.Units.dll
   name: Binaries
+- path: opencoverCoverage.xml
+  name: Coverage
   
