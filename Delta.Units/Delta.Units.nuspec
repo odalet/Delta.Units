@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Delta.Units</id>
+    <version>$version$</version>
+    <title>Delta.Units</title>
+    <authors>odalet</authors>
+    <owners>odalet</owners>
+    <licenseUrl>https://github.com/odalet/Delta.Units/blob/master/License.md</licenseUrl>
+    <projectUrl>https://github.com/odalet/Delta.Units</projectUrl>
+    <iconUrl>https://github.com/odalet/Delta.Units</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Units definition and conversion library</description>
+    <releaseNotes>Initial release (Beta).</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <dependencies>
+      <group targetFramework=".NETStandard1.0" />
+	  <group targetFramework=".NETFramework4.5" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="NETStandard.Library" targetFramework=".NETStandard1.0" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Delta.Units.dll" target="lib\NETStandard1" />
+  </files>
+</package>
