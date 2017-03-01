@@ -30,7 +30,7 @@ build_script:
 test_script:
   - cmd: echo Already Done!
 after_build:
-  - ps: appveyor PushArtifact "C:\projects\delta-units\Delta.Units.{version}.nupkg"
+  - ps: Get-ChildItem "C:\projects\delta-units\Delta.Units.*.nupkg" | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 artifacts:
   - path: Delta.Units\bin\Debug\Delta.Units.dll
   - path: Delta.Units\bin\Debug\Delta.Units.pdb  
