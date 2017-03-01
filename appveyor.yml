@@ -26,7 +26,7 @@ build_script:
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
   - ps: '& .\unit-tests.ps1'
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"    
-  - ps: nuget pack "C:\projects\delta-units\Delta.Units.nuspec" -Prop configuration=Release -Prop version="$env:version" -verbosity detailed
+  - ps: nuget pack "C:\projects\delta-units\Delta.Units.nuspec" -Prop configuration=Release -Prop version="$env:APPVEYOR_BUILD_VERSION" -verbosity detailed
 test_script:
   - cmd: echo Already Done!
 after_build:
