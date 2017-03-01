@@ -6,7 +6,7 @@ branches:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: sAoqj4mz8jCeeQ0em98Z0KAJZubVl0Q76cqb6ZH/2rgzFmaNM7Z3GplBlh+p60xQ
-  NUGET_API_KEY6:
+  APPVEYOR_NUGET_API_KEY:
     secure: 12LBEnWg5ut1KmagO7CaflJ69qGfL+2k8YdK3v5EAObO02pSkElMWK19v1v8GlXi
 cache:
   - packages -> **\packages.config   
@@ -26,14 +26,19 @@ build_script:
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
   - ps: '& .\unit-tests.ps1'
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"    
+  - ps: nuget pack "C:\projects\delta-units\Delta.Units.nuspec" -Prop configuration=Release -Prop version={version}.{build} -verbosity detailed
 test_script:
   - cmd: echo Already Done!
+after_build:
+  - ps: appveyor PushArtifact "C:\projects\delta-units\Delta.Units.{version}.{build}.nupkg"
 artifacts:
   - path: Delta.Units\bin\Debug\Delta.Units.dll
   - path: Delta.Units\bin\Debug\Delta.Units.pdb  
     name: Debug Binaries
+
   - path: opencoverCoverage.xml
     name: Coverage
+
   - path: Delta.Units\bin\Release\Delta.Units.dll
   - path: Delta.Units\bin\Release\Delta.Units.pdb  
     name: Release Binaries

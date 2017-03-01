@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package>
+<!-- 
+NB: this nuspec file must be explicitely passed to nuget pack and cannot rely
+on metadata present in the assembly because the project has both a csproj and a project.json;
+hence, nuget does not know how to merge csproj and nuspec in this case. 
+See https://github.com/NuGet/Home/issues/3145
+Btw, the package version should be passed on the command line by specifying -Prop version=x.y.z
+-->
+  <metadata>
+    <id>Delta.Units</id>
+    <version>$version$</version>
+    <title>Delta.Units</title>
+    <authors>odalet</authors>
+    <owners>odalet</owners>
+    <licenseUrl>https://github.com/odalet/Delta.Units/blob/master/License.md</licenseUrl>
+    <projectUrl>https://github.com/odalet/Delta.Units</projectUrl>
+    <iconUrl>https://github.com/odalet/Delta.Units</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Units definition and conversion library</description>
+    <releaseNotes>Initial release (Beta).</releaseNotes>
+    <copyright>Delta Software - 2017</copyright>
+    <dependencies>
+      <!-- see https://docs.microsoft.com/en-us/nuget/schema/target-frameworks -->
+      <group targetFramework="net45" />
+      <group targetFramework="netstandard1.0">
+        <dependency id="NETStandard.Library" version="1.6.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- I couldn't have this package work by placing only one copy of Delta.Units.dll in a root lib\ folder -->
+    <file src="Delta.Units\bin\$configuration$\Delta.Units.dll" target="lib\net45" />
+    <file src="Delta.Units\bin\$configuration$\Delta.Units.dll" target="lib\netstandard1.0" />
+  </files>
+</package>
