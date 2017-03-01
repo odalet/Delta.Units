@@ -1,5 +1,5 @@
 # See https://www.appveyor.com/docs/appveyor-yml/
-version: 0.1
+version: 0.1.{build}
 branches:
   only:
     - master  
@@ -13,9 +13,9 @@ cache:
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
-  assembly_version: '{version}.{build}'
-  assembly_file_version: '{version}.{build}'
-  assembly_informational_version: '{version}.{build}-beta'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}-beta'
 platform: 
   Any CPU
 configuration: 
@@ -26,11 +26,11 @@ build_script:
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
   - ps: '& .\unit-tests.ps1'
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"    
-  - ps: nuget pack "C:\projects\delta-units\Delta.Units.nuspec" -Prop configuration=Release -Prop version={version}.{build} -verbosity detailed
+  - ps: nuget pack "C:\projects\delta-units\Delta.Units.nuspec" -Prop configuration=Release -Prop version={version} -verbosity detailed
 test_script:
   - cmd: echo Already Done!
 after_build:
-  - ps: appveyor PushArtifact "C:\projects\delta-units\Delta.Units.{version}.{build}.nupkg"
+  - ps: appveyor PushArtifact "C:\projects\delta-units\Delta.Units.{version}.nupkg"
 artifacts:
   - path: Delta.Units\bin\Debug\Delta.Units.dll
   - path: Delta.Units\bin\Debug\Delta.Units.pdb  
