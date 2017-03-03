@@ -11,44 +11,36 @@ namespace Delta.Units
         [Fact]
         public void ZeroCelsiusIs273Dot15Kelvin()
         {
-            var c = 0.0 * Celsius;
+            var c = 0m * Celsius;
             var k = c.ConvertTo(Kelvin);
-            Assert.Equal(k.Value, 273.15);
+            Assert.Equal(k.Value, 273.15m);
         }
 
         [Fact]
         public void ZeroKelvinIsMinus273Dot15Celsius()
         {
-            var k = 0.0 * Kelvin;
+            var k = 0m * Kelvin;
             var c = k.ConvertTo(Celsius);
-            Assert.Equal(c.Value, -273.15);
+            Assert.Equal(c.Value, -273.15m);
         }
 
         [Fact]
         public void OneCelsiusIs33Dot8Fahrenheit()
         {
-            var f = 33.8 * Fahrenheit;
+            var f = 33.8m * Fahrenheit;
             var c = f.ConvertTo(Celsius);
 
-            // There is a rounding error, because, fahrenheit to celsius conversion goes through kelvin
-            // and a 9/5 factor (which is 0.555555...). In order to have an exact result, a 'shortcut' 
-            // conversion set between celsius and farhenheit should be added (something to support in V2?)
-            Assert.True(NearlyEqual(c.Value, 1.0));
+            Assert.Equal(c.Value, 1m);
         }
 
         [Fact]
         public void OneFahrenheitIsMinus17Dot222222Celsius()
         {
-            var c = -17.2222222 * Celsius;
+            var c = -17.2222222m * Celsius;
             var f = c.ConvertTo(Fahrenheit);
 
-            ////// There is a rounding error, because, fahrenheit to celsius conversion goes through kelvin
-            ////// and a 9/5 factor (which is 0.555555...). In order to have an exact result, a 'shortcut' 
-            ////// conversion set between celsius and farhenheit should be added (something to support in V2?)
-            Assert.True(NearlyEqual(f.Value, 1.0));
+            // Here we have a rounding error because, the initial c value is not exact
+            Assert.Equal(Math.Round(f.Value, 5), 1m);
         }
-
-        private static bool NearlyEqual(double d1, double d2, double precision = 1000000.0) => 
-            Math.Truncate(d1 * precision) == Math.Truncate(d2 * precision);
     }
 }

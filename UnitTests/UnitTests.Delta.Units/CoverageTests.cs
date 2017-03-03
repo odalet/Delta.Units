@@ -37,7 +37,7 @@ namespace Delta.Units
         {
             Assert.Throws<InvalidOperationException>(() =>
             {
-                var conv = m.ConvertTo(1.0, yd);
+                var conv = m.ConvertTo(1m, yd);
             });
         }
 
@@ -46,16 +46,16 @@ namespace Delta.Units
         {
             Assert.Throws<InvalidOperationException>(() =>
             {
-                var conv = m.ConvertTo(1.0, s);
+                var conv = m.ConvertTo(1m, s);
             });
         }
 
         [Fact]
         public void NoneUnitsCanBeConvertedTo()
         {
-            Assert.Equal(1.0, Unit.None.ConvertTo(1.0, null));
-            Assert.Equal(1.0, Unit.Convert(1.0, null, null));
-            Assert.Equal(1.0, Unit.Convert(1.0, Unit.None, Unit.None));
+            Assert.Equal(1m, Unit.None.ConvertTo(1m, null));
+            Assert.Equal(1m, Unit.Convert(1m, null, null));
+            Assert.Equal(1m, Unit.Convert(1m, Unit.None, Unit.None));
         }
 
         [Fact]
@@ -63,11 +63,11 @@ namespace Delta.Units
         {
             var speed1 = m / s;
             var speed2 = m.DivideBy(s);
-            Assert.Equal(1.0, speed1.ConvertTo(1.0, speed2));
+            Assert.Equal(1m, speed1.ConvertTo(1m, speed2));
 
             var foo1 = m * s;
             var foo2 = m.MultiplyBy(s);
-            Assert.Equal(1.0, foo1.ConvertTo(1.0, foo2));
+            Assert.Equal(1m, foo1.ConvertTo(1m, foo2));
 
             var d1 = (Unit)null / s;
             var d2 = m / (Unit) null;
@@ -101,31 +101,31 @@ namespace Delta.Units
         public void BasedOnNone()
         {
             var u0 = new Unit("u0", "u0", BaseDimensions.None);
-            var u1 = new Unit("u1", "u1", u0, x => x * 2.0, x => x / 2.0);
-            var u2 = new Unit(null, null, null, x => x * 2.0, x => x / 2.0);
+            var u1 = new Unit("u1", "u1", u0, x => x * 2m, x => x / 2m);
+            var u2 = new Unit(null, null, null, x => x * 2m, x => x / 2m);
 
-            var value = 16.0;
-            Assert.Equal(8.0, u0.ConvertTo(value, u1));
-            Assert.Equal(8.0, Unit.None.ConvertTo(value, u2));
+            var value = 16m;
+            Assert.Equal(8m, u0.ConvertTo(value, u1));
+            Assert.Equal(8m, Unit.None.ConvertTo(value, u2));
         }
 
         [Fact]
         public void CombinePow0IsConstant()
         {
-            var function = Helpers.CombinePow(x => x * 2.0, x => x * 2.0, x => x / 2.0, x => x / 2.0, 0);
-            foreach (var d in Enumerable.Range(0, 10).Select(i => i / 10.0))
-                Assert.Equal(1.0, function(d));
+            var function = Helpers.CombinePow(x => x * 2m, x => x * 2m, x => x / 2m, x => x / 2m, 0);
+            foreach (var d in Enumerable.Range(0, 10).Select(i => i / 10m))
+                Assert.Equal(1m, function(d));
         }
 
         [Fact]
         public void CombinePowNullIsIdentity()
         {
             var func = Helpers.CombinePow(null, null, null, null, 1);
-            foreach (var d in Enumerable.Range(0, 10).Select(i => i / 10.0))
+            foreach (var d in Enumerable.Range(0, 10).Select(i => i / 10m))
                 Assert.Equal(d, func(d));
 
             var func_ = Helpers.CombinePow(null, null, null, null, -1);
-            foreach (var d in Enumerable.Range(0, 10).Select(i => i / 10.0))
+            foreach (var d in Enumerable.Range(0, 10).Select(i => i / 10m))
                 Assert.Equal(d, func_(d));
         }
 
@@ -148,10 +148,30 @@ namespace Delta.Units
         }
 
         [Fact]
+        public void UnitsAndDecimalMultiplicationIsCommutative()
+        {
+            var q1 = 42m * SI.metre;
+            var q2 = SI.metre * 42m;
+
+            Assert.Equal(q1.Value, q2.Value);
+            Assert.Equal(q1.Unit.Name, q2.Unit.Name);
+        }
+
+        [Fact]
         public void UnitsAndDoubleMultiplicationIsCommutative()
         {
             var q1 = 42.0 * SI.metre;
             var q2 = SI.metre * 42.0;
+
+            Assert.Equal(q1.Value, q2.Value);
+            Assert.Equal(q1.Unit.Name, q2.Unit.Name);
+        }
+
+        [Fact]
+        public void UnitsAndIntMultiplicationIsCommutative()
+        {
+            var q1 = 42 * SI.metre;
+            var q2 = SI.metre * 42;
 
             Assert.Equal(q1.Value, q2.Value);
             Assert.Equal(q1.Unit.Name, q2.Unit.Name);

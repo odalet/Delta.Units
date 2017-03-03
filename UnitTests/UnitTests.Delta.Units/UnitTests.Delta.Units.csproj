@@ -71,6 +71,7 @@
     <Compile Include="ProportionTests.cs" />
     <Compile Include="QuantityTests.cs" />
     <Compile Include="SimpleUnitTests.cs" />
+    <Compile Include="SIPrefixTests.cs" />
     <Compile Include="TemperatureTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -47,7 +47,7 @@ namespace Delta.Units.Globalization
             meter.TranslateNameFunction = c => "meter";
             meter.TranslateSymbolFunction = c => "m";
 
-            var oneMeter = 1.0 * meter;
+            var oneMeter = 1m * meter;
             Assert.Equal(oneMeter.ToString(), "1 m");
             Assert.Equal(oneMeter.ToString("N"), "1 meter");
         }
@@ -59,7 +59,7 @@ namespace Delta.Units.Globalization
             meter.TranslateNameFunction = c => { throw new InvalidOperationException("TEST"); };
             meter.TranslateSymbolFunction = c => { throw new InvalidOperationException("TEST"); };
 
-            var oneMeter = 1.0 * meter;
+            var oneMeter = 1m * meter;
             Assert.Equal(oneMeter.ToString(), "1 am");
             Assert.Equal(oneMeter.ToString("N"), "1 american meter");
         }

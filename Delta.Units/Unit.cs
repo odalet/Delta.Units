@@ -57,13 +57,13 @@ namespace Delta.Units
         { }
 
         // Allows to build units based on a multiplication factor
-        public Unit(string name, string symbol, Unit basedOn, double toBaseUnitFactor) :
+        public Unit(string name, string symbol, Unit basedOn, decimal toBaseUnitFactor) :
             this(name, symbol, basedOn, x => x * toBaseUnitFactor, x => x / toBaseUnitFactor)
         { }
 
         // Used to create simple derived units (ie units with the same dimension)
         public Unit(string name, string symbol, Unit basedOn,
-            Func<double, double> toConversion, Func<double, double> fromConversion) :
+            Func<decimal, decimal> toConversion, Func<decimal, decimal> fromConversion) :
             this(name, symbol, basedOn == null ? null : basedOn.Dimension)
         {
             for (var i = 0; i < BaseDimensions.Count; i++)
@@ -105,8 +105,8 @@ namespace Delta.Units
         public IUnitTranslationProvider TranslationProvider { get; }
 
         internal Unit[] BaseUnits { get; } = new Unit[BaseDimensions.Count];
-        internal Func<double, double>[] ToBase { get; } = new Func<double, double>[BaseDimensions.Count];
-        internal Func<double, double>[] FromBase { get; } = new Func<double, double>[BaseDimensions.Count];
+        internal Func<decimal, decimal>[] ToBase { get; } = new Func<decimal, decimal>[BaseDimensions.Count];
+        internal Func<decimal, decimal>[] FromBase { get; } = new Func<decimal, decimal>[BaseDimensions.Count];
 
         #region Operations on Units
 
@@ -134,8 +134,21 @@ namespace Delta.Units
         public static Unit operator *(Unit left, Unit right) => Multiply(left ?? None, right ?? None);
         public static Unit operator /(Unit left, Unit right) => Divide(left ?? None, right ?? None);
 
-        public static Quantity operator *(Unit left, double right) => right * left;
-        public static Quantity operator *(double left, Unit right) => new Quantity(left, right);
+        public static Quantity operator *(Unit left, decimal right) => right * left;
+        public static Quantity operator *(decimal left, Unit right) => new Quantity(left, right);
+
+        // double-based overloads are defined so that it is easy for the user to define quantities.
+        // Ho<ever beware of the precision and floating-point rounding issues
+
+        public static Quantity operator *(Unit left, double right) => left * (decimal)right;
+        public static Quantity operator *(double left, Unit right) => (decimal)left * right;
+
+        // Because Int32 can be implicitely converted to double or decimal, we need also provide
+        // overloads for disambiguation.
+        // By the way such disambiguation should also be necessary for other integer types, but 
+        // we'll leave it to the user to explicitely cast to int, decimal or double.
+        public static Quantity operator *(Unit left, int right) => left * (decimal)right;
+        public static Quantity operator *(int left, Unit right) => (decimal)left * right;
 
         #endregion
 
@@ -156,7 +169,7 @@ namespace Delta.Units
         public static bool AreCompatible(Unit left, Unit right) =>
             (left ?? Unit.None).Dimension == (right ?? Unit.None).Dimension;
 
-        public static double Convert(double value, Unit from, Unit to)
+        public static decimal Convert(decimal value, Unit from, Unit to)
         {
             var fromUnit = from ?? Unit.None;
             var toUnit = to ?? Unit.None;

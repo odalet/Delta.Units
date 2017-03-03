@@ -13,8 +13,8 @@
             public static readonly Unit square_micrometre = new Unit(_(nameof(square_micrometre)), SpecialCharacters.mu + "m²", micrometre * micrometre);
             public static readonly Unit square_kilometre = new Unit(_(nameof(square_kilometre)), "km²", kilometre * kilometre);
 
-            public static readonly Unit hectare = new Unit(nameof(hectare), "ha", square_metre, 10000.0);
-            public static readonly Unit are = new Unit(nameof(are), "a", square_metre, 100.0);
+            public static readonly Unit hectare = new Unit(nameof(hectare), "ha", square_metre, 10000m);
+            public static readonly Unit are = new Unit(nameof(are), "a", square_metre, 100m);
         }
     }
 }

@@ -64,7 +64,7 @@ namespace Delta.Units.Systems
         // Mass units (most common ones; see https://en.wikipedia.org/wiki/Kilogram#SI_multiples)
         // Weird, but the base unit is kg, not g. Hence, we use the prefix syntax only for subdivisions of g
         // We also add the Tonne as an alias for the megagram
-        public static readonly Unit gram = new Unit(nameof(gram), "g", kilogram, 1.0 / 1000.0);
+        public static readonly Unit gram = new Unit(nameof(gram), "g", kilogram, 1m / 1000m);
         public static readonly Unit milligram = milli * gram;
         public static readonly Unit microgram = micro * gram;
         public static readonly Unit nanogram = pico * gram;
@@ -72,9 +72,9 @@ namespace Delta.Units.Systems
         public static readonly Unit tonne = new Unit(nameof(tonne), "t", mega * gram);
 
         // Time units (extended to minute and day + common ones: see https://en.wikipedia.org/wiki/Second#SI_multiples)
-        public static readonly Unit minute = new Unit("minute", "mn", second, 60.0);
-        public static readonly Unit hour = new Unit("hour", "h", second, 3600.0);
-        public static readonly Unit day = new Unit("day", "d", hour, 24.0);
+        public static readonly Unit minute = new Unit("minute", "mn", second, 60m);
+        public static readonly Unit hour = new Unit("hour", "h", second, 3600m);
+        public static readonly Unit day = new Unit("day", "d", hour, 24m);
         public static readonly Unit millisecond = milli * second;
         public static readonly Unit microsecond = micro * second;
         public static readonly Unit nanosecond = nano * second;
@@ -85,9 +85,9 @@ namespace Delta.Units.Systems
 
         // Temperature. Although not part of the SI base units Fahrenheit and Celsius are provided here. (Celsius is considered a derived SI unit).
         public static readonly Unit Celsius = new Unit(nameof(Celsius), "°C", Kelvin,
-            c => c + 273.15, k => k - 273.15);
+            c => c + 273.15m, k => k - 273.15m);
         public static readonly Unit Fahrenheit = new Unit(nameof(Fahrenheit), "°F", Kelvin,
-            f => (f + 459.67) * 5.0 / 9.0, k => 9.0 / 5.0 * k - 459.67);
+            f => (f + 459.67m) * 5m / 9m, k => 9m / 5m * k - 459.67m);
 
         private static string _(string name) => name.Replace('_', ' ');
     }

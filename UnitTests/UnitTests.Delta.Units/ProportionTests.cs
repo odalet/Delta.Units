@@ -14,9 +14,9 @@ namespace Delta.Units
         public ProportionTests()
         {
             u = new Unit("unit", "u", BaseDimensions.AmountOfSubstance / BaseDimensions.AmountOfSubstance);
-            percent = new Unit("percent", "%", u, x => x / 100.0, x => x * 100.0);
-            permille = new Unit("permille", SpecialCharacters.permille, percent, x => x / 10.0, x => x * 10.0);
-            ppm = new Unit("part per million", "ppm", permille, x => x / 1000.0, x => x * 1000.0);
+            percent = new Unit("percent", "%", u, x => x / 100m, x => x * 100m);
+            permille = new Unit("permille", SpecialCharacters.permille, percent, x => x / 10m, x => x * 10m);
+            ppm = new Unit("part per million", "ppm", permille, x => x / 1000m, x => x * 1000m);
         }
 
         [Fact]
@@ -32,10 +32,10 @@ namespace Delta.Units
         [Fact]
         public void Conversions()
         {
-            var valueInUnit = 3.5;
-            var expectedValueInPercent = 350.0;
-            var expectedValueInPermille = 3500.0;
-            var expectedValueInPpm = 3500000.0;
+            var valueInUnit = 3.5m;
+            var expectedValueInPercent = 350m;
+            var expectedValueInPermille = 3500m;
+            var expectedValueInPpm = 3500000m;
             var actualValueInPercent = u.ConvertTo(valueInUnit, percent);
             var actualValueInPermille = u.ConvertTo(valueInUnit, permille);
             var actualValueInPpm = u.ConvertTo(valueInUnit, ppm);

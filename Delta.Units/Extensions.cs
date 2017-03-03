@@ -34,7 +34,7 @@ namespace Delta.Units
 
         public static bool IsCompatibleWith(this Unit unit, Unit other) => Unit.AreCompatible(unit, other);
 
-        public static double ConvertTo(this Unit unit, double value, Unit other) => Unit.Convert(value, unit, other);
+        public static decimal ConvertTo(this Unit unit, decimal value, Unit other) => Unit.Convert(value, unit, other);
 
         public static bool IsNone(this DimensionFormula formula) =>
            !formula.ExceptNone().Any(exp => exp != 0) && formula.GetNone() != 0;

@@ -18,8 +18,8 @@ namespace Delta.Units
         public AreaTests()
         {
             m = new Unit("metre", "m", BaseDimensions.Length);
-            dm = new Unit("decimetre", "dm", m, x => 0.1 * x, x => 10.0 * x);
-            cm = new Unit("centimetre", "cm", dm, x => 0.1 * x, x => 10.0 * x);
+            dm = new Unit("decimetre", "dm", m, x => 0.1m * x, x => 10m * x);
+            cm = new Unit("centimetre", "cm", dm, x => 0.1m * x, x => 10m * x);
 
             m2 = new Unit("square metre", "m²", m * m);
             dm2 = dm ^ 2;
@@ -38,13 +38,13 @@ namespace Delta.Units
         [Fact]
         public void Conversions()
         {
-            Assert.Equal(100.0, Math.Round(m2.ConvertTo(1.0, dm2), 0));
-            Assert.Equal(10000.0, Math.Round(m2.ConvertTo(1.0, cm2), 0));
-            Assert.Equal(100.0, Math.Round(dm2.ConvertTo(1.0, cm2), 0));
+            Assert.Equal(100m, m2.ConvertTo(1m, dm2));
+            Assert.Equal(10000m, m2.ConvertTo(1m, cm2));
+            Assert.Equal(100m, dm2.ConvertTo(1m, cm2));
 
-            Assert.Equal(2.0, Math.Round(cm2.ConvertTo(20000.0, m2), 0));
-            Assert.Equal(2.0, Math.Round(dm2.ConvertTo(200.0, m2), 0));
-            Assert.Equal(2.0, Math.Round(cm2.ConvertTo(200.0, dm2), 0));
+            Assert.Equal(2m, cm2.ConvertTo(20000m, m2));
+            Assert.Equal(2m, dm2.ConvertTo(200m, m2));
+            Assert.Equal(2m, cm2.ConvertTo(200m, dm2));
         }
     }
 }

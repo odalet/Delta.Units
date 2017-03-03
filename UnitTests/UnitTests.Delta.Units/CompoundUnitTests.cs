@@ -22,8 +22,8 @@ namespace Delta.Units
             s = new Unit("second", "s", BaseDimensions.Time);
             mps = m / s;
 
-            km = new Unit("kilometre", "km", m, x => x * 1000.0, x => x / 1000.0);
-            h = new Unit("hour", "h", s, x => x * 3600.0, x => x / 3600.0);
+            km = new Unit("kilometre", "km", m, x => x * 1000m, x => x / 1000m);
+            h = new Unit("hour", "h", s, x => x * 3600m, x => x / 3600m);
             kmph = km / h;
         }
 
@@ -49,42 +49,35 @@ namespace Delta.Units
 
         [Fact]
         public void SimpleConversions()
-        {
-            var valueInMps = 1.1; // 1.1 m/s
-            var expectedValueInKmph = 3.96; // 3.96 km/h
-            var actualValueInKmph = Math.Round(mps.ConvertTo(valueInMps, kmph), 2);
+        { 
+            var valueInMps = 1.1m; // 1.1 m/s
+            var expectedValueInKmph = 3.96m; // 3.96 km/h
+            var actualValueInKmph = mps.ConvertTo(valueInMps, kmph);
             Assert.Equal(expectedValueInKmph, actualValueInKmph);
 
-            var valueInKmps = 4.4;
-            var expectedValueInMps = 1.22222;
+            var valueInKmps = 4.4m;
+            var expectedValueInMps = 1.22222m; // 1.22222...
             var actualValueInMps = Math.Round(kmph.ConvertTo(valueInKmps, mps), 5);
             Assert.Equal(expectedValueInMps, actualValueInMps);
         }
 
-
         [Fact]
         public void ComplexConversions()
         {
-            var mile = new Unit("mile", "mile", km, x => 1.609344 * x, x => x / 1.609344);
-            var minute = new Unit("minute", "mn", s, x => x * 60.0, x => x / 60.0);
-            var minuteEx = new Unit("minuteEx", "mnEx", h, x => x / 60.0, x => x * 60.0);
+            //TOTEST
+            var mile = new Unit("mile", "mile", km, x => 1.609344m * x, x => x / 1.609344m);
+            var minute = new Unit("minute", "mn", s, x => x * 60m, x => x / 60m);
+            var minuteEx = new Unit("minuteEx", "mnEx", h, x => x / 60m, x => x * 60m);
 
             var milePerMinute = new Unit("mile per minute", "mile/mn", mile / minute);
             var milePerMinuteEx = new Unit("mile per minuteEx", "mile/mnEx", mile / minuteEx);
 
-            var valueInKmph = 100.0; // This is 62.1371 mph
+            var valueInKmph = 100m; // This is 62.1371 mph --> 1.035618333 miles/mn
 
-            // We must round to 5 decimals: there is quite a precision loss (due to the nested lambdas?) 
-            // and also, I'm not that sure of the conversion factor I used for miles to km
-            var r = 5;
-            var expectedValueInMilePerMinute = Math.Round(1.035618333, r); 
-            var expectedValueInMilePerMinuteEx = expectedValueInMilePerMinute;
+            var valueInMilePerMinute = kmph.ConvertTo(valueInKmph, milePerMinute);
+            var valueInMilePerMinuteEx = kmph.ConvertTo(valueInKmph, milePerMinuteEx);
 
-            var actualValueInMilePerMinute = Math.Round(kmph.ConvertTo(valueInKmph, milePerMinute), r);
-            var actualValueInMilePerMinuteEx = Math.Round(kmph.ConvertTo(valueInKmph, milePerMinuteEx), r);
-
-            Assert.Equal(expectedValueInMilePerMinute, actualValueInMilePerMinute);
-            Assert.Equal(expectedValueInMilePerMinuteEx, actualValueInMilePerMinuteEx);
+            Assert.Equal(valueInMilePerMinute, valueInMilePerMinuteEx);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace TestApp
             Console.WriteLine($"M = {M.ConvertTo(g)}");
 
             var s1 = M + 2.0 * M.ConvertTo(g);
-            var s2 = 2.0 * M.ConvertTo(g) + M;
+            var s2 = 2 * M.ConvertTo(g) + M;
 
             Console.WriteLine("s1 = " + s1);
             Console.WriteLine("s2 = " + s2);
