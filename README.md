@@ -1,6 +1,6 @@
 ﻿[![Build status](https://ci.appveyor.com/api/projects/status/h4dqt75twhf93fbv?svg=true)](https://ci.appveyor.com/project/odalet/delta-units)
 [![Test status](http://teststatusbadge.azurewebsites.net/api/status/odalet/delta-units)](https://ci.appveyor.com/project/odalet/delta-units)
-[![Coverage Status](https://coveralls.io/repos/github/odalet/Delta.Units/badge.svg)](https://coveralls.io/github/odalet/Delta.Units)
+[![Coverage Status](https://coveralls.io/repos/github/odalet/Delta.Units/badge.svg?branch=master)](https://coveralls.io/github/odalet/Delta.Units)
 
 Delta.Units
 =============
