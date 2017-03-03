@@ -2,11 +2,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Xunit;
+using Delta.Units.Systems;
 
 namespace Delta.Units
 {
     [ExcludeFromCodeCoverage]
-    public class CoverageTests
+    public partial class CoverageTests
     {
         private readonly Unit s;
         private readonly Unit m;
@@ -136,6 +137,24 @@ namespace Delta.Units
 
             var u = new Unit("u", "u", BaseDimensions.None);
             Assert.True(u.IsNone());
+        }
+
+        [Fact]
+        public void NoneUnitWithPrefixIsNoneUnit()
+        {
+            var none = (Unit)null;
+            var millinone = SI.Prefixes.milli * none;
+            Assert.True(millinone.IsNone());
+        }
+
+        [Fact]
+        public void UnitsAndDoubleMultiplicationIsCommutative()
+        {
+            var q1 = 42.0 * SI.metre;
+            var q2 = SI.metre * 42.0;
+
+            Assert.Equal(q1.Value, q2.Value);
+            Assert.Equal(q1.Unit.Name, q2.Unit.Name);
         }
     }
 }

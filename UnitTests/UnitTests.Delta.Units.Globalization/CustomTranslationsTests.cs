@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using Xunit;
+using Delta.Units.Systems;
 
 namespace Delta.Units.Globalization
 {
@@ -38,7 +39,31 @@ namespace Delta.Units.Globalization
                 throw new InvalidOperationException("TEST");
             }
         }
-        
+
+        [Fact]
+        public void LocalTranslationsAreAppliedWhenInvokingToString()
+        {
+            var meter = new Unit("american meter", "am", SI.metre);
+            meter.TranslateNameFunction = c => "meter";
+            meter.TranslateSymbolFunction = c => "m";
+
+            var oneMeter = 1.0 * meter;
+            Assert.Equal(oneMeter.ToString(), "1 m");
+            Assert.Equal(oneMeter.ToString("N"), "1 meter");
+        }
+
+        [Fact]
+        public void DefaultTranslationProviderIsUsedWhenLocalTranslationThrows()
+        {
+            var meter = new Unit("american meter", "am", SI.metre);
+            meter.TranslateNameFunction = c => { throw new InvalidOperationException("TEST"); };
+            meter.TranslateSymbolFunction = c => { throw new InvalidOperationException("TEST"); };
+
+            var oneMeter = 1.0 * meter;
+            Assert.Equal(oneMeter.ToString(), "1 am");
+            Assert.Equal(oneMeter.ToString("N"), "1 american meter");
+        }
+
         [Fact]
         public void NullTranslationProviderTest()
         {

@@ -63,11 +63,15 @@
     <Compile Include="AreaTests.cs" />
     <Compile Include="CompoundUnitTests.cs" />
     <Compile Include="CoverageTests.cs" />
+    <Compile Include="AliasesCoverageTests.cs" />
+    <Compile Include="DimensionlessCoverageTests.cs" />
     <Compile Include="DimensionTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProportionTests.cs" />
+    <Compile Include="QuantityTests.cs" />
     <Compile Include="SimpleUnitTests.cs" />
+    <Compile Include="TemperatureTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
