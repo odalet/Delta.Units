@@ -4,7 +4,7 @@
     /// Common units aliased by their symbol.
     /// </summary>
     /// <remarks>
-    /// By inserting a <code>using static Delta.Units.Systems.Aliases</code> at then top of a source file,
+    /// By inserting a <code>using static Delta.Units.Systems.Aliases</code> at the top of a source file,
     /// the units can be used without any prefix.
     /// </remarks>
     public static class Aliases

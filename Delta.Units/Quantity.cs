@@ -4,22 +4,42 @@ using Delta.Units.Globalization;
 namespace Delta.Units
 {
     /// <summary>
-    /// A quantity stores a pair consisting of a <see cref="decimal"/> value and a <see cref="Unit"/>.
+    /// A quantity stores a pair consisting of a <see cref="decimal"/> value and a <see cref="T:Delta.Units.Unit"/>.
     /// </summary>
     /// <remarks>
     /// The <see cref="Quantity"/> types supports operators overloads that correctly compute the resulting unit and value.
     /// </remarks>
     public sealed class Quantity : IFormattable
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Quantity"/> class.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="unit">The unit.</param>
         public Quantity(decimal value, Unit unit)
         {
             Value = value;
             Unit = unit;
         }
 
+        /// <summary>
+        /// Gets this <see cref="Quantity"/>'s value.
+        /// </summary>
         public decimal Value { get; }
+
+        /// <summary>
+        /// Gets this <see cref="Quantity"/> <see cref="Unit"/>.
+        /// </summary>
         public Unit Unit { get; }
 
+        /// <summary>
+        /// Converts this <see cref="Quantity"/> into a new <see cref="Quantity"/> by using the specified target <see cref="T:Delta.Units.Unit"/>.
+        /// </summary>
+        /// <param name="target">The target <see cref="T:Delta.Units.Unit"/>.</param>
+        /// <returns>
+        /// A new instance of <see cref="Quantity"/> 
+        /// based on the specified <see cref="T:Delta.Units.Unit"/> and which value was converted using <paramref name="target"/>.
+        /// </returns>
         public Quantity ConvertTo(Unit target) => new Quantity(
             Unit.Convert(Value, Unit, target), target);
 

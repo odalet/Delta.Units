@@ -4,6 +4,15 @@ using Delta.Units.Globalization;
 
 namespace Delta.Units
 {
+    /// <summary>
+    /// This class represents a unit of measure. 
+    /// </summary>
+    /// <remarks>
+    /// A unit can belong to one of the three categories below:
+    /// <list itemtype="bullet">
+    /// </list>
+    /// </remarks>
+    /// <seealso cref="System.IFormattable" />
     public sealed class Unit : IFormattable
     {
         private class SpecificUnitTranslationProvider : IUnitTranslationProvider
