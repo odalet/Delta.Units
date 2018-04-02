@@ -20,9 +20,10 @@ platform:
   Any CPU
 configuration: 
   Debug
-before_build:
-  - cmd: dotnet restore
+#before_build:
+#  - cmd: dotnet restore
 build_script:
+  - cmd: dotnet restore
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
   - ps: '& .\unit-tests.ps1'
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"    
