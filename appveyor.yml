@@ -8,14 +8,22 @@ environment:
     secure: sAoqj4mz8jCeeQ0em98Z0KAJZubVl0Q76cqb6ZH/2rgzFmaNM7Z3GplBlh+p60xQ
   APPVEYOR_NUGET_API_KEY:
     secure: 12LBEnWg5ut1KmagO7CaflJ69qGfL+2k8YdK3v5EAObO02pSkElMWK19v1v8GlXi
-cache:
-  - packages -> **\packages.config   
+#cache:
+#  - packages -> **\packages.config   
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}-beta'
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}-beta'  
 platform: 
   Any CPU
 configuration: 
@@ -23,23 +31,22 @@ configuration:
 before_build:
   - cmd: dotnet restore
 build_script:
-#  - cmd: dotnet restore
-  - ps: msbuild_fake "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
+  - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
   - ps: '& .\unit-tests.ps1'
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"    
-  - ps: nuget pack "C:\projects\delta-units\Delta.Units.nuspec" -Prop configuration=Release -Prop version="$env:APPVEYOR_BUILD_VERSION" -verbosity detailed
+#  - ps: nuget pack "C:\projects\delta-units\Delta.Units.nuspec" -Prop configuration=Release -Prop version="$env:APPVEYOR_BUILD_VERSION" -verbosity detailed
 test_script:
   - cmd: echo Already Done!
 after_build:
-  - ps: Get-ChildItem "C:\projects\delta-units\Delta.Units.*.nupkg" | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+  - ps: Get-ChildItem "C:\projects\delta-units\Delta.Units\Delta.Units\bin\Release\*.nupkg" | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 artifacts:
-  - path: Delta.Units\bin\Debug\Delta.Units.dll
-  - path: Delta.Units\bin\Debug\Delta.Units.pdb  
+  - path: Delta.Units\bin\netstandard1.0\Debug\Delta.Units.dll
+  - path: Delta.Units\bin\netstandard1.0\Debug\Delta.Units.pdb  
     name: Debug Binaries
 
   - path: opencoverCoverage.xml
     name: Coverage
 
-  - path: Delta.Units\bin\Release\Delta.Units.dll
-  - path: Delta.Units\bin\Release\Delta.Units.pdb  
+  - path: Delta.Units\bin\netstandard1.0\Release\Delta.Units.dll
+  - path: Delta.Units\bin\netstandard1.0\Release\Delta.Units.pdb  
     name: Release Binaries
