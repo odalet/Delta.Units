@@ -9,6 +9,7 @@ namespace Delta.Units.Systems
         /// </summary>
         public static class Volume
         {
+#pragma warning disable CS1591
             public static readonly Unit cubic_metre = new Unit(_(nameof(cubic_metre)), "m" + SpecialCharacters.cubic, metre ^ 3);
             public static readonly Unit cubic_centimetre = new Unit(_(nameof(cubic_centimetre)), "cm" + SpecialCharacters.cubic, centimetre ^ 3);
             public static readonly Unit cubic_millimetre = new Unit(_(nameof(cubic_millimetre)), "mm" + SpecialCharacters.cubic, millimetre ^ 3);
@@ -23,6 +24,7 @@ namespace Delta.Units.Systems
             public static readonly Unit centilitre = centi * litre;
             public static readonly Unit millilitre = milli * litre;
             public static readonly Unit microlitre = micro * litre;
+#pragma warning restore CS1591
         }
     }
 }

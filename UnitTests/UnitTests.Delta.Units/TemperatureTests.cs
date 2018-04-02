@@ -13,7 +13,7 @@ namespace Delta.Units
         {
             var c = 0m * Celsius;
             var k = c.ConvertTo(Kelvin);
-            Assert.Equal(k.Value, 273.15m);
+            Assert.Equal(273.15m, k.Value);
         }
 
         [Fact]
@@ -21,7 +21,7 @@ namespace Delta.Units
         {
             var k = 0m * Kelvin;
             var c = k.ConvertTo(Celsius);
-            Assert.Equal(c.Value, -273.15m);
+            Assert.Equal(-273.15m, c.Value);
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace Delta.Units
             var f = 33.8m * Fahrenheit;
             var c = f.ConvertTo(Celsius);
 
-            Assert.Equal(c.Value, 1m);
+            Assert.Equal(1m, c.Value);
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace Delta.Units
             var f = c.ConvertTo(Fahrenheit);
 
             // Here we have a rounding error because, the initial c value is not exact
-            Assert.Equal(Math.Round(f.Value, 5), 1m);
+            Assert.Equal(1m, Math.Round(f.Value, 5));
         }
     }
 }

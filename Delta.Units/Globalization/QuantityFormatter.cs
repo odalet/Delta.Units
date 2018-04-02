@@ -3,12 +3,28 @@ using System.Linq;
 
 namespace Delta.Units.Globalization
 {
+    /// <summary>
+    /// Helper clas that formats a <see cref="Quantity"/> to a string.
+    /// </summary>
     public static class QuantityFormatter
     {
         // Because we are a portable library, there does not seem to be any way
         // to automatically detect whether a culture is rtl or ltr. CultureInfo.TextInfo.IsRightToLeft does not exist.
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this formatter should consider ordering characters right to left or not.
+        /// </summary>
         public static bool IsRightToLeft { get; set; }
 
+        /// <summary>
+        /// Formats the specified quantity.
+        /// </summary>
+        /// <param name="quantity">The quantity.</param>
+        /// <param name="format">The format.</param>
+        /// <param name="formatProvider">The format provider.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">quantity</exception>
+        /// <exception cref="FormatException"></exception>
         public static string Format(Quantity quantity, string format, IFormatProvider formatProvider)
         {
             if (quantity == null) throw new ArgumentNullException(nameof(quantity));

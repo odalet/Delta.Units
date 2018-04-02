@@ -17,8 +17,8 @@ namespace Delta.Units
             var valAsString = val.ToString(); // Uses the current culture (i.e. 42,24 for French cultures).
 
             var q = val * metre;
-            Assert.Equal(q.ToString(), valAsString + " m");
-            Assert.Equal(q.ToString("N"), valAsString + " metre");
+            Assert.Equal(valAsString + " m", q.ToString());
+            Assert.Equal(valAsString + " metre", q.ToString("N"));
         }
 
         [Fact]
@@ -26,8 +26,8 @@ namespace Delta.Units
         {
             var q = 42.24m * metre;
             // Uses the invariant current culture --> 42.24
-            Assert.Equal(q.ToString(CultureInfo.InvariantCulture), "42.24 m");
-            Assert.Equal(q.ToString("N", CultureInfo.InvariantCulture), "42.24 metre");
+            Assert.Equal("42.24 m", q.ToString(CultureInfo.InvariantCulture));
+            Assert.Equal("42.24 metre", q.ToString("N", CultureInfo.InvariantCulture));
         }
 
         // Operations
@@ -39,16 +39,17 @@ namespace Delta.Units
             var q2 = 2.2 * metre;
             var sum = q1 + q2;
 
-            Assert.Equal(sum.Value, 3.3m);
+            Assert.Equal(3.3m, sum.Value);
         }
 
+        [Fact]
         public void QuantitySumResultUsesTheLeftUnit()
         {
             var q1 = 1 * metre;
             var q2 = 2 * kilometre;
             var sum = q1 + q2;
 
-            Assert.Equal(sum.Value, 2001); // the result is in metres
+            Assert.Equal(2001, sum.Value); // the result is in metres
         }
 
         [Fact]
@@ -58,16 +59,17 @@ namespace Delta.Units
             var q2 = 1.1 * metre;
             var sum = q1 - q2;
 
-            Assert.Equal(sum.Value, 1.1m);
+            Assert.Equal(1.1m, sum.Value);
         }
 
+        [Fact]
         public void QuantityDifferenceResultUsesTheLeftUnit()
         {
             var q1 = 1 * metre;
             var q2 = 2 * kilometre;
             var sum = q1 - q2;
 
-            Assert.Equal(sum.Value, -1999); // the result is in metres
+            Assert.Equal(-1999, sum.Value); // the result is in metres
         }
     }
 }

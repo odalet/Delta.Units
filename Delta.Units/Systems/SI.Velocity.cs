@@ -7,8 +7,10 @@
         /// </summary>
         public static class Velocity
         {
+#pragma warning disable CS1591
             public static readonly Unit kilometre_per_hour = new Unit(_(nameof(kilometre_per_hour)), "km/h", kilometre / hour);
             public static readonly Unit metre_per_second = new Unit(_(nameof(metre_per_second)), "m/s", metre / second);
+#pragma warning restore CS1591
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using static Delta.Units.SpecialCharacters;
+﻿using System.Collections.Generic;
 using static Delta.Units.DimensionFormulaIndices;
-using System.Collections.Generic;
+using static Delta.Units.SpecialCharacters;
 
 namespace Delta.Units
 {
@@ -33,19 +33,59 @@ namespace Delta.Units
             All = all.ToArray();
         }
 
+        /// <summary>
+        /// Gets the array of all existing base dimensions.
+        /// </summary>
         public static Dimension[] All { get; }
 
+        /// <summary>
+        /// Gets the 'Mass' base dimension.
+        /// </summary>
         public static Dimension Length { get; }
+
+        /// <summary>
+        /// Gets the 'Length' base dimension.
+        /// </summary>
         public static Dimension Mass { get; }
+
+        /// <summary>
+        /// Gets the 'Time' base dimension.
+        /// </summary>
         public static Dimension Time { get; }
-        public static Dimension ElectricCurrent { get; } 
+
+        /// <summary>
+        /// Gets the 'Electric Current' base dimension.
+        /// </summary>
+        public static Dimension ElectricCurrent { get; }
+
+        /// <summary>
+        /// Gets the 'Thermodynamic Temperature' base dimension.
+        /// </summary>
         public static Dimension ThermodynamicTemperature { get; }
+
+        /// <summary>
+        /// Gets the 'Amount of Substance' base dimension.
+        /// </summary>
         public static Dimension AmountOfSubstance { get; }
+
+        /// <summary>
+        /// Gets the 'Luminous Intensity' base dimension.
+        /// </summary>
         public static Dimension LuminousIntensity { get; }
+
+        /// <summary>
+        /// Gets the special 'None' base dimension (used to tag dimensionless quantities).
+        /// </summary>
         public static Dimension None { get; }
 
+        /// <summary>
+        /// Gets the number of base dimensions.
+        /// </summary>
         internal static int Count { get; }
 
+        /// <summary>
+        /// Gets the symbols assciated with base dimensions.
+        /// </summary>
         internal static string[] Symbols { get; }
 
         private static Dimension Register(Dimension dimension)

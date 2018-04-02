@@ -7,6 +7,7 @@ namespace Delta.Units.Systems
     /// </summary>
     public static class Dimensionless
     {
+#pragma warning disable CS1591
         // Not an angle, but a useful value
         public static readonly decimal PI = Helpers.PI;
 
@@ -24,6 +25,8 @@ namespace Delta.Units.Systems
         public static readonly Unit percent = new Unit(nameof(percent), "%", unit, 1m / 100m);
         public static readonly Unit permille = new Unit(nameof(permille), SpecialCharacters.permille, unit, 1m / 1000m);
         public static readonly Unit parts_per_million = new Unit(_(nameof(parts_per_million)), "ppm", unit, 1m / 1000000m);
+
+#pragma warning restore CS1591
 
         private static string _(string name) => name.Replace('_', ' ');
     }

@@ -193,10 +193,10 @@ namespace Delta.Units
             Assert.Equal(none1, none2);
 
             // This does not work
-            Assert.NotEqual(none1, nil); 
-            Assert.NotEqual(none2, nil);
-            Assert.NotEqual(none1, null);
-            Assert.NotEqual(none2, null);
+            Assert.NotEqual(nil, none1); 
+            Assert.NotEqual(nil, none2);
+            Assert.NotNull(none1);
+            Assert.NotNull(none2);
 
             Assert.True(none1 == none2);
             Assert.True(none1 == null);
@@ -204,9 +204,9 @@ namespace Delta.Units
             Assert.True(null == none1);
             Assert.True(null == none2);
 
-            Assert.False(object.ReferenceEquals(null, none1));
-            Assert.False(object.ReferenceEquals(null, none2));
-            Assert.True(object.ReferenceEquals(null, nil));
+            Assert.False(none1 is null);
+            Assert.False(none2 is null);
+            Assert.True(nil is null);
 
             Assert.True(none1.Equals(none2));
             Assert.True(none1.Equals(null));

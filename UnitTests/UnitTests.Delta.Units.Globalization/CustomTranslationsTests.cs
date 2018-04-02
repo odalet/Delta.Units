@@ -43,25 +43,29 @@ namespace Delta.Units.Globalization
         [Fact]
         public void LocalTranslationsAreAppliedWhenInvokingToString()
         {
-            var meter = new Unit("american meter", "am", SI.metre);
-            meter.TranslateNameFunction = c => "meter";
-            meter.TranslateSymbolFunction = c => "m";
+            var meter = new Unit("american meter", "am", SI.metre)
+            {
+                TranslateNameFunction = c => "meter",
+                TranslateSymbolFunction = c => "m"
+            };
 
             var oneMeter = 1m * meter;
-            Assert.Equal(oneMeter.ToString(), "1 m");
-            Assert.Equal(oneMeter.ToString("N"), "1 meter");
+            Assert.Equal("1 m", oneMeter.ToString());
+            Assert.Equal("1 meter", oneMeter.ToString("N"));
         }
 
         [Fact]
         public void DefaultTranslationProviderIsUsedWhenLocalTranslationThrows()
         {
-            var meter = new Unit("american meter", "am", SI.metre);
-            meter.TranslateNameFunction = c => { throw new InvalidOperationException("TEST"); };
-            meter.TranslateSymbolFunction = c => { throw new InvalidOperationException("TEST"); };
+            var meter = new Unit("american meter", "am", SI.metre)
+            {
+                TranslateNameFunction = c => { throw new InvalidOperationException("TEST"); },
+                TranslateSymbolFunction = c => { throw new InvalidOperationException("TEST"); }
+            };
 
             var oneMeter = 1m * meter;
-            Assert.Equal(oneMeter.ToString(), "1 am");
-            Assert.Equal(oneMeter.ToString("N"), "1 american meter");
+            Assert.Equal("1 am", oneMeter.ToString());
+            Assert.Equal("1 american meter", oneMeter.ToString("N"));
         }
 
         [Fact]

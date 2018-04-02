@@ -3,6 +3,10 @@ using System.Globalization;
 
 namespace Delta.Units.Globalization
 {
+    /// <summary>
+    /// Default implementation of <see cref="IUnitTranslationProvider"/>
+    /// </summary>
+    /// <seealso cref="Delta.Units.Globalization.IUnitTranslationProvider" />
     public class DefaultUnitTranslationProvider : IUnitTranslationProvider
     {
         private static readonly DefaultUnitTranslationProvider wrapper = new DefaultUnitTranslationProvider();
@@ -10,6 +14,9 @@ namespace Delta.Units.Globalization
 
         private DefaultUnitTranslationProvider() { }
 
+        /// <summary>
+        /// Gets or sets the current translation provider.
+        /// </summary>
         public static IUnitTranslationProvider Current
         {
             get { return wrapper; }

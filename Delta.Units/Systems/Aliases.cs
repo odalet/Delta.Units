@@ -35,7 +35,7 @@
         public static readonly Unit kg = SI.kilogram;
         /// <summary>Aliases <see cref="SI.milligram"/></summary>
         public static readonly Unit mg = SI.milligram;
-        /// <summary>Aliases <see cref="SI.v"/></summary>
+        /// <summary>Aliases <see cref="SI.tonne"/></summary>
         public static readonly Unit t = SI.tonne;
 
         /// <summary>Aliases <see cref="SI.Ampere"/></summary>

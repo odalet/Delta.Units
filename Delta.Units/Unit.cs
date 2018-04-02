@@ -7,11 +7,6 @@ namespace Delta.Units
     /// <summary>
     /// This class represents a unit of measure. 
     /// </summary>
-    /// <remarks>
-    /// A unit can belong to one of the three categories below:
-    /// <list itemtype="bullet">
-    /// </list>
-    /// </remarks>
     /// <seealso cref="System.IFormattable" />
     public sealed class Unit : IFormattable
     {
@@ -52,36 +47,69 @@ namespace Delta.Units
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Gets the 'none' unit used to express quantities with no physical unit (such as ratios).
+        /// </summary>
         public static Unit None { get; } = new Unit(string.Empty, string.Empty, (Dimension)null);
 
-        // Used to create base units
-        public Unit(string name, string symbol, Dimension dimension) :
-            this(name, symbol, dimension, true)
-        { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Unit"/> class from a name, symbol and dimension.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="symbol">The symbol.</param>
+        /// <param name="dimension">The dimension.</param>
+        public Unit(string name, string symbol, Dimension dimension) : this(name, symbol, dimension, true) { }
 
-        // Allows to build aliases
-        public Unit(string name, string symbol, Unit basedOn) :
-            this(name, symbol, basedOn, x => x, x => x)
-        { }
-
-        // Allows to build units based on a multiplication factor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Unit"/> class from a name, symbol and another <see cref="Unit"/>.
+        /// </summary>
+        /// <remarks>
+        /// This constructor allows to create unit aliases
+        /// </remarks>
+        /// <param name="name">The name.</param>
+        /// <param name="symbol">The symbol.</param>
+        /// <param name="basedOn">The unit this unit is based on.</param>
+        public Unit(string name, string symbol, Unit basedOn) : this(name, symbol, basedOn, x => x, x => x) { }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Unit"/> class from a name, symbol, another <see cref="Unit"/> and the multiplication factor
+        /// allowing to convert the new unit to the specified base unit.
+        /// </summary>
+        /// <remarks>
+        /// This constructor allows to create units realated by a factor.
+        /// </remarks>
+        /// <param name="name">The name.</param>
+        /// <param name="symbol">The symbol.</param>
+        /// <param name="basedOn">The unit this unit is based on.</param>
+        /// <param name="toBaseUnitFactor">The factor that, when applied to a quantity expressed in this unit, converts it to the base unit.</param>
         public Unit(string name, string symbol, Unit basedOn, decimal toBaseUnitFactor) :
-            this(name, symbol, basedOn, x => x * toBaseUnitFactor, x => x / toBaseUnitFactor)
-        { }
+            this(name, symbol, basedOn, x => x * toBaseUnitFactor, x => x / toBaseUnitFactor) { }
 
         // Used to create simple derived units (ie units with the same dimension)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Unit"/> class from a name, symbol, another <see cref="Unit"/> and then,
+        /// the function that converts from this unit to the base unit and the inverse function.
+        /// </summary>
+        /// <remarks>
+        /// This constructor allows to create units realated by a factor.
+        /// </remarks>
+        /// <param name="name">The name.</param>
+        /// <param name="symbol">The symbol.</param>
+        /// <param name="basedOn">The unit this unit is based on.</param>
+        /// <param name="convertToBaseUnit">The function that, when applied to a quantity expressed in this unit, converts it to the base unit.</param>
+        /// <param name="convertFromBaseUnit">The function that, when applied to a quantity expressed in the base unit, converts it to this unit.</param>
         public Unit(string name, string symbol, Unit basedOn,
-            Func<decimal, decimal> toConversion, Func<decimal, decimal> fromConversion) :
-            this(name, symbol, basedOn == null ? null : basedOn.Dimension)
+            Func<decimal, decimal> convertToBaseUnit, Func<decimal, decimal> convertFromBaseUnit) :
+            this(name, symbol, basedOn?.Dimension)
         {
             for (var i = 0; i < BaseDimensions.Count; i++)
             {
                 var index = i;
                 if (Dimension.Formula[index] == 0) continue;
                 BaseUnits[index] = (basedOn ?? None).BaseUnits[index];
-                FromBase[index] = basedOn == null ? fromConversion : x => fromConversion(basedOn.FromBase[index](x));
-                ToBase[index] = basedOn == null ? toConversion : x => basedOn.ToBase[index](toConversion(x));
+                FromBase[index] = basedOn == null ? convertFromBaseUnit : x => convertFromBaseUnit(basedOn.FromBase[index](x));
+                ToBase[index] = basedOn == null ? convertToBaseUnit : x => basedOn.ToBase[index](convertToBaseUnit(x));
             }
         }
 
@@ -105,12 +133,34 @@ namespace Delta.Units
             }
         }
 
+        /// <summary>
+        /// Gets or sets this unit name.
+        /// </summary>
         public string Name { get; set; } // The name can be changed
+
+        /// <summary>
+        /// Gets this unit symbol.
+        /// </summary>
         public string Symbol { get; }
+
+        /// <summary>
+        /// Gets this unit's dimension formula.
+        /// </summary>
         public Dimension Dimension { get; }
 
+        /// <summary>
+        /// Gets or sets a function that can translate the unit name into another culture.
+        /// </summary>
         public Func<CultureInfo, string> TranslateNameFunction { get; set; }
+
+        /// <summary>
+        /// Gets or sets a function that can translate the unit symbol into another culture.
+        /// </summary>
         public Func<CultureInfo, string> TranslateSymbolFunction { get; set; }
+
+        /// <summary>
+        /// Gets a translation provider for this unit (<see cref="IUnitTranslationProvider"/>).
+        /// </summary>
         public IUnitTranslationProvider TranslationProvider { get; }
 
         internal Unit[] BaseUnits { get; } = new Unit[BaseDimensions.Count];
@@ -119,6 +169,11 @@ namespace Delta.Units
 
         #region Operations on Units
 
+        /// <summary>
+        /// Creates a new <see cref="Unit"/> that is this unit multiplied <paramref name="exponent"/> times by itself
+        /// </summary>
+        /// <param name="exponent">The exponent.</param>
+        /// <returns>A new <see cref="Unit"/>.</returns>
         public Unit Pow(int exponent)
         {
             var newUnit = new Unit(
@@ -130,7 +185,18 @@ namespace Delta.Units
             return newUnit;
         }
 
+        /// <summary>
+        /// Multiplies this unit by the specified <paramref name="other"/> unit.
+        /// </summary>
+        /// <param name="other">The other unit.</param>
+        /// <returns>A new <see cref="Unit"/>.</returns>
         public Unit MultiplyBy(Unit other) => this * other;
+
+        /// <summary>
+        /// Divides this unit by the specified <paramref name="other"/> unit.
+        /// </summary>
+        /// <param name="other">The other unit.</param>
+        /// <returns>A new <see cref="Unit"/>.</returns>
         public Unit DivideBy(Unit other) => this / other;
 
         #endregion
@@ -139,45 +205,144 @@ namespace Delta.Units
 
         // Beware, ^ priority is not the mathematical one! It should always be used with parens to avoid mistakes
         // This is because, natively, ^ is the XOR operator, not the pow one... I miss an ** operator in C# 
+        
+        /// <summary>
+        /// Implements the operator ^ on a unit and an integer exponent. NB: always enclose these expressions in parentheses.
+        /// </summary>
+        /// <param name="unit">The unit.</param>
+        /// <param name="exponent">The exponent.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Unit operator ^(Unit unit, int exponent) => (unit ?? None).Pow(exponent);
+
+        /// <summary>
+        /// Implements the operator * on two units.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Unit operator *(Unit left, Unit right) => Multiply(left ?? None, right ?? None);
+
+        /// <summary>
+        /// Implements the operator / on two units.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Unit operator /(Unit left, Unit right) => Divide(left ?? None, right ?? None);
 
+        /// <summary>
+        /// Implements the operator * on a unit and a <see cref="decimal"/> number.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Quantity operator *(Unit left, decimal right) => right * left;
+
+        /// <summary>
+        /// Implements the operator * on a <see cref="decimal"/> number and a unit.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Quantity operator *(decimal left, Unit right) => new Quantity(left, right);
 
         // double-based overloads are defined so that it is easy for the user to define quantities.
         // Ho<ever beware of the precision and floating-point rounding issues
 
+        /// <summary>
+        /// Implements the operator * on a unit and a <see cref="double"/> number. 
+        /// NB: internally the <see cref="double"/> operand is converted to <see cref="decimal"/>.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Quantity operator *(Unit left, double right) => left * (decimal)right;
+
+        /// <summary>
+        /// Implements the operator * on a <see cref="double"/> number and a unit. 
+        /// NB: internally the <see cref="double"/> operand is converted to <see cref="decimal"/>.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Quantity operator *(double left, Unit right) => (decimal)left * right;
 
         // Because Int32 can be implicitely converted to double or decimal, we need also provide
         // overloads for disambiguation.
         // By the way such disambiguation should also be necessary for other integer types, but 
         // we'll leave it to the user to explicitely cast to int, decimal or double.
+
+        /// <summary>
+        /// Implements the operator * on a unit and a <see cref="int"/> number. 
+        /// NB: internally the <see cref="int"/> operand is converted to <see cref="decimal"/>.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Quantity operator *(Unit left, int right) => left * (decimal)right;
+
+        /// <summary>
+        /// Implements the operator * on a <see cref="int"/> number and a unit. 
+        /// NB: internally the <see cref="int"/> operand is converted to <see cref="decimal"/>.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Quantity operator *(int left, Unit right) => (decimal)left * right;
 
         #endregion
 
         #region Formatting
 
+        /// <inheritdoc />
         public override string ToString() => UnitFormatter.Format(this, null, null);
 
+        /// <inheritdoc />
         public string ToString(string format) => UnitFormatter.Format(this, format, null);
 
+        /// <inheritdoc />
         public string ToString(IFormatProvider formatProvider) => UnitFormatter.Format(this, null, formatProvider);
 
+        /// <inheritdoc />
         public string ToString(string format, IFormatProvider formatProvider) => UnitFormatter.Format(this, format, formatProvider);
 
         #endregion
 
         #region Static Helpers
 
-        public static bool AreCompatible(Unit left, Unit right) =>
-            (left ?? Unit.None).Dimension == (right ?? Unit.None).Dimension;
+        /// <summary>
+        /// Determines whether the specified units are compatible (i.e. whether theay belong to the same <see cref="Dimension"/>).
+        /// </summary>
+        /// <param name="left">The first unit to compare.</param>
+        /// <param name="right">The second unit to compare.</param>
+        /// <returns><c>true</c> if the units are compatible; otherwise, <c>false</c>.</returns>
+        public static bool AreCompatible(Unit left, Unit right) => (left ?? None).Dimension == (right ?? None).Dimension;
 
+        /// <summary>
+        /// Converts the specified <paramref name="value"/> expressed in the <paramref name="from"/> unit to a value expressed in the <paramref name="to"/> unit.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="from">The value's original unit.</param>
+        /// <param name="to">The converted value's unit.</param>
+        /// <returns>A value equivalent to <paramref name="value"/>, but expressed using <paramref name="to"/> unit.</returns>
         public static decimal Convert(decimal value, Unit from, Unit to)
         {
             var fromUnit = from ?? Unit.None;

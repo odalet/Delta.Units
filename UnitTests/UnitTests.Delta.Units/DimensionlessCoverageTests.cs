@@ -15,7 +15,7 @@ namespace Delta.Units
         {
             var degrees = 1m * degree;
             var radians = degrees.ConvertTo(radian);
-            Assert.Equal(radians.Value, Helpers.PI / 180m);
+            Assert.Equal(Helpers.PI / 180m, radians.Value);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace Delta.Units
             var degrees = radians.ConvertTo(degree);
 
             // We can't be exact: we are accurate up to 13 decimals by using decimal type.
-            Assert.Equal(Math.Round(degrees.Value, 13), Math.Round(180m / Helpers.PI, 13));
+            Assert.Equal(Math.Round(180m / Helpers.PI, 13), Math.Round(degrees.Value, 13));
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace Delta.Units
         {
             var turns = 1m * turn;
             var radians = turns.ConvertTo(radian);
-            Assert.Equal(radians.Value, 2m * Helpers.PI);
+            Assert.Equal(2m * Helpers.PI, radians.Value);
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace Delta.Units
         {
             var radians = 1m * radian;
             var turns = radians.ConvertTo(turn);
-            Assert.Equal(turns.Value, 1m / (2m * Helpers.PI));
+            Assert.Equal(1m / (2m * Helpers.PI), turns.Value);
         }
 
         // Proportions
@@ -51,7 +51,7 @@ namespace Delta.Units
         {
             var pc = 1m * percent;
             var pm = pc.ConvertTo(permille);
-            Assert.Equal(pm.Value, 10m);
+            Assert.Equal(10m, pm.Value);
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace Delta.Units
         {
             var pm = 1m * permille;
             var pc = pm.ConvertTo(percent);
-            Assert.Equal(pc.Value, 0.1m);
+            Assert.Equal(0.1m, pc.Value);
         }
 
         [Fact]
@@ -67,7 +67,7 @@ namespace Delta.Units
         {
             var pc = 1m * percent;
             var ppm = pc.ConvertTo(parts_per_million);
-            Assert.Equal(ppm.Value, 10000m);
+            Assert.Equal(10000m, ppm.Value);
         }
     }
 }

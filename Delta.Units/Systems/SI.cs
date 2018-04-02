@@ -9,8 +9,12 @@ namespace Delta.Units.Systems
     /// </summary>
     public static partial class SI
     {
+        /// <summary>
+        /// The SI standard prefixes
+        /// </summary>
         public static class Prefixes
         {
+#pragma warning disable CS1591
             public static readonly SIPrefix yotta = new SIPrefix("yotta", "Y", 24);
             public static readonly SIPrefix zetta = new SIPrefix("zetta", "Z", 21);
             public static readonly SIPrefix exa = new SIPrefix("exa", "E", 18);
@@ -31,6 +35,7 @@ namespace Delta.Units.Systems
             public static readonly SIPrefix atto = new SIPrefix("atto", "a", -18);
             public static readonly SIPrefix zepto = new SIPrefix("zepto", "z", -21);
             public static readonly SIPrefix yocto = new SIPrefix("yocto", "y", -24);
+#pragma warning restore CS1591
 
             internal static readonly IEnumerable<SIPrefix> All = new List<SIPrefix>
             {
@@ -39,6 +44,7 @@ namespace Delta.Units.Systems
             };
         }
 
+#pragma warning disable CS1591
         // Base units
 
         // We use the UK 'metre' and not the US 'meter' because this is how it is defined in SI.
@@ -88,6 +94,8 @@ namespace Delta.Units.Systems
             c => c + 273.15m, k => k - 273.15m);
         public static readonly Unit Fahrenheit = new Unit(nameof(Fahrenheit), "°F", Kelvin,
             f => (f + 459.67m) * 5m / 9m, k => 9m / 5m * k - 459.67m);
+
+#pragma warning restore CS1591
 
         private static string _(string name) => name.Replace('_', ' ');
     }
