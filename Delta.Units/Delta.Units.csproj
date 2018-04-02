@@ -9,6 +9,10 @@
     <DelaySign>false</DelaySign>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageVersion>0.3.0</PackageVersion>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/odalet/Delta.Units/master/License.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/odalet/Delta.Units</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/odalet/Delta.Units</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
@@ -22,7 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.8.2.4717" />
+    <!-- See https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files -->
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.8.2.4717">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
