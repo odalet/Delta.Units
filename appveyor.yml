@@ -1,5 +1,6 @@
 # See https://www.appveyor.com/docs/appveyor-yml/
 version: 0.3.{build}
+image: Visual Studio 2017
 branches:
   only:
     - master  
