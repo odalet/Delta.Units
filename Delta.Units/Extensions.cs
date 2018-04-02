@@ -24,11 +24,12 @@ namespace Delta.Units
         {
             var dim = dimension ?? BaseDimensions.None;
             var parts = dim.Formula
-                .Select((exp, index) => exp == 0 ? 
-                    string.Empty : 
-                    (exp == 1 ? 
-                        GetBaseDimensionSymbol(index) : 
-                        $"{GetBaseDimensionSymbol(index)}^{exp}"))
+                .Select((exp, index) =>
+                {
+                    if (exp == 0)
+                        return string.Empty;
+                    return exp == 1 ? GetBaseDimensionSymbol(index) : $"{GetBaseDimensionSymbol(index)}^{exp}";
+                })
                 .Where(s => !string.IsNullOrEmpty(s));
 
             var result = string.Join(".", parts);

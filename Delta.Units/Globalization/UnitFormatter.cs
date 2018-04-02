@@ -9,7 +9,7 @@ namespace Delta.Units.Globalization
         private const string nameFormat = "N";
         private const string defaultFormat = symbolFormat;
 
-        public static readonly string[] FormatSpecifiers = { symbolFormat, nameFormat };
+        internal static readonly string[] FormatSpecifiers = { symbolFormat, nameFormat };
 
         public static string Format(Unit unit, string format, IFormatProvider formatProvider)
         {

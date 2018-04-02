@@ -37,7 +37,7 @@ namespace Delta.Units
         {
             Assert.Throws<InvalidOperationException>(() =>
             {
-                var conv = m.ConvertTo(1m, yd);
+                var _ = m.ConvertTo(1m, yd);
             });
         }
 
@@ -46,7 +46,7 @@ namespace Delta.Units
         {
             Assert.Throws<InvalidOperationException>(() =>
             {
-                var conv = m.ConvertTo(1m, s);
+                var _ = m.ConvertTo(1m, s);
             });
         }
 
