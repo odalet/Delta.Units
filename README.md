@@ -1,5 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/h4dqt75twhf93fbv?svg=true)](https://ci.appveyor.com/project/odalet/delta-units)
-[![Test status](http://teststatusbadge.azurewebsites.net/api/status/odalet/delta-units)](https://ci.appveyor.com/project/odalet/delta-units)
+[![Test status](https://img.shields.io/appveyor/tests/odalet/delta-units.svg)](https://ci.appveyor.com/project/odalet/delta-units/build/tests)
 [![Coverage Status](https://coveralls.io/repos/github/odalet/Delta.Units/badge.svg?branch=master)](https://coveralls.io/github/odalet/Delta.Units)
 [![NuGet](https://img.shields.io/nuget/v/Delta.Units.svg)](https://www.nuget.org/packages/Delta.Units/)
 
