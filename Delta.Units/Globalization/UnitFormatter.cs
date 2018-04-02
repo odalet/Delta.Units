@@ -32,7 +32,7 @@ namespace Delta.Units.Globalization
         private static CultureInfo GetCulture(IFormatProvider formatProvider)
         {
             var culture = formatProvider as CultureInfo;
-            return culture ?? CultureInfo.DefaultThreadCurrentCulture;
+            return culture ?? CultureInfo.CurrentCulture;
         }
     }
 }

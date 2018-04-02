@@ -42,6 +42,8 @@ test_script:
 after_build:
   - ps: Get-ChildItem "C:\projects\delta-units\Delta.Units\bin\Release\*.nupkg" | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 artifacts:
+  - path: Delta.Units\bin\Debug\net40\Delta.Units.dll
+  - path: Delta.Units\bin\Debug\net40\Delta.Units.pdb  
   - path: Delta.Units\bin\Debug\netstandard1.0\Delta.Units.dll
   - path: Delta.Units\bin\Debug\netstandard1.0\Delta.Units.pdb  
     name: Debug Binaries
@@ -49,6 +51,8 @@ artifacts:
   - path: opencoverCoverage.xml
     name: Coverage
 
+  - path: Delta.Units\bin\Release\net40\Delta.Units.dll
+  - path: Delta.Units\bin\Release\net40\Delta.Units.pdb  
   - path: Delta.Units\bin\Release\netstandard1.0\Delta.Units.dll
   - path: Delta.Units\bin\Release\netstandard1.0\Delta.Units.pdb  
     name: Release Binaries
