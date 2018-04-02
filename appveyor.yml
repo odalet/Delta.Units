@@ -1,5 +1,5 @@
 # See https://www.appveyor.com/docs/appveyor-yml/
-version: 0.2.{build}
+version: 0.3.{build}
 branches:
   only:
     - master  
@@ -20,11 +20,11 @@ platform:
   Any CPU
 configuration: 
   Debug
-#before_build:
-#  - cmd: dotnet restore
-build_script:
+before_build:
   - cmd: dotnet restore
-  - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
+build_script:
+#  - cmd: dotnet restore
+  - ps: msbuild_fake "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
   - ps: '& .\unit-tests.ps1'
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"    
   - ps: nuget pack "C:\projects\delta-units\Delta.Units.nuspec" -Prop configuration=Release -Prop version="$env:APPVEYOR_BUILD_VERSION" -verbosity detailed
