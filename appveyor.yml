@@ -31,6 +31,7 @@ configuration:
   Debug
 before_build:
   - cmd: dotnet restore
+  - cmd: nuget restore
 build_script:
   - ps: msbuild "C:\projects\delta-units\Delta.Units.sln" /p:Platform="Any CPU" /p:Configuration=Debug /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"  
   - ps: '& .\unit-tests.ps1'
