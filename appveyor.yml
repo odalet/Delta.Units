@@ -9,8 +9,8 @@ environment:
     secure: sAoqj4mz8jCeeQ0em98Z0KAJZubVl0Q76cqb6ZH/2rgzFmaNM7Z3GplBlh+p60xQ
   APPVEYOR_NUGET_API_KEY:
     secure: 12LBEnWg5ut1KmagO7CaflJ69qGfL+2k8YdK3v5EAObO02pSkElMWK19v1v8GlXi
-#cache:
-#  - packages -> **\packages.config   
+cache:
+  - packages -> **\packages.config   
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
