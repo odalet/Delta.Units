@@ -46,7 +46,7 @@ namespace Delta.Units
             var newName = this.IsNone() ? string.Empty : $"{Name} ^ {exponent}";
             var newSymbol = this.IsNone() ? string.Empty : $"{Symbol}^{exponent}";
 
-            var newFormula = Formula.Clone();
+            var newFormula = Formula.Copy();
             for (var index = 0; index < newFormula.Count; index++)
                 newFormula[index] *= exponent;
             
@@ -65,7 +65,7 @@ namespace Delta.Units
             var newName = Helpers.CreateDimensionName(this, other, "*");
             var newSymbol = Helpers.CreateDimensionSymbol(this, other, ".");
 
-            var newFormula = Formula.Clone();
+            var newFormula = Formula.Copy();
             for (var index = 0; index < newFormula.Count; index++)
                 newFormula[index] += operand.Formula[index];
             
@@ -84,7 +84,7 @@ namespace Delta.Units
             var newName = Helpers.CreateDimensionName(this, other, "/");
             var newSymbol = Helpers.CreateDimensionSymbol(this, other, "/");
 
-            var newFormula = Formula.Clone();
+            var newFormula = Formula.Copy();
             for (var index = 0; index < newFormula.Count; index++)
                 newFormula[index] -= operand.Formula[index];
             

@@ -19,8 +19,8 @@ namespace Delta.Units.Globalization
         /// </summary>
         public static IUnitTranslationProvider Current
         {
-            get { return wrapper; }
-            set { wrapper.innerProvider = value == wrapper ? null : value; }
+            get => wrapper;
+            set => wrapper.innerProvider = value == wrapper ? null : value;
         }
 
         string IUnitTranslationProvider.TranslateName(Unit unit, CultureInfo culture) 

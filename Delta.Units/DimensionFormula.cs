@@ -98,8 +98,8 @@ namespace Delta.Units
         /// </summary>
         public int this[int index]
         {
-            get { return exponents[index]; }
-            set { exponents[index] = value; }
+            get => exponents[index];
+            set => exponents[index] = value;
         }
 
         /// <summary>
@@ -107,8 +107,8 @@ namespace Delta.Units
         /// </summary>
         public int L
         {
-            get { return exponents[l]; }
-            set { exponents[l] = value; }
+            get => exponents[l];
+            set => exponents[l] = value;
         }
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace Delta.Units
         /// </summary>
         public int M
         {
-            get { return exponents[m]; }
-            set { exponents[m] = value; }
+            get => exponents[m];
+            set => exponents[m] = value;
         }
 
         /// <summary>
@@ -125,8 +125,8 @@ namespace Delta.Units
         /// </summary>
         public int T
         {
-            get { return exponents[t]; }
-            set { exponents[t] = value; }
+            get => exponents[t];
+            set => exponents[t] = value;
         }
 
         /// <summary>
@@ -134,8 +134,8 @@ namespace Delta.Units
         /// </summary>
         public int I
         {
-            get { return exponents[i]; }
-            set { exponents[i] = value; }
+            get => exponents[i];
+            set => exponents[i] = value;
         }
 
         /// <summary>
@@ -143,8 +143,8 @@ namespace Delta.Units
         /// </summary>
         public int Th
         {
-            get { return exponents[th]; }
-            set { exponents[th] = value; }
+            get => exponents[th];
+            set => exponents[th] = value;
         }
 
         /// <summary>
@@ -152,8 +152,8 @@ namespace Delta.Units
         /// </summary>
         public int N
         {
-            get { return exponents[n]; }
-            set { exponents[n] = value; }
+            get => exponents[n];
+            set => exponents[n] = value;
         }
 
         /// <summary>
@@ -161,8 +161,8 @@ namespace Delta.Units
         /// </summary>
         public int J
         {
-            get { return exponents[j]; }
-            set { exponents[j] = value; }
+            get => exponents[j];
+            set => exponents[j] = value;
         }
 
         /// <summary>
@@ -170,8 +170,20 @@ namespace Delta.Units
         /// </summary>
         public int Z
         {
-            get { return exponents[z]; }
-            set { exponents[z] = value; }
+            get => exponents[z];
+            set => exponents[z] = value;
+        }
+
+        /// <summary>
+        /// Deep-Copies this instance.
+        /// </summary>
+        /// <returns>A deep copy of this <see cref="DimensionFormula"/>.</returns>
+        public DimensionFormula Copy()
+        {
+            var result = new DimensionFormula();
+            for (var index = 0; index < Count; index++)
+                result.exponents[index] = exponents[index];
+            return result;
         }
 
         /// <inheritdoc />
@@ -200,17 +212,6 @@ namespace Delta.Units
             for (int index = 0; index < Count; index++)
                 hash ^= exponents[index] * Helpers.Primes[index];
             return hash;
-        }
-
-        // In a PCL, the ICloneable interface does not exist any more.
-
-        /// <inheritdoc />
-        public DimensionFormula Clone()
-        {
-            var result = new DimensionFormula();
-            for (var index = 0; index < Count; index++)
-                result.exponents[index] = exponents[index];
-            return result;
         }
 
         /// <inheritdoc />
