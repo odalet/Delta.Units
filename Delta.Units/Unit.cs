@@ -5,7 +5,7 @@ using Delta.Units.Globalization;
 namespace Delta.Units
 {
     /// <summary>
-    /// This class represents a unit of measure. 
+    /// This is a unit of measure. 
     /// </summary>
     /// <seealso cref="System.IFormattable" />
     public sealed class Unit : IFormattable

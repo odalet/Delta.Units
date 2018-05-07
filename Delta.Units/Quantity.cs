@@ -7,7 +7,7 @@ namespace Delta.Units
     /// A quantity stores a pair consisting of a <see cref="decimal"/> value and a <see cref="T:Delta.Units.Unit"/>.
     /// </summary>
     /// <remarks>
-    /// The <see cref="Quantity"/> types supports operators overloads that correctly compute the resulting unit and value.
+    /// The <see cref="Quantity"/> type supports operators overloads that correctly compute the resulting unit and value.
     /// </remarks>
     public sealed class Quantity : IFormattable
     {

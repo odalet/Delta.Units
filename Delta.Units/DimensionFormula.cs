@@ -18,27 +18,27 @@ namespace Delta.Units
     }
 
     /// <summary>
-    /// This stores a Dimension formula.
+    /// This stores a <see cref="Dimension"/> formula.
     /// </summary>
     /// <remarks>
     /// The formula is a product of base dimensions, each of which can have an (integer) exponent.
-    /// These exponents are stored in an array at a spcefic index. Each base dimension 
+    /// These exponents are stored in an array at a spcefic index.Each base dimension
     /// is associated a well-known index. The base dimensions are always given in this order:
-    /// L, M, T, I, Th, N, J
-    /// Examples:
-    /// <list type="bullet">
-    /// <item>
-    /// The 'Length' dimension is defined by this array: [1, 0, 0, 0, 0, 0, 0] meaning, it is L^1 = L
-    /// </item>
-    /// <item>
-    /// The 'Velocity' dimension is a compound of Length and Time:
-    /// [1, 0, -1, 0, 0, 0, 0] which reads L^1 * T^-1 = L/T
-    /// </item>
-    /// <item>
-    /// The 'None' dimension (for dimension-less quantities such as angles or proportions is defined as
-    /// [0, 0, 0, 0, 0, 0, 0]
-    /// </item>
-    /// </list>
+    ///
+    /// * **L** (Length), 
+    /// * **M** (Mass), 
+    /// * **T** (Time), 
+    /// * **I** (Electric Current), 
+    /// * **Θ** (Thermodynamic Temperature), 
+    /// * **N** (Amount of Substance), 
+    /// * **J** (Luminous Intensity)
+    /// * **Z** (this one is not a SI dimension but is used to represent dimension-less quantities)
+    ///
+    /// _Examples:_
+    ///
+    /// * The **Length** dimension is defined by this array: **[1, 0, 0, 0, 0, 0, 0, 0]** meaning, it is **L^1 = L**
+    /// * The **Velocity** dimension is a compound of **Length** and **Time** dimensions. It is defined as **[1, 0, -1, 0, 0, 0, 0, 0]** which reads **L^1 * T^-1 = L/T**
+    /// * The special **None** dimension (for dimension-less quantities such as angles or proportions) is defined as **[0, 0, 0, 0, 0, 0, 0, 1]**
     /// </remarks>
     public sealed class DimensionFormula : IEnumerable<int>
     {

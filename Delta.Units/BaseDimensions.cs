@@ -8,8 +8,9 @@ namespace Delta.Units
     /// Base dimensions (as defined by SI)
     /// </summary>
     /// <remarks>
-    /// These are the dimensions defined by SI (see https://en.wikipedia.org/wiki/SI_base_unit) +
-    /// the none dimension (used for dimension-less quantities);
+    /// These are:
+    /// * the dimensions defined by SI (see https://en.wikipedia.org/wiki/SI_base_unit) +
+    /// * the special **Z = None** dimension (used for dimension-less quantities);
     /// </remarks>
     public static class BaseDimensions
     {
