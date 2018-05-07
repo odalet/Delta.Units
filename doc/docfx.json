@@ -45,6 +45,11 @@
     "resource": [
       {
         "files": [
+          "favicon.ico"
+        ]
+      },
+      {
+        "files": [
           "images/**"
         ]
       }
