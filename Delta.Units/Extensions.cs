@@ -67,7 +67,7 @@ namespace Delta.Units
         /// <summary>
         /// Determines whether the specified dimension formula represents a dimensionless quantity.
         /// </summary>
-        /// <param name="formula">The diemnsion formula to test.</param>
+        /// <param name="formula">The dimension formula to test.</param>
         /// <returns>
         ///   <c>true</c> if the specified dimension formula is dimensionless; otherwise, <c>false</c>.
         /// </returns>
