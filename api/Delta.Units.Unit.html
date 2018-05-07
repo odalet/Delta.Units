@@ -1,0 +1,1411 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Unit
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Unit
+   ">
+    <meta name="generator" content="docfx 2.35.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/font-awesome.min.css">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" src="../images/delta-64.png" height="32" width="32" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content">
+              
+              
+              <h1 id="" data-uid="Delta.Units.Unit">Class Unit
+              </h1>
+              <div class="markdown level0 summary"><p>This class represents a unit of measure.</p>
+</div>
+              <div class="markdown level0 conceptual"></div>
+              <div class="inheritance">
+                <h5>Inheritance</h5>
+                  <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+                  <div class="level1"><span class="xref">Unit</span></div>
+              </div>
+              <h6><strong>Namespace</strong>:Delta.Units</h6>
+              <h6><strong>Assembly</strong>:Delta.Units.dll</h6>
+              <h5 id="_syntax">Syntax</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public sealed class Unit : IFormattable</code></pre>
+              </div>
+              <h3 id="constructors">Constructors
+              </h3>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L62">View Source</a>
+              </span>
+              <h4 id="constructors" data-uid="Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Dimension)">Unit(String, String, Dimension)</h4>
+              <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Delta.Units.Unit.html">Unit</a> class from a name, symbol and dimension.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Unit(string name, string symbol, Dimension dimension)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>name</em></td>
+                    <td><p>The name.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>symbol</em></td>
+                    <td><p>The symbol.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Dimension.html">Dimension</a></td>
+                    <td><em>dimension</em></td>
+                    <td><p>The dimension.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L73">View Source</a>
+              </span>
+              <h4 id="constructors" data-uid="Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit)">Unit(String, String, Unit)</h4>
+              <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Delta.Units.Unit.html">Unit</a> class from a name, symbol and another <a class="xref" href="Delta.Units.Unit.html">Unit</a>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Unit(string name, string symbol, Unit basedOn)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>name</em></td>
+                    <td><p>The name.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>symbol</em></td>
+                    <td><p>The symbol.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>basedOn</em></td>
+                    <td><p>The unit this unit is based on.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="constructors_remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>This constructor allows to create unit aliases</p>
+</div>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L102">View Source</a>
+              </span>
+              <h4 id="constructors" data-uid="Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit,Func{System.Decimal,System.Decimal},Func{System.Decimal,System.Decimal})">Unit(String, String, Unit, Func&lt;Decimal, Decimal&gt;, Func&lt;Decimal, Decimal&gt;)</h4>
+              <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Delta.Units.Unit.html">Unit</a> class from a name, symbol, another <a class="xref" href="Delta.Units.Unit.html">Unit</a> and then,
+the function that converts from this unit to the base unit and the inverse function.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Unit(string name, string symbol, Unit basedOn, Func&lt;decimal, decimal&gt; convertToBaseUnit, Func&lt;decimal, decimal&gt; convertFromBaseUnit)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>name</em></td>
+                    <td><p>The name.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>symbol</em></td>
+                    <td><p>The symbol.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>basedOn</em></td>
+                    <td><p>The unit this unit is based on.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">Func</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a>&gt;</td>
+                    <td><em>convertToBaseUnit</em></td>
+                    <td><p>The function that, when applied to a quantity expressed in this unit, converts it to the base unit.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">Func</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a>&gt;</td>
+                    <td><em>convertFromBaseUnit</em></td>
+                    <td><p>The function that, when applied to a quantity expressed in the base unit, converts it to this unit.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="constructors_remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>This constructor allows to create units realated by a factor.</p>
+</div>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L86">View Source</a>
+              </span>
+              <h4 id="constructors" data-uid="Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit,System.Decimal)">Unit(String, String, Unit, Decimal)</h4>
+              <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Delta.Units.Unit.html">Unit</a> class from a name, symbol, another <a class="xref" href="Delta.Units.Unit.html">Unit</a> and the multiplication factor
+allowing to convert the new unit to the specified base unit.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Unit(string name, string symbol, Unit basedOn, decimal toBaseUnitFactor)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>name</em></td>
+                    <td><p>The name.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>symbol</em></td>
+                    <td><p>The symbol.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>basedOn</em></td>
+                    <td><p>The unit this unit is based on.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+                    <td><em>toBaseUnitFactor</em></td>
+                    <td><p>The factor that, when applied to a quantity expressed in this unit, converts it to the base unit.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="constructors_remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>This constructor allows to create units realated by a factor.</p>
+</div>
+              <h3 id="properties">Properties
+              </h3>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L149">View Source</a>
+              </span>
+              <h4 id="properties" data-uid="Delta.Units.Unit.Dimension">Dimension</h4>
+              <div class="markdown level1 summary"><p>Gets this unit's dimension formula.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Dimension Dimension { get; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Dimension.html">Dimension</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L139">View Source</a>
+              </span>
+              <h4 id="properties" data-uid="Delta.Units.Unit.Name">Name</h4>
+              <div class="markdown level1 summary"><p>Gets or sets this unit name.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L54">View Source</a>
+              </span>
+              <h4 id="properties" data-uid="Delta.Units.Unit.None">None</h4>
+              <div class="markdown level1 summary"><p>Gets the 'none' unit used to express quantities with no physical unit (such as ratios).</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Unit None { get; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L144">View Source</a>
+              </span>
+              <h4 id="properties" data-uid="Delta.Units.Unit.Symbol">Symbol</h4>
+              <div class="markdown level1 summary"><p>Gets this unit symbol.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string Symbol { get; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L154">View Source</a>
+              </span>
+              <h4 id="properties" data-uid="Delta.Units.Unit.TranslateNameFunction">TranslateNameFunction</h4>
+              <div class="markdown level1 summary"><p>Gets or sets a function that can translate the unit name into another culture.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Func&lt;CultureInfo, string&gt; TranslateNameFunction { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Func</span>&lt;<span class="xref">CultureInfo</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L159">View Source</a>
+              </span>
+              <h4 id="properties" data-uid="Delta.Units.Unit.TranslateSymbolFunction">TranslateSymbolFunction</h4>
+              <div class="markdown level1 summary"><p>Gets or sets a function that can translate the unit symbol into another culture.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Func&lt;CultureInfo, string&gt; TranslateSymbolFunction { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Func</span>&lt;<span class="xref">CultureInfo</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L164">View Source</a>
+              </span>
+              <h4 id="properties" data-uid="Delta.Units.Unit.TranslationProvider">TranslationProvider</h4>
+              <div class="markdown level1 summary"><p>Gets a translation provider for this unit (<a class="xref" href="Delta.Units.Globalization.IUnitTranslationProvider.html">IUnitTranslationProvider</a>).</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public IUnitTranslationProvider TranslationProvider { get; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Globalization.IUnitTranslationProvider.html">IUnitTranslationProvider</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="methods">Methods
+              </h3>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L337">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Unit.AreCompatible(Delta.Units.Unit,Delta.Units.Unit)">AreCompatible(Unit, Unit)</h4>
+              <div class="markdown level1 summary"><p>Determines whether the specified units are compatible (i.e. whether theay belong to the same <a class="xref" href="Delta.Units.Unit.html">Dimension</a>).</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static bool AreCompatible(Unit left, Unit right)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>left</em></td>
+                    <td><p>The first unit to compare.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>right</em></td>
+                    <td><p>The second unit to compare.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+                    <td><p><code>true</code> if the units are compatible; otherwise, <code>false</code>.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L346">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Unit.Convert(System.Decimal,Delta.Units.Unit,Delta.Units.Unit)">Convert(Decimal, Unit, Unit)</h4>
+              <div class="markdown level1 summary"><p>Converts the specified <code data-dev-comment-type="paramref" class="paramref">value</code> expressed in the <code data-dev-comment-type="paramref" class="paramref">from</code> unit to a value expressed in the <code data-dev-comment-type="paramref" class="paramref">to</code> unit.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static decimal Convert(decimal value, Unit from, Unit to)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+                    <td><em>value</em></td>
+                    <td><p>The value.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>from</em></td>
+                    <td><p>The value's original unit.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>to</em></td>
+                    <td><p>The converted value's unit.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+                    <td><p>A value equivalent to <code data-dev-comment-type="paramref" class="paramref">value</code>, but expressed using <code data-dev-comment-type="paramref" class="paramref">to</code> unit.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L200">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Unit.DivideBy(Delta.Units.Unit)">DivideBy(Unit)</h4>
+              <div class="markdown level1 summary"><p>Divides this unit by the specified <code data-dev-comment-type="paramref" class="paramref">other</code> unit.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Unit DivideBy(Unit other)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>other</em></td>
+                    <td><p>The other unit.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><p>A new <a class="xref" href="Delta.Units.Unit.html">Unit</a>.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L193">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Unit.MultiplyBy(Delta.Units.Unit)">MultiplyBy(Unit)</h4>
+              <div class="markdown level1 summary"><p>Multiplies this unit by the specified <code data-dev-comment-type="paramref" class="paramref">other</code> unit.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Unit MultiplyBy(Unit other)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>other</em></td>
+                    <td><p>The other unit.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><p>A new <a class="xref" href="Delta.Units.Unit.html">Unit</a>.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L177">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Unit.Pow(System.Int32)">Pow(Int32)</h4>
+              <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Delta.Units.Unit.html">Unit</a> that is this unit multiplied <code data-dev-comment-type="paramref" class="paramref">exponent</code> times by itself</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Unit Pow(int exponent)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+                    <td><em>exponent</em></td>
+                    <td><p>The exponent.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><p>A new <a class="xref" href="Delta.Units.Unit.html">Unit</a>.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L316">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Unit.ToString">ToString()</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+              </div>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L322">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Unit.ToString(IFormatProvider)">ToString(IFormatProvider)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">IFormatProvider</span></td>
+                    <td><em>formatProvider</em></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L319">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Unit.ToString(System.String)">ToString(String)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>format</em></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L325">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Unit.ToString(System.String,IFormatProvider)">ToString(String, IFormatProvider)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><em>format</em></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">IFormatProvider</span></td>
+                    <td><em>formatProvider</em></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="operators">Operators
+              </h3>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L237">View Source</a>
+              </span>
+              <h4 id="operators" data-uid="Delta.Units.Unit.op_Division(Delta.Units.Unit,Delta.Units.Unit)">Division(Unit, Unit)</h4>
+              <div class="markdown level1 summary"><p>Implements the operator / on two units.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Unit operator /(Unit left, Unit right)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>left</em></td>
+                    <td><p>The left operand.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>right</em></td>
+                    <td><p>The right operand.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><p>The result of the operator.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L217">View Source</a>
+              </span>
+              <h4 id="operators" data-uid="Delta.Units.Unit.op_ExclusiveOr(Delta.Units.Unit,System.Int32)">ExclusiveOr(Unit, Int32)</h4>
+              <div class="markdown level1 summary"><p>Implements the operator ^ on a unit and an integer exponent. NB: always enclose these expressions in parentheses.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Unit operator ^(Unit unit, int exponent)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>unit</em></td>
+                    <td><p>The unit.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+                    <td><em>exponent</em></td>
+                    <td><p>The exponent.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><p>The result of the operator.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L227">View Source</a>
+              </span>
+              <h4 id="operators" data-uid="Delta.Units.Unit.op_Multiply(Delta.Units.Unit,Delta.Units.Unit)">Multiply(Unit, Unit)</h4>
+              <div class="markdown level1 summary"><p>Implements the operator * on two units.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Unit operator *(Unit left, Unit right)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>left</em></td>
+                    <td><p>The left operand.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>right</em></td>
+                    <td><p>The right operand.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><p>The result of the operator.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L247">View Source</a>
+              </span>
+              <h4 id="operators" data-uid="Delta.Units.Unit.op_Multiply(Delta.Units.Unit,System.Decimal)">Multiply(Unit, Decimal)</h4>
+              <div class="markdown level1 summary"><p>Implements the operator * on a unit and a <see cref="!:System.Decimal"></see> number.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Quantity operator *(Unit left, decimal right)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>left</em></td>
+                    <td><p>The left operand.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+                    <td><em>right</em></td>
+                    <td><p>The right operand.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Quantity.html">Quantity</a></td>
+                    <td><p>The result of the operator.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L271">View Source</a>
+              </span>
+              <h4 id="operators" data-uid="Delta.Units.Unit.op_Multiply(Delta.Units.Unit,System.Double)">Multiply(Unit, Double)</h4>
+              <div class="markdown level1 summary"><p>Implements the operator * on a unit and a <see cref="!:System.Double"></see> number.
+NB: internally the <see cref="!:System.Double"></see> operand is converted to <see cref="!:System.Decimal"></see>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Quantity operator *(Unit left, double right)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>left</em></td>
+                    <td><p>The left operand.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a></td>
+                    <td><em>right</em></td>
+                    <td><p>The right operand.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Quantity.html">Quantity</a></td>
+                    <td><p>The result of the operator.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L298">View Source</a>
+              </span>
+              <h4 id="operators" data-uid="Delta.Units.Unit.op_Multiply(Delta.Units.Unit,System.Int32)">Multiply(Unit, Int32)</h4>
+              <div class="markdown level1 summary"><p>Implements the operator * on a unit and a <see cref="!:System.Int32"></see> number.
+NB: internally the <see cref="!:System.Int32"></see> operand is converted to <see cref="!:System.Decimal"></see>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Quantity operator *(Unit left, int right)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>left</em></td>
+                    <td><p>The left.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+                    <td><em>right</em></td>
+                    <td><p>The right.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Quantity.html">Quantity</a></td>
+                    <td><p>The result of the operator.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L257">View Source</a>
+              </span>
+              <h4 id="operators" data-uid="Delta.Units.Unit.op_Multiply(System.Decimal,Delta.Units.Unit)">Multiply(Decimal, Unit)</h4>
+              <div class="markdown level1 summary"><p>Implements the operator * on a <see cref="!:System.Decimal"></see> number and a unit.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Quantity operator *(decimal left, Unit right)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+                    <td><em>left</em></td>
+                    <td><p>The left operand.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>right</em></td>
+                    <td><p>The right operand.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Quantity.html">Quantity</a></td>
+                    <td><p>The result of the operator.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L282">View Source</a>
+              </span>
+              <h4 id="operators" data-uid="Delta.Units.Unit.op_Multiply(System.Double,Delta.Units.Unit)">Multiply(Double, Unit)</h4>
+              <div class="markdown level1 summary"><p>Implements the operator * on a <see cref="!:System.Double"></see> number and a unit.
+NB: internally the <see cref="!:System.Double"></see> operand is converted to <see cref="!:System.Decimal"></see>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Quantity operator *(double left, Unit right)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a></td>
+                    <td><em>left</em></td>
+                    <td><p>The left operand.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>right</em></td>
+                    <td><p>The right operand.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Quantity.html">Quantity</a></td>
+                    <td><p>The result of the operator.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L309">View Source</a>
+              </span>
+              <h4 id="operators" data-uid="Delta.Units.Unit.op_Multiply(System.Int32,Delta.Units.Unit)">Multiply(Int32, Unit)</h4>
+              <div class="markdown level1 summary"><p>Implements the operator * on a <see cref="!:System.Int32"></see> number and a unit.
+NB: internally the <see cref="!:System.Int32"></see> operand is converted to <see cref="!:System.Decimal"></see>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static Quantity operator *(int left, Unit right)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+                    <td><em>left</em></td>
+                    <td><p>The left.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>right</em></td>
+                    <td><p>The right.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Quantity.html">Quantity</a></td>
+                    <td><p>The result of the operator.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="extensionmethods">Extension Methods</h3>
+              <div>
+                  <a class="xref" href="Delta.Units.Extensions.html">Extensions.IsCompatibleWith(Unit)</a>
+              </div>
+              <div>
+                  <a class="xref" href="Delta.Units.Extensions.html">Extensions.ConvertTo(Decimal, Unit)</a>
+              </div>
+              <div>
+                  <a class="xref" href="Delta.Units.Extensions.html">Extensions.IsNone()</a>
+              </div>
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Unit.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 William E. Kempf<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

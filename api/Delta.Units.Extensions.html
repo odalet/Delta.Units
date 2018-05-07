@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Extensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Extensions
+   ">
+    <meta name="generator" content="docfx 2.35.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/font-awesome.min.css">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" src="../images/delta-64.png" height="32" width="32" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content">
+              
+              
+              <h1 id="" data-uid="Delta.Units.Extensions">Class Extensions
+              </h1>
+              <div class="markdown level0 summary"><p>Set of useful extension methods</p>
+</div>
+              <div class="markdown level0 conceptual"></div>
+              <div class="inheritance">
+                <h5>Inheritance</h5>
+                  <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+                  <div class="level1"><span class="xref">Extensions</span></div>
+              </div>
+              <h6><strong>Namespace</strong>:Delta.Units</h6>
+              <h6><strong>Assembly</strong>:Delta.Units.dll</h6>
+              <h5 id="_syntax">Syntax</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static class Extensions : object</code></pre>
+              </div>
+              <h3 id="methods">Methods
+              </h3>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Extensions.cs/#L65">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Extensions.ConvertTo(Delta.Units.Unit,System.Decimal,Delta.Units.Unit)">ConvertTo(Unit, Decimal, Unit)</h4>
+              <div class="markdown level1 summary"><p>Converts the specified <code data-dev-comment-type="paramref" class="paramref">value</code> expressed in the <code data-dev-comment-type="paramref" class="paramref">unit</code> unit to a value expressed in the <code data-dev-comment-type="paramref" class="paramref">other</code> unit.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static decimal ConvertTo(this Unit unit, decimal value, Unit other)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>unit</em></td>
+                    <td><p>The value's unit.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+                    <td><em>value</em></td>
+                    <td><p>The value.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>other</em></td>
+                    <td><p>The converted value's unit.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+                    <td><p>A value equivalent to <code data-dev-comment-type="paramref" class="paramref">value</code>, but expressed using <code data-dev-comment-type="paramref" class="paramref">other</code> unit.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Extensions.cs/#L16">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Extensions.GetBaseDimensionSymbol(System.Int32)">GetBaseDimensionSymbol(Int32)</h4>
+              <div class="markdown level1 summary"><p>Gets the symbol associated with the base dimension at the specified index.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static string GetBaseDimensionSymbol(int index)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+                    <td><em>index</em></td>
+                    <td><p>The base dimension index.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><p>A string containing the symbol associated with the requested base dimension.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Extensions.cs/#L23">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Extensions.GetFormulaAsString(Delta.Units.Dimension)">GetFormulaAsString(Dimension)</h4>
+              <div class="markdown level1 summary"><p>Gets a string representation of the specified dimension.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static string GetFormulaAsString(this Dimension dimension)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Dimension.html">Dimension</a></td>
+                    <td><em>dimension</em></td>
+                    <td><p>The dimension.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+                    <td><p>A string containing a human-readable representation of <code data-dev-comment-type="paramref" class="paramref">dimension</code>.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Extensions.cs/#L56">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Extensions.IsCompatibleWith(Delta.Units.Unit,Delta.Units.Unit)">IsCompatibleWith(Unit, Unit)</h4>
+              <div class="markdown level1 summary"><p>Determines whether the two specified units are compatible (ie they share the same dimension formula).</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static bool IsCompatibleWith(this Unit unit, Unit other)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>unit</em></td>
+                    <td><p>A unit.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>other</em></td>
+                    <td><p>Another unit.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+                    <td><p><code>true</code> if the units are compatible; otherwise, <code>false</code>.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Extensions.cs/#L84">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Extensions.IsNone(Delta.Units.Dimension)">IsNone(Dimension)</h4>
+              <div class="markdown level1 summary"><p>Determines whether the specified dimension represents a dimensionless quantity.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static bool IsNone(this Dimension dimension)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Dimension.html">Dimension</a></td>
+                    <td><em>dimension</em></td>
+                    <td><p>The dimension to test.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+                    <td><p><code>true</code> if the specified dimension is dimensionless; otherwise, <code>false</code>.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Extensions.cs/#L74">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Extensions.IsNone(Delta.Units.DimensionFormula)">IsNone(DimensionFormula)</h4>
+              <div class="markdown level1 summary"><p>Determines whether the specified dimension formula represents a dimensionless quantity.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static bool IsNone(this DimensionFormula formula)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.DimensionFormula.html">DimensionFormula</a></td>
+                    <td><em>formula</em></td>
+                    <td><p>The diemnsion formula to test.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+                    <td><p><code>true</code> if the specified dimension formula is dimensionless; otherwise, <code>false</code>.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Extensions.cs/#L93">View Source</a>
+              </span>
+              <h4 id="methods" data-uid="Delta.Units.Extensions.IsNone(Delta.Units.Unit)">IsNone(Unit)</h4>
+              <div class="markdown level1 summary"><p>Determines whether the specified unit is dimensionless.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static bool IsNone(this Unit unit)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Delta.Units.Unit.html">Unit</a></td>
+                    <td><em>unit</em></td>
+                    <td><p>The unit to test.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+                    <td><p><code>true</code> if the specified unit is dimensionless; otherwise, <code>false</code>.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Extensions.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 William E. Kempf<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

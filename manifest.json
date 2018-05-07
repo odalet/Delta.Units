@@ -1,0 +1,384 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/HOME/DELTA/UNITS/Delta.Units/doc",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../License.md",
+      "output": {
+        ".html": {
+          "relative_path": "License.html",
+          "hash": "+ak/9gzkiEy/7rE6glVR6Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "VS2ANB4i8xiZFGcTjgTgBA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.BaseDimensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.BaseDimensions.html",
+          "hash": "S54ulxFLT6yBGs0WZ6w8SQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Dimension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Dimension.html",
+          "hash": "46oxVbo4r6/nV8lsuEMgPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.DimensionFormula.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.DimensionFormula.html",
+          "hash": "Fqt04f/eZLCy+FtNeQfKvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Extensions.html",
+          "hash": "b1zjwFNMpZTM735LJnzvVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Globalization.DefaultUnitTranslationProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Globalization.DefaultUnitTranslationProvider.html",
+          "hash": "LwuD+RwHLAS47u+8WWV0bA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Globalization.IUnitTranslationProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Globalization.IUnitTranslationProvider.html",
+          "hash": "ziyUD9cT/S3+/v3TRYKbEA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Globalization.QuantityFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Globalization.QuantityFormatter.html",
+          "hash": "Eu7Fwc2P8RRiPFRJBnfe1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Globalization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Globalization.html",
+          "hash": "niw+HXTU4uzt+PiIuDnxBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Quantity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Quantity.html",
+          "hash": "EFKGHb6ZlV3cGyMWbY7C8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.SpecialCharacters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.SpecialCharacters.html",
+          "hash": "DIQOpbGJWxhW00B17Z9Ghg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.Aliases.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.Aliases.html",
+          "hash": "Ey4gsxsye7L3ol146Vnrew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.Dimensionless.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.Dimensionless.html",
+          "hash": "CyJWPOpMpkJHC566pUli3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.Imperial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.Imperial.html",
+          "hash": "LanTlEHhxFbkeb7tOvIf8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.SI.Area.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.SI.Area.html",
+          "hash": "nP7bPYsxGGCPPUWo379Q3g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.SI.Prefixes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.SI.Prefixes.html",
+          "hash": "nollIdBUhJp0Eh4igoASDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.SI.Velocity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.SI.Velocity.html",
+          "hash": "xiGzIQ3DNVsdY4rBuKPUsQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.SI.Volume.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.SI.Volume.html",
+          "hash": "sN3rtxnn1DEgkHMOgytm+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.SI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.SI.html",
+          "hash": "Oq1kuQnDvZKUyUwAOINTMQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.SIPrefix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.SIPrefix.html",
+          "hash": "ZU/9ijIqHATvDA77DO58aQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Systems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Systems.html",
+          "hash": "XMvGqn+UJ6ojIlp5ViDr8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.Unit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.Unit.html",
+          "hash": "6FEanWNv4SUo4X5tG13l+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Delta.Units.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Delta.Units.html",
+          "hash": "hCgd45tNCmhEUx7a0HWKTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "ieSk7RPcM+kdzcw1u1waDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/delta-64.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/delta-64.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "86lLjMTDmyvMp8P3ILldhw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "TSaqSHiq4VFFP3gCT8083A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
