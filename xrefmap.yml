@@ -522,6 +522,23 @@ references:
   isSpec: "True"
   fullName: Delta.Units.DimensionFormula.None
   nameWithType: DimensionFormula.None
+- uid: Delta.Units.DimensionFormula.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Delta.Units.DimensionFormula.html
+  commentId: M:Delta.Units.DimensionFormula.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Delta.Units.DimensionFormula.System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: DimensionFormula.IEnumerable.GetEnumerator()
+  nameWithType.vb: DimensionFormula.System.Collections.IEnumerable.GetEnumerator()
+- uid: Delta.Units.DimensionFormula.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Delta.Units.DimensionFormula.html
+  commentId: Overload:Delta.Units.DimensionFormula.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Delta.Units.DimensionFormula.System.Collections.IEnumerable.GetEnumerator
+  nameWithType: DimensionFormula.IEnumerable.GetEnumerator
+  nameWithType.vb: DimensionFormula.System.Collections.IEnumerable.GetEnumerator
 - uid: Delta.Units.DimensionFormula.T
   name: T
   href: api/Delta.Units.DimensionFormula.html
@@ -695,12 +712,12 @@ references:
   isSpec: "True"
   fullName: Delta.Units.Globalization.DefaultUnitTranslationProvider.Current
   nameWithType: DefaultUnitTranslationProvider.Current
-- uid: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateName(Delta.Units.Unit,CultureInfo)
+- uid: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateName(Delta.Units.Unit,System.Globalization.CultureInfo)
   name: IUnitTranslationProvider.TranslateName(Unit, CultureInfo)
   href: api/Delta.Units.Globalization.DefaultUnitTranslationProvider.html
-  commentId: M:Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateName(Delta.Units.Unit,CultureInfo)
+  commentId: M:Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateName(Delta.Units.Unit,System.Globalization.CultureInfo)
   name.vb: Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Unit, CultureInfo)
-  fullName: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Delta.Units.Unit, CultureInfo)
+  fullName: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Delta.Units.Unit, System.Globalization.CultureInfo)
   nameWithType: DefaultUnitTranslationProvider.IUnitTranslationProvider.TranslateName(Unit, CultureInfo)
   nameWithType.vb: DefaultUnitTranslationProvider.Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Unit, CultureInfo)
 - uid: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateName*
@@ -712,12 +729,12 @@ references:
   fullName: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta.Units.Globalization.IUnitTranslationProvider.TranslateName
   nameWithType: DefaultUnitTranslationProvider.IUnitTranslationProvider.TranslateName
   nameWithType.vb: DefaultUnitTranslationProvider.Delta.Units.Globalization.IUnitTranslationProvider.TranslateName
-- uid: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateSymbol(Delta.Units.Unit,CultureInfo)
+- uid: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateSymbol(Delta.Units.Unit,System.Globalization.CultureInfo)
   name: IUnitTranslationProvider.TranslateSymbol(Unit, CultureInfo)
   href: api/Delta.Units.Globalization.DefaultUnitTranslationProvider.html
-  commentId: M:Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateSymbol(Delta.Units.Unit,CultureInfo)
+  commentId: M:Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateSymbol(Delta.Units.Unit,System.Globalization.CultureInfo)
   name.vb: Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Unit, CultureInfo)
-  fullName: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Delta.Units.Unit, CultureInfo)
+  fullName: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Delta.Units.Unit, System.Globalization.CultureInfo)
   nameWithType: DefaultUnitTranslationProvider.IUnitTranslationProvider.TranslateSymbol(Unit, CultureInfo)
   nameWithType.vb: DefaultUnitTranslationProvider.Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Unit, CultureInfo)
 - uid: Delta.Units.Globalization.DefaultUnitTranslationProvider.Delta#Units#Globalization#IUnitTranslationProvider#TranslateSymbol*
@@ -735,11 +752,11 @@ references:
   commentId: T:Delta.Units.Globalization.IUnitTranslationProvider
   fullName: Delta.Units.Globalization.IUnitTranslationProvider
   nameWithType: IUnitTranslationProvider
-- uid: Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Delta.Units.Unit,CultureInfo)
+- uid: Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Delta.Units.Unit,System.Globalization.CultureInfo)
   name: TranslateName(Unit, CultureInfo)
   href: api/Delta.Units.Globalization.IUnitTranslationProvider.html
-  commentId: M:Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Delta.Units.Unit,CultureInfo)
-  fullName: Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Delta.Units.Unit, CultureInfo)
+  commentId: M:Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Delta.Units.Unit,System.Globalization.CultureInfo)
+  fullName: Delta.Units.Globalization.IUnitTranslationProvider.TranslateName(Delta.Units.Unit, System.Globalization.CultureInfo)
   nameWithType: IUnitTranslationProvider.TranslateName(Unit, CultureInfo)
 - uid: Delta.Units.Globalization.IUnitTranslationProvider.TranslateName*
   name: TranslateName
@@ -748,11 +765,11 @@ references:
   isSpec: "True"
   fullName: Delta.Units.Globalization.IUnitTranslationProvider.TranslateName
   nameWithType: IUnitTranslationProvider.TranslateName
-- uid: Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Delta.Units.Unit,CultureInfo)
+- uid: Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Delta.Units.Unit,System.Globalization.CultureInfo)
   name: TranslateSymbol(Unit, CultureInfo)
   href: api/Delta.Units.Globalization.IUnitTranslationProvider.html
-  commentId: M:Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Delta.Units.Unit,CultureInfo)
-  fullName: Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Delta.Units.Unit, CultureInfo)
+  commentId: M:Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Delta.Units.Unit,System.Globalization.CultureInfo)
+  fullName: Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol(Delta.Units.Unit, System.Globalization.CultureInfo)
   nameWithType: IUnitTranslationProvider.TranslateSymbol(Unit, CultureInfo)
 - uid: Delta.Units.Globalization.IUnitTranslationProvider.TranslateSymbol*
   name: TranslateSymbol
@@ -767,11 +784,11 @@ references:
   commentId: T:Delta.Units.Globalization.QuantityFormatter
   fullName: Delta.Units.Globalization.QuantityFormatter
   nameWithType: QuantityFormatter
-- uid: Delta.Units.Globalization.QuantityFormatter.Format(Delta.Units.Quantity,System.String,IFormatProvider)
+- uid: Delta.Units.Globalization.QuantityFormatter.Format(Delta.Units.Quantity,System.String,System.IFormatProvider)
   name: Format(Quantity, String, IFormatProvider)
   href: api/Delta.Units.Globalization.QuantityFormatter.html
-  commentId: M:Delta.Units.Globalization.QuantityFormatter.Format(Delta.Units.Quantity,System.String,IFormatProvider)
-  fullName: Delta.Units.Globalization.QuantityFormatter.Format(Delta.Units.Quantity, System.String, IFormatProvider)
+  commentId: M:Delta.Units.Globalization.QuantityFormatter.Format(Delta.Units.Quantity,System.String,System.IFormatProvider)
+  fullName: Delta.Units.Globalization.QuantityFormatter.Format(Delta.Units.Quantity, System.String, System.IFormatProvider)
   nameWithType: QuantityFormatter.Format(Quantity, String, IFormatProvider)
 - uid: Delta.Units.Globalization.QuantityFormatter.Format*
   name: Format
@@ -1015,11 +1032,11 @@ references:
   commentId: M:Delta.Units.Quantity.ToString
   fullName: Delta.Units.Quantity.ToString()
   nameWithType: Quantity.ToString()
-- uid: Delta.Units.Quantity.ToString(IFormatProvider)
+- uid: Delta.Units.Quantity.ToString(System.IFormatProvider)
   name: ToString(IFormatProvider)
   href: api/Delta.Units.Quantity.html
-  commentId: M:Delta.Units.Quantity.ToString(IFormatProvider)
-  fullName: Delta.Units.Quantity.ToString(IFormatProvider)
+  commentId: M:Delta.Units.Quantity.ToString(System.IFormatProvider)
+  fullName: Delta.Units.Quantity.ToString(System.IFormatProvider)
   nameWithType: Quantity.ToString(IFormatProvider)
 - uid: Delta.Units.Quantity.ToString(System.String)
   name: ToString(String)
@@ -1027,11 +1044,11 @@ references:
   commentId: M:Delta.Units.Quantity.ToString(System.String)
   fullName: Delta.Units.Quantity.ToString(System.String)
   nameWithType: Quantity.ToString(String)
-- uid: Delta.Units.Quantity.ToString(System.String,IFormatProvider)
+- uid: Delta.Units.Quantity.ToString(System.String,System.IFormatProvider)
   name: ToString(String, IFormatProvider)
   href: api/Delta.Units.Quantity.html
-  commentId: M:Delta.Units.Quantity.ToString(System.String,IFormatProvider)
-  fullName: Delta.Units.Quantity.ToString(System.String, IFormatProvider)
+  commentId: M:Delta.Units.Quantity.ToString(System.String,System.IFormatProvider)
+  fullName: Delta.Units.Quantity.ToString(System.String, System.IFormatProvider)
   nameWithType: Quantity.ToString(String, IFormatProvider)
 - uid: Delta.Units.Quantity.ToString*
   name: ToString
@@ -1911,21 +1928,21 @@ references:
   commentId: M:Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit)
   fullName: Delta.Units.Unit.Unit(System.String, System.String, Delta.Units.Unit)
   nameWithType: Unit.Unit(String, String, Unit)
-- uid: Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit,Func{System.Decimal,System.Decimal},Func{System.Decimal,System.Decimal})
-  name: Unit(String, String, Unit, Func<Decimal, Decimal>, Func<Decimal, Decimal>)
-  href: api/Delta.Units.Unit.html
-  commentId: M:Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit,Func{System.Decimal,System.Decimal},Func{System.Decimal,System.Decimal})
-  name.vb: Unit(String, String, Unit, Func(Of Decimal, Decimal), Func(Of Decimal, Decimal))
-  fullName: Delta.Units.Unit.Unit(System.String, System.String, Delta.Units.Unit, Func<System.Decimal, System.Decimal>, Func<System.Decimal, System.Decimal>)
-  fullName.vb: Delta.Units.Unit.Unit(System.String, System.String, Delta.Units.Unit, Func(Of System.Decimal, System.Decimal), Func(Of System.Decimal, System.Decimal))
-  nameWithType: Unit.Unit(String, String, Unit, Func<Decimal, Decimal>, Func<Decimal, Decimal>)
-  nameWithType.vb: Unit.Unit(String, String, Unit, Func(Of Decimal, Decimal), Func(Of Decimal, Decimal))
 - uid: Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit,System.Decimal)
   name: Unit(String, String, Unit, Decimal)
   href: api/Delta.Units.Unit.html
   commentId: M:Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit,System.Decimal)
   fullName: Delta.Units.Unit.Unit(System.String, System.String, Delta.Units.Unit, System.Decimal)
   nameWithType: Unit.Unit(String, String, Unit, Decimal)
+- uid: Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit,System.Func{System.Decimal,System.Decimal},System.Func{System.Decimal,System.Decimal})
+  name: Unit(String, String, Unit, Func<Decimal, Decimal>, Func<Decimal, Decimal>)
+  href: api/Delta.Units.Unit.html
+  commentId: M:Delta.Units.Unit.#ctor(System.String,System.String,Delta.Units.Unit,System.Func{System.Decimal,System.Decimal},System.Func{System.Decimal,System.Decimal})
+  name.vb: Unit(String, String, Unit, Func(Of Decimal, Decimal), Func(Of Decimal, Decimal))
+  fullName: Delta.Units.Unit.Unit(System.String, System.String, Delta.Units.Unit, System.Func<System.Decimal, System.Decimal>, System.Func<System.Decimal, System.Decimal>)
+  fullName.vb: Delta.Units.Unit.Unit(System.String, System.String, Delta.Units.Unit, System.Func(Of System.Decimal, System.Decimal), System.Func(Of System.Decimal, System.Decimal))
+  nameWithType: Unit.Unit(String, String, Unit, Func<Decimal, Decimal>, Func<Decimal, Decimal>)
+  nameWithType.vb: Unit.Unit(String, String, Unit, Func(Of Decimal, Decimal), Func(Of Decimal, Decimal))
 - uid: Delta.Units.Unit.#ctor*
   name: Unit
   href: api/Delta.Units.Unit.html
@@ -2131,11 +2148,11 @@ references:
   commentId: M:Delta.Units.Unit.ToString
   fullName: Delta.Units.Unit.ToString()
   nameWithType: Unit.ToString()
-- uid: Delta.Units.Unit.ToString(IFormatProvider)
+- uid: Delta.Units.Unit.ToString(System.IFormatProvider)
   name: ToString(IFormatProvider)
   href: api/Delta.Units.Unit.html
-  commentId: M:Delta.Units.Unit.ToString(IFormatProvider)
-  fullName: Delta.Units.Unit.ToString(IFormatProvider)
+  commentId: M:Delta.Units.Unit.ToString(System.IFormatProvider)
+  fullName: Delta.Units.Unit.ToString(System.IFormatProvider)
   nameWithType: Unit.ToString(IFormatProvider)
 - uid: Delta.Units.Unit.ToString(System.String)
   name: ToString(String)
@@ -2143,11 +2160,11 @@ references:
   commentId: M:Delta.Units.Unit.ToString(System.String)
   fullName: Delta.Units.Unit.ToString(System.String)
   nameWithType: Unit.ToString(String)
-- uid: Delta.Units.Unit.ToString(System.String,IFormatProvider)
+- uid: Delta.Units.Unit.ToString(System.String,System.IFormatProvider)
   name: ToString(String, IFormatProvider)
   href: api/Delta.Units.Unit.html
-  commentId: M:Delta.Units.Unit.ToString(System.String,IFormatProvider)
-  fullName: Delta.Units.Unit.ToString(System.String, IFormatProvider)
+  commentId: M:Delta.Units.Unit.ToString(System.String,System.IFormatProvider)
+  fullName: Delta.Units.Unit.ToString(System.String, System.IFormatProvider)
   nameWithType: Unit.ToString(String, IFormatProvider)
 - uid: Delta.Units.Unit.ToString*
   name: ToString

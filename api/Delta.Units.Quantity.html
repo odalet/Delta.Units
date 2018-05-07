@@ -71,13 +71,34 @@
               
               <h1 id="" data-uid="Delta.Units.Quantity">Class Quantity
               </h1>
-              <div class="markdown level0 summary"><p>A quantity stores a pair consisting of a <see cref="!:System.Decimal"></see> value and a <a class="xref" href="Delta.Units.Unit.html">Unit</a>.</p>
+              <div class="markdown level0 summary"><p>A quantity stores a pair consisting of a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.decimal">Decimal</a> value and a <a class="xref" href="Delta.Units.Unit.html">Unit</a>.</p>
 </div>
               <div class="markdown level0 conceptual"></div>
               <div class="inheritance">
                 <h5>Inheritance</h5>
                   <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
                   <div class="level1"><span class="xref">Quantity</span></div>
+              </div>
+              <div class="inheritedMembers">
+                <h5>Inherited Members</h5>
+                <div>
+                  <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+                </div>
+                <div>
+                  <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+                </div>
+                <div>
+                  <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+                </div>
+                <div>
+                  <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+                </div>
+                <div>
+                  <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+                </div>
+                <div>
+                  <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+                </div>
               </div>
               <h6><strong>Namespace</strong>:Delta.Units</h6>
               <h6><strong>Assembly</strong>:Delta.Units.dll</h6>
@@ -86,7 +107,7 @@
                 <pre><code class="lang-csharp hljs">public sealed class Quantity : IFormattable</code></pre>
               </div>
               <h5 id="_remarks"><strong>Remarks</strong></h5>
-              <div class="markdown level0 remarks"><p>The <a class="xref" href="Delta.Units.Quantity.html">Quantity</a> types supports operators overloads that correctly compute the resulting unit and value.</p>
+              <div class="markdown level0 remarks"><p>The <a class="xref" href="Delta.Units.Quantity.html">Quantity</a> type supports operators overloads that correctly compute the resulting unit and value.</p>
 </div>
               <h3 id="constructors">Constructors
               </h3>
@@ -257,11 +278,13 @@ based on the specified <a class="xref" href="Delta.Units.Unit.html">Unit</a> and
                   </tr>
                 </tbody>
               </table>
+              <h5 class="overrides">Overrides</h5>
+              <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a></div>
               
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Quantity.cs/#L155">View Source</a>
               </span>
-              <h4 id="methods" data-uid="Delta.Units.Quantity.ToString(IFormatProvider)">ToString(IFormatProvider)</h4>
+              <h4 id="methods" data-uid="Delta.Units.Quantity.ToString(System.IFormatProvider)">ToString(IFormatProvider)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -279,7 +302,7 @@ based on the specified <a class="xref" href="Delta.Units.Unit.html">Unit</a> and
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">IFormatProvider</span></td>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></td>
                     <td><em>formatProvider</em></td>
                     <td></td>
                   </tr>
@@ -347,7 +370,7 @@ based on the specified <a class="xref" href="Delta.Units.Unit.html">Unit</a> and
               <span class="small pull-right mobile-hide">
                 <a href="https://github.com/odalet/Delta.Units/blob/master/Delta.Units/Quantity.cs/#L158">View Source</a>
               </span>
-              <h4 id="methods" data-uid="Delta.Units.Quantity.ToString(System.String,IFormatProvider)">ToString(String, IFormatProvider)</h4>
+              <h4 id="methods" data-uid="Delta.Units.Quantity.ToString(System.String,System.IFormatProvider)">ToString(String, IFormatProvider)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -370,7 +393,7 @@ based on the specified <a class="xref" href="Delta.Units.Unit.html">Unit</a> and
                     <td></td>
                   </tr>
                   <tr>
-                    <td><span class="xref">IFormatProvider</span></td>
+                    <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></td>
                     <td><em>formatProvider</em></td>
                     <td></td>
                   </tr>
@@ -391,6 +414,8 @@ based on the specified <a class="xref" href="Delta.Units.Unit.html">Unit</a> and
                   </tr>
                 </tbody>
               </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iformattable.tostring#System_IFormattable_ToString_System_String_System_IFormatProvider_">IFormattable.ToString(String, IFormatProvider)</a></div>
               <h3 id="operators">Operators
               </h3>
               
