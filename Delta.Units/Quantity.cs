@@ -45,7 +45,7 @@ namespace Delta.Units
 
         #region Operator Overloads
 
-        // double op quantity & quantity op double
+        // decimal op quantity & quantity op decimal
 
         /// <inheritdoc />
         public static Quantity operator +(Quantity left, decimal right) => right + left;
@@ -140,6 +140,10 @@ namespace Delta.Units
         public static Quantity operator -(Quantity left, Quantity right) => new Quantity(
                 left.Value - right.Unit.ConvertTo(right.Value, left.Unit),
                 left.Unit);
+
+        public static Quantity operator *(Quantity left, Quantity right) => new Quantity(
+            left.Value * right.Unit.ConvertTo(right.Value, left.Unit),
+            left.Unit * right.Unit);
 
         #endregion
 

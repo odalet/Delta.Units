@@ -20,7 +20,7 @@ namespace Delta.Units
         }
 
         [Fact]
-        public void ProprtionIsNone()
+        public void ProportionIsNone()
         {
             // proportions are defined as Amount / Amount
             Assert.True(u.IsNone());
