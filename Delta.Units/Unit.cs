@@ -71,7 +71,7 @@ namespace Delta.Units
         /// <param name="symbol">The symbol.</param>
         /// <param name="basedOn">The unit this unit is based on.</param>
         public Unit(string name, string symbol, Unit basedOn) : this(name, symbol, basedOn, x => x, x => x) { }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Unit"/> class from a name, symbol, another <see cref="Unit"/> and the multiplication factor
         /// allowing to convert the new unit to the specified base unit.
@@ -84,7 +84,8 @@ namespace Delta.Units
         /// <param name="basedOn">The unit this unit is based on.</param>
         /// <param name="toBaseUnitFactor">The factor that, when applied to a quantity expressed in this unit, converts it to the base unit.</param>
         public Unit(string name, string symbol, Unit basedOn, decimal toBaseUnitFactor) :
-            this(name, symbol, basedOn, x => x * toBaseUnitFactor, x => x / toBaseUnitFactor) { }
+            this(name, symbol, basedOn, x => x * toBaseUnitFactor, x => x / toBaseUnitFactor)
+        { }
 
         // Used to create simple derived units (ie units with the same dimension)
         /// <summary>
@@ -205,7 +206,7 @@ namespace Delta.Units
 
         // Beware, ^ priority is not the mathematical one! It should always be used with parens to avoid mistakes
         // This is because, natively, ^ is the XOR operator, not the pow one... I miss an ** operator in C# 
-        
+
         /// <summary>
         /// Implements the operator ^ on a unit and an integer exponent. NB: always enclose these expressions in parentheses.
         /// </summary>
@@ -345,14 +346,17 @@ namespace Delta.Units
         /// <returns>A value equivalent to <paramref name="value"/>, but expressed using <paramref name="to"/> unit.</returns>
         public static decimal Convert(decimal value, Unit from, Unit to)
         {
-            var fromUnit = from ?? Unit.None;
-            var toUnit = to ?? Unit.None;
+            var fromUnit = from ?? None;
+            var toUnit = to ?? None;
             if (!AreCompatible(from, to))
                 throw new InvalidOperationException($"Units {fromUnit} and {toUnit} are not compatible");
 
             // TODO: allow for inter-base units conversions
             if (!AreEqual(fromUnit.BaseUnits, toUnit.BaseUnits))
                 throw new InvalidOperationException($"Units {fromUnit} and {toUnit} do not share a common base unit");
+
+            if (fromUnit.Dimension != toUnit.Dimension)
+                throw new InvalidOperationException($"Units {fromUnit} and {toUnit} do not share the same dimension formula");
 
             var dim = fromUnit.Dimension;
             var temp = value;
@@ -361,12 +365,11 @@ namespace Delta.Units
                 var pow = dim.Formula[index];
                 if (pow == 0) continue;
 
-                var convert = Helpers.CombinePow(
-                    toUnit.FromBase[index], fromUnit.ToBase[index], // F, G
-                    toUnit.ToBase[index], fromUnit.FromBase[index], // F_, G_
-                    pow);
-
-                temp = convert(temp);
+                // We only look, at the sign of pow (not its value) so as to determine the direction of the conversion
+                // The value of the pow is already part of the conversion function (see CombineUnitsInto below)
+                temp = pow > 0 ?
+                    toUnit.FromBase[index](fromUnit.ToBase[index](temp)) :
+                    toUnit.ToBase[index](fromUnit.FromBase[index](temp));
             }
 
             return temp;
@@ -405,15 +408,15 @@ namespace Delta.Units
 
             for (var index = 0; index < BaseDimensions.Count; index++)
             {
-                var ldim = left.Dimension.Formula[index];
-                var rdim = right.Dimension.Formula[index];
+                var lpow = left.Dimension.Formula[index];
+                var rpow = right.Dimension.Formula[index];
 
-                var leftFrom = left.FromBase[index];
-                var rightFrom = right.FromBase[index];
-                var leftTo = left.ToBase[index];
-                var rightTo = right.ToBase[index];
+                var lfrom = left.FromBase[index]; // base -> left
+                var rfrom = right.FromBase[index]; // base -> right
+                var lto = left.ToBase[index]; // left -> base
+                var rto = right.ToBase[index]; // right -> base
 
-                if (ldim != 0 && rdim != 0)
+                if (lpow != 0 && rpow != 0)
                 {
                     // Both units have a component in this dimension; make sure it is the same base unit
                     if (left.BaseUnits[index] != right.BaseUnits[index])
@@ -423,23 +426,31 @@ namespace Delta.Units
                             $"Incompatible units: could not find a common base unit for dimension '{d}'");
                     }
 
-                    target.BaseUnits[index] = left.BaseUnits[index];
-                    // The enclosed 'leftFrom(rightTo(x))' expression below is equivalent 
-                    // to converting x from right unit to left unit for this dimension.
-                    target.FromBase[index] = x => leftFrom(leftFrom(rightTo(x)));
-                    target.ToBase[index] = x => leftTo(leftFrom(rightTo(x)));
+                    target.BaseUnits[index] = left.BaseUnits[index]; // == right.BaseUnits[index]
+
+                    Func<decimal, decimal> rightToLeft = x => lfrom(rto(x)); // This converts from the right to the left unit
+                    Func<decimal, decimal> leftToRight = x => rfrom(lto(x)); // This converts from the left to the right unit
+
+                    // The pow associated with target's base unit in the current dimension
+                    var pow = lpow + rpow;
+
+                    // new unit -> base^pow unit is: ((left -> base) ° (right -> left)) ^ pow
+                    target.ToBase[index] = Helpers.CombinePow(lto, rightToLeft, lfrom, leftToRight, pow);
+
+                    // new base^pow unit -> new unit is: ((right -> left) ° (base -> left)) ^ pow
+                    target.FromBase[index] = Helpers.CombinePow(lfrom, rightToLeft, lto, leftToRight, pow);
                 }
-                else if (ldim != 0)
+                else if (lpow != 0)
                 {
                     target.BaseUnits[index] = left.BaseUnits[index];
-                    target.FromBase[index] = leftFrom;
-                    target.ToBase[index] = leftTo;
+                    target.FromBase[index] = lfrom;
+                    target.ToBase[index] = lto;
                 }
-                else if (rdim != 0)
+                else if (rpow != 0)
                 {
                     target.BaseUnits[index] = right.BaseUnits[index];
-                    target.FromBase[index] = rightFrom;
-                    target.ToBase[index] = rightTo;
+                    target.FromBase[index] = rfrom;
+                    target.ToBase[index] = rto;
                 }
             }
         }

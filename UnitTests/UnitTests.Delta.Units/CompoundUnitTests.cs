@@ -48,13 +48,17 @@ namespace Delta.Units
         }
 
         [Fact]
-        public void SimpleConversions()
+        public void SimpleConversions1()
         { 
             var valueInMps = 1.1m; // 1.1 m/s
             var expectedValueInKmph = 3.96m; // 3.96 km/h
             var actualValueInKmph = mps.ConvertTo(valueInMps, kmph);
             Assert.Equal(expectedValueInKmph, actualValueInKmph);
+        }
 
+        [Fact]
+        public void SimpleConversions2()
+        {
             var valueInKmps = 4.4m;
             var expectedValueInMps = 1.22222m; // 1.22222...
             var actualValueInMps = Math.Round(kmph.ConvertTo(valueInKmps, mps), 5);
@@ -77,7 +81,9 @@ namespace Delta.Units
             var valueInMilePerMinute = kmph.ConvertTo(valueInKmph, milePerMinute);
             var valueInMilePerMinuteEx = kmph.ConvertTo(valueInKmph, milePerMinuteEx);
 
-            Assert.Equal(valueInMilePerMinute, valueInMilePerMinuteEx);
+            // Expected: 1.0356186537288899493623903100
+            // Actual:   1.0356186537288899493623902800
+            Assert.Equal(valueInMilePerMinute, valueInMilePerMinuteEx, 24);
         }
     }
 }

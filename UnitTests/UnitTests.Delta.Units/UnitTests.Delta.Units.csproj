@@ -7,6 +7,7 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\delta.units.snk</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
+    <RootNamespace>Delta.Units</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
