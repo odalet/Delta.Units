@@ -23,7 +23,7 @@
         // Gunter's survey units
         public static readonly Unit link = new Unit(_(nameof(link)), _(nameof(link)), inch, 7.92m);
         public static readonly Unit rod = new Unit(_(nameof(rod)), _(nameof(rod)), link, 25m);
-        
+
         // Maritime Length units
         public static readonly Unit fathom = new Unit(_(nameof(fathom)), "ftm", SI.metre, 1.852m);
         public static readonly Unit cable = new Unit(_(nameof(cable)), _(nameof(cable)), fathom, 100m);
@@ -42,15 +42,26 @@
         ///////////////////////////////////        
         // Volume units
 
-        public static readonly Unit fluid_ounce = new Unit(_(nameof(fluid_ounce)),"fl oz", SI.Volume.millilitre, 28.4130625m);
-        public static readonly Unit ounce = new Unit(_(nameof(ounce)),"oz", fluid_ounce); // alias of fl oz
-        public static readonly Unit gill = new Unit(_(nameof(gill)),"gi", fluid_ounce, 5m);
+        public static readonly Unit fluid_ounce = new Unit(_(nameof(fluid_ounce)), "fl oz", SI.Volume.millilitre, 28.4130625m);
+        public static readonly Unit gill = new Unit(_(nameof(gill)), "gi", fluid_ounce, 5m);
         public static readonly Unit pint = new Unit(_(nameof(pint)), "pt", fluid_ounce, 20m);
         public static readonly Unit quart = new Unit(_(nameof(quart)), "qt", fluid_ounce, 40m);
         public static readonly Unit gallon = new Unit(_(nameof(gallon)), "gal", fluid_ounce, 160m);
 
         public static readonly Unit cubic_inch = new Unit(_(nameof(cubic_inch)), "in" + SpecialCharacters.cubic, inch ^ 3);
 
+        ///////////////////////////////////        
+        // Mass units
+        public static readonly Unit pound = new Unit(_(nameof(pound)), "lb", SI.gram, 453.59237m);
+        public static readonly Unit grain = new Unit(_(nameof(grain)), "gr", pound, 1m / 7000m);
+        public static readonly Unit drachm = new Unit(_(nameof(drachm)), "dr", pound, 1m / 256m);
+        public static readonly Unit ounce = new Unit(_(nameof(ounce)), "oz", pound, 1m / 16m);
+        public static readonly Unit stone = new Unit(_(nameof(stone)), "st", pound, 14m);
+        public static readonly Unit quarter = new Unit(_(nameof(quarter)), "qr", pound, 28m);
+        public static readonly Unit hundredweight = new Unit(_(nameof(hundredweight)), "cwt", stone, 8m);
+        public static readonly Unit ton = new Unit(_(nameof(ton)), "t", hundredweight, 20m);
+
         private static string _(string name) => name.Replace('_', ' ');
+
     }
 }
