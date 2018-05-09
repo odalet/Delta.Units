@@ -3,7 +3,7 @@ using Xunit;
 using static Delta.Units.Systems.SI;
 using static Delta.Units.Systems.Imperial;
 
-namespace UnitTests.Delta.Units
+namespace Delta.Units
 {
     [ExcludeFromCodeCoverage]
     public class ImperialLengthTests

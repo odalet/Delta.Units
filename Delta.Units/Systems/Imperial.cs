@@ -36,6 +36,21 @@
         public static readonly Unit rood = new Unit(_(nameof(rood)), _(nameof(rood)), furlong * rod);
         public static readonly Unit acre = new Unit(_(nameof(acre)), _(nameof(acre)), furlong * chain);
 
+        public static readonly Unit square_yard = new Unit(_(nameof(square_yard)), "yd²", yard * yard);
+        public static readonly Unit square_mile = new Unit(_(nameof(square_mile)), "mi²", mile * mile);
+
+        ///////////////////////////////////        
+        // Volume units
+
+        public static readonly Unit fluid_ounce = new Unit(_(nameof(fluid_ounce)),"fl oz", SI.Volume.millilitre, 28.4130625m);
+        public static readonly Unit ounce = new Unit(_(nameof(ounce)),"oz", fluid_ounce); // alias of fl oz
+        public static readonly Unit gill = new Unit(_(nameof(gill)),"gi", fluid_ounce, 5m);
+        public static readonly Unit pint = new Unit(_(nameof(pint)), "pt", fluid_ounce, 20m);
+        public static readonly Unit quart = new Unit(_(nameof(quart)), "qt", fluid_ounce, 40m);
+        public static readonly Unit gallon = new Unit(_(nameof(gallon)), "gal", fluid_ounce, 160m);
+
+        public static readonly Unit cubic_inch = new Unit(_(nameof(cubic_inch)), "in" + SpecialCharacters.cubic, inch ^ 3);
+
         private static string _(string name) => name.Replace('_', ' ');
     }
 }

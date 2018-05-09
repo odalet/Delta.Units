@@ -3,7 +3,7 @@ using static Delta.Units.Systems.SI.Area;
 using Xunit;
 using Delta.Units;
 
-namespace UnitTests.Delta.Units
+namespace Delta.Units
 {
     public class SIAreaTests
     {

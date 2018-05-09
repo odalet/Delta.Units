@@ -14,7 +14,7 @@
             public static readonly Unit square_micrometre = new Unit(_(nameof(square_micrometre)), SpecialCharacters.mu + "m²", micrometre * micrometre);
             public static readonly Unit square_kilometre = new Unit(_(nameof(square_kilometre)), "km²", kilometre * kilometre);
 
-            public static readonly Unit hectare = new Unit(nameof(hectare), "ha", square_metre, 10000m);
+            public static readonly Unit hectare = new Unit(nameof(hectare), "ha", metre * metre, 10000m);
             public static readonly Unit are = new Unit(nameof(are), "a", metre * metre, 100m);
 #pragma warning restore CS1591
         }

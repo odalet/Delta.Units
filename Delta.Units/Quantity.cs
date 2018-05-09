@@ -141,9 +141,29 @@ namespace Delta.Units
                 left.Value - right.Unit.ConvertTo(right.Value, left.Unit),
                 left.Unit);
 
+        /// <summary>
+        /// Implements the operator * on two quantities. This is the product of the values associated with a new <see cref="Unit"/> that is the
+        /// product of the two original units.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static Quantity operator *(Quantity left, Quantity right) => new Quantity(
-            left.Value * right.Unit.ConvertTo(right.Value, left.Unit),
-            left.Unit * right.Unit);
+            left.Value * right.Value, left.Unit * right.Unit);
+
+        /// <summary>
+        /// Implements the operator / on two quantities. This is the quotient of the values associated with a new <see cref="Unit"/> that is the
+        /// quotient of the two original units.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static Quantity operator /(Quantity left, Quantity right) => new Quantity(
+            left.Value / right.Value, left.Unit / right.Unit);
 
         #endregion
 
