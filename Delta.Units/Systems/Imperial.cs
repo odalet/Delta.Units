@@ -52,6 +52,7 @@
 
         ///////////////////////////////////        
         // Mass units
+
         public static readonly Unit pound = new Unit(_(nameof(pound)), "lb", SI.gram, 453.59237m);
         public static readonly Unit grain = new Unit(_(nameof(grain)), "gr", pound, 1m / 7000m);
         public static readonly Unit drachm = new Unit(_(nameof(drachm)), "dr", pound, 1m / 256m);
@@ -62,6 +63,5 @@
         public static readonly Unit ton = new Unit(_(nameof(ton)), "t", hundredweight, 20m);
 
         private static string _(string name) => name.Replace('_', ' ');
-
     }
 }

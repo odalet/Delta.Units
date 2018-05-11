@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Xunit;
-using static Delta.Units.Systems.SI;
 using static Delta.Units.Systems.Imperial;
+using static Delta.Units.Systems.SI;
 
 namespace Delta.Units
 {
