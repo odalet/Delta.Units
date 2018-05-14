@@ -2,6 +2,7 @@
 using System.Globalization;
 using Xunit;
 using static Delta.Units.Systems.SI;
+using static Delta.Units.Systems.SI.Area;
 
 namespace Delta.Units
 {
@@ -70,6 +71,27 @@ namespace Delta.Units
             var sum = q1 - q2;
 
             Assert.Equal(-1999, sum.Value); // the result is in metres
+        }
+
+        [Fact]
+        public void Quantity_product_is_product_of_values_and_product_of_units()
+        {
+            var q1 = 2 * metre;
+            var q2 = 3 * centimetre;
+            var q = q1 * q2;
+            var sqm = q.ConvertTo(square_metre);
+
+            Assert.Equal(0.06m, sqm.Value);
+        }
+
+        [Fact]
+        public void Quantity_quotient_is_quotient_of_values_and_quotient_of_units()
+        {
+            var q = 4 * square_metre;
+            var div = 2 * metre;
+            var result = q / div; // TODO: unit is represented as m²/m; should be simplified to m...
+
+            Assert.Equal(2m, result.Value);
         }
     }
 }

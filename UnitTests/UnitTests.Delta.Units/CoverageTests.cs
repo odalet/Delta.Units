@@ -110,26 +110,6 @@ namespace Delta.Units
         }
 
         [Fact]
-        public void CombinePow0IsConstant()
-        {
-            var function = Helpers.CombinePow(x => x * 2m, x => x * 2m, x => x / 2m, x => x / 2m, 0);
-            foreach (var d in Enumerable.Range(0, 10).Select(i => i / 10m))
-                Assert.Equal(1m, function(d));
-        }
-
-        [Fact]
-        public void CombinePowNullIsIdentity()
-        {
-            var func = Helpers.CombinePow(null, null, null, null, 1);
-            foreach (var d in Enumerable.Range(0, 10).Select(i => i / 10m))
-                Assert.Equal(d, func(d));
-
-            var func_ = Helpers.CombinePow(null, null, null, null, -1);
-            foreach (var d in Enumerable.Range(0, 10).Select(i => i / 10m))
-                Assert.Equal(d, func_(d));
-        }
-
-        [Fact]
         public void UnitIsNone()
         {
             Assert.True(((Unit)null).IsNone());

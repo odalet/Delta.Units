@@ -93,7 +93,7 @@ namespace Delta.Units
         /// the function that converts from this unit to the base unit and the inverse function.
         /// </summary>
         /// <remarks>
-        /// This constructor allows to create units realated by a factor.
+        /// This constructor allows to create units related by a factor.
         /// </remarks>
         /// <param name="name">The name.</param>
         /// <param name="symbol">The symbol.</param>
@@ -101,16 +101,16 @@ namespace Delta.Units
         /// <param name="convertToBaseUnit">The function that, when applied to a quantity expressed in this unit, converts it to the base unit.</param>
         /// <param name="convertFromBaseUnit">The function that, when applied to a quantity expressed in the base unit, converts it to this unit.</param>
         public Unit(string name, string symbol, Unit basedOn,
-            Func<decimal, decimal> convertToBaseUnit, Func<decimal, decimal> convertFromBaseUnit) :
+            Func<decimal, decimal> convertToBaseUnit, Func<decimal, decimal> convertFromBaseUnit) : 
             this(name, symbol, basedOn?.Dimension)
         {
-            for (var i = 0; i < BaseDimensions.Count; i++)
+            for (var index = 0; index < BaseDimensions.Count; index++)
             {
-                var index = i;
-                if (Dimension.Formula[index] == 0) continue;
-                BaseUnits[index] = (basedOn ?? None).BaseUnits[index];
-                FromBase[index] = basedOn == null ? convertFromBaseUnit : x => convertFromBaseUnit(basedOn.FromBase[index](x));
-                ToBase[index] = basedOn == null ? convertToBaseUnit : x => basedOn.ToBase[index](convertToBaseUnit(x));
+                var localIndex = index;
+                if (Dimension.Formula[localIndex] == 0) continue;
+                BaseUnits[localIndex] = (basedOn ?? None).BaseUnits[localIndex];
+                FromBase[localIndex] = basedOn == null ? convertFromBaseUnit : x => convertFromBaseUnit(basedOn.FromBase[localIndex](x));
+                ToBase[localIndex] = basedOn == null ? convertToBaseUnit : x => basedOn.ToBase[localIndex](convertToBaseUnit(x));
             }
         }
 
@@ -175,16 +175,7 @@ namespace Delta.Units
         /// </summary>
         /// <param name="exponent">The exponent.</param>
         /// <returns>A new <see cref="Unit"/>.</returns>
-        public Unit Pow(int exponent)
-        {
-            var newUnit = new Unit(
-                this.IsNone() ? string.Empty : $"{Name} ^ {exponent}",
-                this.IsNone() ? string.Empty : $"{Symbol}^{exponent}",
-                Dimension.Pow(exponent), false);
-
-            CombineUnitsInto(this, this, newUnit);
-            return newUnit;
-        }
+        public Unit Pow(int exponent) => ApplyPow(this, exponent);
 
         /// <summary>
         /// Multiplies this unit by the specified <paramref name="other"/> unit.
@@ -352,7 +343,7 @@ namespace Delta.Units
                 throw new InvalidOperationException($"Units {fromUnit} and {toUnit} are not compatible");
 
             // TODO: allow for inter-base units conversions
-            if (!AreEqual(fromUnit.BaseUnits, toUnit.BaseUnits))
+            if (!AreEquivalent(fromUnit.BaseUnits, toUnit.BaseUnits))
                 throw new InvalidOperationException($"Units {fromUnit} and {toUnit} do not share a common base unit");
 
             if (fromUnit.Dimension != toUnit.Dimension)
@@ -373,6 +364,31 @@ namespace Delta.Units
             }
 
             return temp;
+        }
+
+        private static Unit ApplyPow(Unit unit, int exponent)
+        {
+            if (exponent == 0) return None;
+            if (exponent == 1) return unit;
+            
+            var temp = new Unit("temp", "temp", unit);
+            var exp = (exponent > 0 ? exponent : -exponent) - 1;
+            while (exp > 0)
+            {
+                //var target = new Unit("target", "target", BaseDimensions.None, false);
+                //CombineUnitsInto(temp, unit, target);
+                //temp = target;
+                CombineUnitsInto(temp, unit, temp);
+                exp--;
+            }
+            
+            var newUnit = new Unit(
+                unit.IsNone() ? string.Empty : $"{unit.Name} ^ {exponent}",
+                unit.IsNone() ? string.Empty : $"{unit.Symbol}^{exponent}",
+                unit.Dimension.Pow(exponent), false);
+
+            CombineUnitsInto(temp, None, newUnit);
+            return newUnit;
         }
 
         private static Unit Multiply(Unit left, Unit right)
@@ -401,7 +417,7 @@ namespace Delta.Units
         {
             if (target.Dimension.IsNone()) // special case: we store the Identity in the Z dimension
             {
-                target.BaseUnits[DimensionFormulaIndices.z] = target;
+                target.BaseUnits[DimensionFormulaIndices.z] = None;
                 target.FromBase[DimensionFormulaIndices.z] = x => x;
                 target.ToBase[DimensionFormulaIndices.z] = x => x;
             }
@@ -428,17 +444,8 @@ namespace Delta.Units
 
                     target.BaseUnits[index] = left.BaseUnits[index]; // == right.BaseUnits[index]
 
-                    Func<decimal, decimal> rightToLeft = x => lfrom(rto(x)); // This converts from the right to the left unit
-                    Func<decimal, decimal> leftToRight = x => rfrom(lto(x)); // This converts from the left to the right unit
-
-                    // The pow associated with target's base unit in the current dimension
-                    var pow = lpow + rpow;
-
-                    // new unit -> base^pow unit is: ((left -> base) ° (right -> left)) ^ pow
-                    target.ToBase[index] = Helpers.CombinePow(lto, rightToLeft, lfrom, leftToRight, pow);
-
-                    // new base^pow unit -> new unit is: ((right -> left) ° (base -> left)) ^ pow
-                    target.FromBase[index] = Helpers.CombinePow(lfrom, rightToLeft, lto, leftToRight, pow);
+                    target.ToBase[index] = x => x * lto(1m) * rto(1m);
+                    target.FromBase[index] = x => x * lfrom(1m) * rfrom(1m);
                 }
                 else if (lpow != 0)
                 {
@@ -455,12 +462,15 @@ namespace Delta.Units
             }
         }
 
-        private static bool AreEqual(Unit[] leftBaseUnits, Unit[] rightBaseUnits)
+        private static bool AreEquivalent(Unit[] leftBaseUnits, Unit[] rightBaseUnits)
         {
             for (var index = 0; index < BaseDimensions.Count; index++)
             {
+                var leftBaseUnit = leftBaseUnits[index] ?? None;
+                var rightBaseUnit = rightBaseUnits[index] ?? None;
+
                 // TODO: Add == & != overloads
-                if (leftBaseUnits[index] != rightBaseUnits[index]) return false;
+                if (leftBaseUnit != rightBaseUnit) return false;
             }
 
             return true;
