@@ -49,7 +49,7 @@ jobs:
     - name: Build
       run: dotnet build "${{ env.SOLUTION }}" --configuration "${{ env.BUILD_CONFIGURATION }}" --no-restore
     - name: Test
-      run: dotnet test "${{ env.SOLUTION }}" --configuration "${{ env.BUILD_CONFIGURATION }}" --no-restore --no-build --logger trx --collect "Code Coverage" --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./TestResults/
+      run: dotnet test "${{ env.SOLUTION }}" --configuration "${{ env.BUILD_CONFIGURATION }}" --no-restore --no-build --logger trx --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./TestResults/
     - name: End Sonar Analysis
       run: dotnet sonarscanner end /d:sonar.login="${{secrets.SONAR_TOKEN}}"
       env:
