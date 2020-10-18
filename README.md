@@ -17,7 +17,7 @@ This is possible because, instead of storing a factor, the conversion (and inver
  
 ## History
 
-### [Version 0.5.0 - WIP](https://github.com/odalet/Delta.Units/releases/tag/v0.5.0)
+### [Version 0.5.0 - 2020/10/18](https://github.com/odalet/Delta.Units/releases/tag/v0.5.0)
 
 * Targets .NET Standard 2.0
 * License is now MIT
