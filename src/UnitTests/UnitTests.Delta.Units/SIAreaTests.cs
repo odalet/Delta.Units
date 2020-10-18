@@ -1,7 +1,5 @@
-﻿using static Delta.Units.Systems.SI;
+﻿using Xunit;
 using static Delta.Units.Systems.SI.Area;
-using Xunit;
-using Delta.Units;
 
 namespace Delta.Units
 {
@@ -16,10 +14,6 @@ namespace Delta.Units
             var oneAre = 1 * _a;
             var sqm = oneAre.ConvertTo(_m * _m);
             Assert.Equal(100m, sqm.Value);
-
-            //var oneAre = 1 * are;
-            //var sqm = oneAre.ConvertTo(metre * metre);
-            //Assert.Equal(100m, sqm.Value);
         }
 
         [Fact]

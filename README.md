@@ -24,7 +24,7 @@ This is possible because, instead of storing a factor, the conversion (and inver
 * Replaced appveyor CI with Github Actions
 * Replaced coveralls.io coverage platform with sonarcloud
 
-### [Version 0.4.0 - 2018/05*/18](https://github.com/odalet/Delta.Units/releases/tag/v0.4.0)
+### [Version 0.4.0 - 2018/05/18](https://github.com/odalet/Delta.Units/releases/tag/v0.4.0)
 
 * Initial Version. Targets .NET 4.0 and .NET Standard 1.0
 * License is Ms-RL

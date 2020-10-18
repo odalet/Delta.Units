@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Xunit;
 using Delta.Units.Systems;
+using Xunit;
 
 namespace Delta.Units
 {

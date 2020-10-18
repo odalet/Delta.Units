@@ -23,23 +23,19 @@
     <AdditionalFiles Include="..\.sonarlint\odalet_delta.units\CSharp\SonarLint.xml" Link="SonarLint.xml" />
     <None Include="../common/logo.png" Pack="true" PackagePath="\" />
   </ItemGroup>
-  
-  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-    <!-- Required in both test/product projects. This is a temporary workaround for https://github.com/Microsoft/vstest/issues/800 -->
-    <DebugType>Full</DebugType>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="GitVersionTask" Version="5.3.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.14.0.22654">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
-
 </Project>
