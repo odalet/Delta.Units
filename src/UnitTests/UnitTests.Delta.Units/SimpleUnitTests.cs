@@ -1,20 +1,11 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Delta.Units
 {
     [ExcludeFromCodeCoverage]
     public class SimpleUnitTests
     {
-        private readonly ITestOutputHelper output;
-
-        public SimpleUnitTests(ITestOutputHelper helper)
-        {
-            output = helper;
-        }
-
         [Fact]
         public void Compatibility()
         {
@@ -98,7 +89,7 @@ namespace Delta.Units
             var celsius = new Unit("celsius", "°C", kelvin, c => c + 273.15m, k => k - 273.15m);
             var fahrenheit = new Unit("fahrenheit", "°F", celsius,
                 f => (f - 32m) * (5m / 9m),
-                c => (9m / 5m) * c + 32m);
+                c => 9m / 5m * c + 32m);
 
             // K -> °C and °F
             var t1InK = 320.5m;

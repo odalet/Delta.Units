@@ -13,10 +13,7 @@ namespace Delta.Units
     {
         private readonly ITestOutputHelper output;
 
-        public DimensionTests(ITestOutputHelper helper)
-        {
-            output = helper;
-        }
+        public DimensionTests(ITestOutputHelper helper) => output = helper;
 
         [Fact]
         public void Pow()
@@ -43,7 +40,7 @@ namespace Delta.Units
             var none1 = none * none;
             var none2 = none ^ 5;
 
-            var nil = ((Dimension)null);
+            var nil = (Dimension)null;
             var none3 = nil ^ 4;
 
             output.WriteLine($"None: {none}"); // ""
@@ -212,8 +209,8 @@ namespace Delta.Units
             Assert.True(none1.Equals(null));
             Assert.True(none2.Equals(null));
 
-            Assert.Throws<NullReferenceException>(() => { try { ((Dimension)null).Equals(none1); } catch { throw; } });
-            Assert.Throws<NullReferenceException>(() => { try { ((Dimension)null).Equals(none2); } catch { throw; } });
+            _ = Assert.Throws<NullReferenceException>(() => { try { _ = ((Dimension)null).Equals(none1); } catch { throw; } });
+            _ = Assert.Throws<NullReferenceException>(() => { try { _ = ((Dimension)null).Equals(none2); } catch { throw; } });
         }
 
         [Fact]

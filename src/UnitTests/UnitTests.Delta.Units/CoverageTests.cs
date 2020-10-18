@@ -25,29 +25,19 @@ namespace Delta.Units
             var speed1 = m / s;
             var speed2 = yd / s;
 
-            Assert.Throws<InvalidOperationException>(() =>
+            _ = Assert.Throws<InvalidOperationException>(() =>
             {
                 var incorrect = speed1 * speed2;
             });
         }
 
         [Fact]
-        public void IncompatibleUnitsNoCommonBaseConversions()
-        {
-            Assert.Throws<InvalidOperationException>(() =>
-            {
-                var _ = m.ConvertTo(1m, yd);
-            });
-        }
+        public void IncompatibleUnitsNoCommonBaseConversions() =>
+            Assert.Throws<InvalidOperationException>(() => _ = m.ConvertTo(1m, yd));
 
         [Fact]
-        public void IncompatibleUnitsDifferentDimensionsConversions()
-        {
-            Assert.Throws<InvalidOperationException>(() =>
-            {
-                var _ = m.ConvertTo(1m, s);
-            });
-        }
+        public void IncompatibleUnitsDifferentDimensionsConversions() =>
+            Assert.Throws<InvalidOperationException>(() => _ = m.ConvertTo(1m, s));
 
         [Fact]
         public void NoneUnitsCanBeConvertedTo()
@@ -69,8 +59,8 @@ namespace Delta.Units
             Assert.Equal(1m, foo1.ConvertTo(1m, foo2));
 
             var d1 = (Unit)null / s;
-            var d2 = m / (Unit) null;
-            var d3 = (Unit) null / (Unit) null;
+            var d2 = m / (Unit)null;
+            var d3 = (Unit)null / (Unit)null;
 
             var m1 = (Unit)null * s;
             var m2 = m * (Unit)null;

@@ -15,9 +15,7 @@ namespace Delta.Units.Globalization
             {
                 var u = unit ?? Unit.None;
                 var isFrench = culture != null && culture.Name.StartsWith("fr");
-                if (isFrench && u.Name == "kilogram") return "kilogramme";
-
-                return u.Name;
+                return isFrench && u.Name == "kilogram" ? "kilogramme" : u.Name;
             }
 
             public string TranslateSymbol(Unit unit, CultureInfo culture)
@@ -29,15 +27,9 @@ namespace Delta.Units.Globalization
 
         private class FailingProvider : IUnitTranslationProvider
         {
-            public string TranslateName(Unit unit, CultureInfo culture)
-            {
-                throw new InvalidOperationException("TEST");
-            }
+            public string TranslateName(Unit unit, CultureInfo culture) => throw new InvalidOperationException("TEST");
 
-            public string TranslateSymbol(Unit unit, CultureInfo culture)
-            {
-                throw new InvalidOperationException("TEST");
-            }
+            public string TranslateSymbol(Unit unit, CultureInfo culture) => throw new InvalidOperationException("TEST");
         }
 
         [Fact]
@@ -55,12 +47,13 @@ namespace Delta.Units.Globalization
         }
 
         [Fact]
+        [SuppressMessage("Minor Code Smell", "S3626:Jump statements should not be redundant", Justification = "Required for the test")]
         public void DefaultTranslationProviderIsUsedWhenLocalTranslationThrows()
         {
             var meter = new Unit("american meter", "am", SI.metre)
             {
-                TranslateNameFunction = c => { throw new InvalidOperationException("TEST"); },
-                TranslateSymbolFunction = c => { throw new InvalidOperationException("TEST"); }
+                TranslateNameFunction = _ => throw new InvalidOperationException("TEST"),
+                TranslateSymbolFunction = _ => throw new InvalidOperationException("TEST")
             };
 
             var oneMeter = 1m * meter;

@@ -26,8 +26,7 @@ namespace Delta.Units
             var parts = dim.Formula
                 .Select((exp, index) =>
                 {
-                    if (exp == 0)
-                        return string.Empty;
+                    if (exp == 0) return string.Empty;
                     return exp == 1 ? GetBaseDimensionSymbol(index) : $"{GetBaseDimensionSymbol(index)}^{exp}";
                 })
                 .Where(s => !string.IsNullOrEmpty(s));

@@ -33,7 +33,7 @@ namespace Delta.Units.Globalization
         [Fact]
         public void FormatNoneUnitNoArgsTests()
         {
-            Unit none = Unit.None;
+            var none = Unit.None;
 
             var expected = string.Empty;
             var actual1 = UnitFormatter.Format(none, null, null);
@@ -246,8 +246,8 @@ namespace Delta.Units.Globalization
         public void FormatUnitInvalidFormatTests()
         {
             var kg = new Unit("kilogram", "kg", BaseDimensions.Mass);
-            Assert.Throws<FormatException>(() => kg.ToString("z"));
-            Assert.Throws<FormatException>(() => kg.ToString("zzzz"));
+            _ = Assert.Throws<FormatException>(() => kg.ToString("z"));
+            _ = Assert.Throws<FormatException>(() => kg.ToString("zzzz"));
         }
 
         [Fact]

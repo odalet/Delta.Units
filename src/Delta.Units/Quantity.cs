@@ -53,9 +53,9 @@ namespace Delta.Units
         public static Quantity operator +(decimal left, Quantity right) => new Quantity(left + right.Value, right.Unit);
 
         /// <inheritdoc />
-        public static Quantity operator -(Quantity left, decimal right) => (-1m * right) + left;
+        public static Quantity operator -(Quantity left, decimal right) => -1m * right + left;
         /// <inheritdoc />
-        public static Quantity operator -(decimal left, Quantity right) => (-1m * left) + right;
+        public static Quantity operator -(decimal left, Quantity right) => -1m * left + right;
 
         /// <inheritdoc />
         public static Quantity operator *(Quantity left, decimal right) => right * left;
@@ -63,9 +63,9 @@ namespace Delta.Units
         public static Quantity operator *(decimal left, Quantity right) => new Quantity(left * right.Value, right.Unit);
 
         /// <inheritdoc />
-        public static Quantity operator /(Quantity left, decimal right) => (1m / right) * left;
+        public static Quantity operator /(Quantity left, decimal right) => 1m / right * left;
         /// <inheritdoc />
-        public static Quantity operator /(decimal left, Quantity right) => (1m / left) * right;
+        public static Quantity operator /(decimal left, Quantity right) => 1m / left * right;
 
         // double-based overloads are defined so that it is easy for the user to define quantities.
         // Ho<ever beware of the precision and floating-point rounding issues

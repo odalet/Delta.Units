@@ -49,7 +49,7 @@ namespace Delta.Units
             var newFormula = Formula.Copy();
             for (var index = 0; index < newFormula.Count; index++)
                 newFormula[index] *= exponent;
-            
+
             return new Dimension(newName, newSymbol, newFormula);
         }
 
@@ -68,7 +68,7 @@ namespace Delta.Units
             var newFormula = Formula.Copy();
             for (var index = 0; index < newFormula.Count; index++)
                 newFormula[index] += operand.Formula[index];
-            
+
             return new Dimension(newName, newSymbol, newFormula);
         }
 
@@ -87,7 +87,7 @@ namespace Delta.Units
             var newFormula = Formula.Copy();
             for (var index = 0; index < newFormula.Count; index++)
                 newFormula[index] -= operand.Formula[index];
-            
+
             return new Dimension(newName, newSymbol, newFormula);
         }
 
@@ -96,16 +96,10 @@ namespace Delta.Units
         #region Comparison, Equality
 
         /// <inheritdoc />
-        public override bool Equals(object obj)
-        {
-            var other = obj as Dimension;
-            if (other is null) // Considered to be the 'None' dimension
-                return Formula.IsNone();
-
-            if (ReferenceEquals(this, other)) return true;
-
-            return Formula.Equals(other.Formula);
-        }
+        public override bool Equals(object obj) =>
+            obj is Dimension other ?
+            ReferenceEquals(this, other) || Formula.Equals(other.Formula) :
+            Formula.IsNone();
 
         /// <inheritdoc />
         public override int GetHashCode() => Formula.GetHashCode();

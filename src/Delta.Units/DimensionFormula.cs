@@ -189,8 +189,7 @@ namespace Delta.Units
         /// <inheritdoc />
         public override bool Equals(object obj)
         {
-            var other = obj as DimensionFormula;
-            if (other == null) // Considered to be the 'None' dimension
+            if (!(obj is DimensionFormula other)) // Considered to be the 'None' dimension
                 return this.IsNone();
 
             if (ReferenceEquals(this, other)) return true;
@@ -209,7 +208,7 @@ namespace Delta.Units
         public override int GetHashCode()
         {
             var hash = 0;
-            for (int index = 0; index < Count; index++)
+            for (var index = 0; index < Count; index++)
                 hash ^= exponents[index] * Helpers.Primes[index];
             return hash;
         }

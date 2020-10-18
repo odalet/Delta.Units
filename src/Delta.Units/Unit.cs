@@ -12,10 +12,7 @@ namespace Delta.Units
     {
         private class SpecificUnitTranslationProvider : IUnitTranslationProvider
         {
-            public SpecificUnitTranslationProvider(Unit unit)
-            {
-                Unit = unit;
-            }
+            public SpecificUnitTranslationProvider(Unit unit) => Unit = unit;
 
             private Unit Unit { get; }
 

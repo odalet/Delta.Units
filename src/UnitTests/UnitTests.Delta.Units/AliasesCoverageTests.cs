@@ -6,11 +6,12 @@ using static Delta.Units.Systems.Aliases;
 namespace Delta.Units
 {
     [ExcludeFromCodeCoverage]
+    [SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "OK in Unit Tests")]
     public class AliaseslessCoverageTests
     {
         // Length
 
-        [Fact]
+        [Fact]        
         public void m_is_metre()
         {
             var u1 = 1m * m;
