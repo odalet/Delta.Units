@@ -1,0 +1,15 @@
+{
+  "ServerUri": "https://sonarcloud.io/",
+  "Organization": {
+    "Key": "odalet",
+    "Name": "odalet"
+  },
+  "ProjectKey": "odalet_Delta.Units",
+  "ProjectName": "Delta.Units",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AXU77uMUuphU1dbotxjb",
+      "ProfileTimestamp": "2020-10-13T14:12:09Z"
+    }
+  }
+}
