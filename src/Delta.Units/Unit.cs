@@ -375,9 +375,6 @@ namespace Delta.Units
             var exp = (exponent > 0 ? exponent : -exponent) - 1;
             while (exp > 0)
             {
-                //var target = new Unit("target", "target", BaseDimensions.None, false);
-                //CombineUnitsInto(temp, unit, target);
-                //temp = target;
                 CombineUnitsInto(temp, unit, temp);
                 exp--;
             }

@@ -5,7 +5,7 @@ namespace TestApp
 {
     internal static class Program
     {
-        static void Main()
+        private static void Main()
         {
             var M = 0.01 * kg;            
 
@@ -18,7 +18,10 @@ namespace TestApp
             Console.WriteLine("s1 = " + s1);
             Console.WriteLine("s2 = " + s2);
 
-            Console.ReadKey();
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit");
+            _ = Console.ReadKey();
+
             ////var M = 0.001 * Kilogram;
             ////BaseUnit MeterPerSecond = Metre / Second;
             ////Quantity c = 299792458 * MeterPerSecond;
