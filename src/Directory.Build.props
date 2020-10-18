@@ -1,0 +1,29 @@
+<Project>
+  <!-- Reference: https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build?view=vs-2017 -->
+  <PropertyGroup>
+    <Authors>Olivier DALET</Authors>
+    <Company>Delta Software</Company>
+    <Product>Units Definition and Conversion Library</Product>
+    <Copyright>Delta Software - 2018</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/odalet/Delta.Units</PackageProjectUrl>
+    <PackageIcon>logo.png</PackageIcon>
+  </PropertyGroup>
+
+  <!-- https://github.com/clairernovotny/DeterministicBuilds -->
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- See https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#includesymbols -->
+    <IncludeSymbols>True</IncludeSymbols>
+    <IncludeSource>True</IncludeSource>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <!-- Source Link: https://github.com/dotnet/sourcelink/ -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+</Project>

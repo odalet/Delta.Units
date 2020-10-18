@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <!-- The root namespace must be kept this way (for compatibiliy purpose) -->
+    <RootNamespace>Delta.Units</RootNamespace>
+    <AssemblyName>UnitTests.Delta.Units</AssemblyName>
+    <Description>Delta.Units Unit Tests</Description>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../../common/delta.units.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>True</GenerateBindingRedirectsOutputType>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <SonarQubeTestProject>true</SonarQubeTestProject>    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GitVersionTask" Version="5.3.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.14.0.22654">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.msbuild" Version="2.9.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <!-- 
+    We explicitly reference a recent version of Microsoft.NET.Test.Sdk, because xunit.runner.visualstudio 
+    depends on version 15 which is achingly slow!
+    -->
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+    <PackageReference Include="Microsoft.CodeCoverage" Version="16.7.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Delta.Units\Delta.Units.csproj" />
+  </ItemGroup>
+
+</Project>

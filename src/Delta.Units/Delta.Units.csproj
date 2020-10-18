@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <!-- The root namespace must be kept this way (for compatibiliy purpose) -->
+    <RootNamespace>Delta.Units</RootNamespace>
+    <AssemblyName>Delta.Units</AssemblyName>
+    <Description>Units Definition and Conversion Library</Description>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../common/delta.units.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>True</GenerateBindingRedirectsOutputType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <SonarQubeExclude>false</SonarQubeExclude>
+    <SonarQubeTestProject>false</SonarQubeTestProject>
+    <CodeAnalysisRuleSet>..\.sonarlint\odalet_delta.unitscsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\odalet_delta.units\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+    <None Include="../common/logo.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GitVersionTask" Version="5.3.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.14.0.22654">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>
