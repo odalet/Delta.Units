@@ -34,12 +34,12 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9.3
+      uses: gittools/actions/gitversion/setup@v0.9.5
       with:
           versionSpec: '5.x' 
     - name: Use GitVersion
       id: gitversion # step id used as reference for output values
-      uses: gittools/actions/gitversion/execute@v0.9.3
+      uses: gittools/actions/gitversion/execute@v0.9.5
     - name: Install SonarScanner
       run: dotnet tool install --global dotnet-sonarscanner
     - name: Restore
