@@ -145,5 +145,29 @@ namespace Delta.Units
             Assert.Equal(q1.Value, q2.Value);
             Assert.Equal(q1.Unit.Name, q2.Unit.Name);
         }
+
+        [Fact]
+        public void Quantity_coverage_1() => Assert.Equal(52m, (42 * SI.metre + 10m).Value);
+
+        [Fact]
+        public void Quantity_coverage_2() => Assert.Equal(52m, (10m + 42 * SI.metre).Value);
+
+        [Fact]
+        public void Quantity_coverage_3() => Assert.Equal(32m, (42 * SI.metre - 10m).Value);
+
+        [Fact]
+        public void Quantity_coverage_4() => Assert.Equal(-32m, (10m - 42 * SI.metre).Value);
+
+        [Fact]
+        public void Quantity_coverage_5() => Assert.Equal(420m, (42 * SI.metre * 10m).Value);
+
+        [Fact]
+        public void Quantity_coverage_6() => Assert.Equal(420m, (10m * 42 * SI.metre).Value);
+
+        [Fact]
+        public void Quantity_coverage_7() => Assert.Equal(4.2m, (42 * SI.metre / 10m).Value);
+
+        [Fact]
+        public void Quantity_coverage_8() => Assert.Equal(4.2m, (42m / 10 * SI.metre).Value);
     }
 }

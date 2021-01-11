@@ -53,9 +53,9 @@ namespace Delta.Units
         public static Quantity operator +(decimal left, Quantity right) => new Quantity(left + right.Value, right.Unit);
 
         /// <inheritdoc />
-        public static Quantity operator -(Quantity left, decimal right) => -1m * right + left;
+        public static Quantity operator -(Quantity left, decimal right) => left + -right;
         /// <inheritdoc />
-        public static Quantity operator -(decimal left, Quantity right) => -1m * left + right;
+        public static Quantity operator -(decimal left, Quantity right) => left + -right;
 
         /// <inheritdoc />
         public static Quantity operator *(Quantity left, decimal right) => right * left;
@@ -164,6 +164,10 @@ namespace Delta.Units
         /// </returns>
         public static Quantity operator /(Quantity left, Quantity right) => new Quantity(
             left.Value / right.Value, left.Unit / right.Unit);
+
+        // Unary operators
+        public static Quantity operator +(Quantity q) => new Quantity(q.Value, q.Unit);
+        public static Quantity operator -(Quantity q) => new Quantity(-q.Value, q.Unit);
 
         #endregion
 
