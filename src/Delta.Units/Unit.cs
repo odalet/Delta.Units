@@ -343,9 +343,6 @@ namespace Delta.Units
             if (!AreEquivalent(fromUnit.BaseUnits, toUnit.BaseUnits))
                 throw new InvalidOperationException($"Units {fromUnit} and {toUnit} do not share a common base unit");
 
-            if (fromUnit.Dimension != toUnit.Dimension)
-                throw new InvalidOperationException($"Units {fromUnit} and {toUnit} do not share the same dimension formula");
-
             var dim = fromUnit.Dimension;
             var temp = value;
             for (var index = 0; index < BaseDimensions.Count; index++)

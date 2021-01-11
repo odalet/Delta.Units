@@ -58,13 +58,13 @@ namespace Delta.Units
             var foo2 = m.MultiplyBy(s);
             Assert.Equal(1m, foo1.ConvertTo(1m, foo2));
 
-            var d1 = (Unit)null / s;
-            var d2 = m / (Unit)null;
-            var d3 = (Unit)null / (Unit)null;
+            var d1 = null / s;
+            var d2 = m / null;
+            var d3 = (Unit)null / null;
 
-            var m1 = (Unit)null * s;
-            var m2 = m * (Unit)null;
-            var m3 = (Unit)null * (Unit)null;
+            var m1 = null * s;
+            var m2 = m * null;
+            var m3 = (Unit)null * null;
 
             Assert.Equal("T^-1", d1.Dimension.GetFormulaAsString());
             Assert.Equal("L", d2.Dimension.GetFormulaAsString());
@@ -79,10 +79,12 @@ namespace Delta.Units
         {
             var u0 = Unit.None ^ 0;
             var u1 = Unit.None ^ 1;
+            var u_1 = Unit.None ^ -1;
             var u2 = ((Unit)null) ^ 2;
 
             Assert.True(u0.IsNone());
             Assert.True(u1.IsNone());
+            Assert.True(u_1.IsNone());
             Assert.True(u2.IsNone());
         }
 
@@ -145,29 +147,5 @@ namespace Delta.Units
             Assert.Equal(q1.Value, q2.Value);
             Assert.Equal(q1.Unit.Name, q2.Unit.Name);
         }
-
-        [Fact]
-        public void Quantity_coverage_1() => Assert.Equal(52m, (42 * SI.metre + 10m).Value);
-
-        [Fact]
-        public void Quantity_coverage_2() => Assert.Equal(52m, (10m + 42 * SI.metre).Value);
-
-        [Fact]
-        public void Quantity_coverage_3() => Assert.Equal(32m, (42 * SI.metre - 10m).Value);
-
-        [Fact]
-        public void Quantity_coverage_4() => Assert.Equal(-32m, (10m - 42 * SI.metre).Value);
-
-        [Fact]
-        public void Quantity_coverage_5() => Assert.Equal(420m, (42 * SI.metre * 10m).Value);
-
-        [Fact]
-        public void Quantity_coverage_6() => Assert.Equal(420m, (10m * 42 * SI.metre).Value);
-
-        [Fact]
-        public void Quantity_coverage_7() => Assert.Equal(4.2m, (42 * SI.metre / 10m).Value);
-
-        [Fact]
-        public void Quantity_coverage_8() => Assert.Equal(4.2m, (42m / 10 * SI.metre).Value);
     }
 }

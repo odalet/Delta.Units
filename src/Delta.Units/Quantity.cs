@@ -40,8 +40,7 @@ namespace Delta.Units
         /// A new instance of <see cref="Quantity"/> 
         /// based on the specified <see cref="T:Delta.Units.Unit"/> and which value was converted using <paramref name="target"/>.
         /// </returns>
-        public Quantity ConvertTo(Unit target) => new Quantity(
-            Unit.Convert(Value, Unit, target), target);
+        public Quantity ConvertTo(Unit target) => new Quantity(Unit.Convert(Value, Unit, target), target);
 
         #region Operator Overloads
 
@@ -64,8 +63,6 @@ namespace Delta.Units
 
         /// <inheritdoc />
         public static Quantity operator /(Quantity left, decimal right) => 1m / right * left;
-        /// <inheritdoc />
-        public static Quantity operator /(decimal left, Quantity right) => 1m / left * right;
 
         // double-based overloads are defined so that it is easy for the user to define quantities.
         // Ho<ever beware of the precision and floating-point rounding issues
@@ -87,8 +84,6 @@ namespace Delta.Units
 
         /// <inheritdoc />
         public static Quantity operator /(Quantity left, double right) => left / (decimal)right;
-        /// <inheritdoc />
-        public static Quantity operator /(double left, Quantity right) => (decimal)left / right;
 
         // Because Int32 can be implicitely converted to double or decimal, we need also provide
         // overloads for disambiguation.
@@ -112,8 +107,6 @@ namespace Delta.Units
 
         /// <inheritdoc />
         public static Quantity operator /(Quantity left, int right) => left / (decimal)right;
-        /// <inheritdoc />
-        public static Quantity operator /(int left, Quantity right) => (decimal)left / right;
 
         // quantity op quantity
 
