@@ -3,7 +3,6 @@
 [![Build](https://github.com/odalet/Delta.Units/workflows/Build/badge.svg)](https://github.com/odalet/Delta.Units/actions?query=workflow%3ABuild)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=odalet_Delta.Units&metric=alert_status)](https://sonarcloud.io/dashboard?id=odalet_Delta.Units)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=odalet_Delta.Units&metric=coverage)](https://sonarcloud.io/dashboard?id=odalet_Delta.Units)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=odalet/Delta.Units)](https://dependabot.com)
 [![NuGet](https://img.shields.io/nuget/v/Delta.Units.svg)](https://www.nuget.org/packages/Delta.Units/)
 
 ## About
