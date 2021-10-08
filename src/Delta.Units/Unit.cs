@@ -10,7 +10,7 @@ namespace Delta.Units
     /// <seealso cref="System.IFormattable" />
     public sealed class Unit : IFormattable
     {
-        private class SpecificUnitTranslationProvider : IUnitTranslationProvider
+        private sealed class SpecificUnitTranslationProvider : IUnitTranslationProvider
         {
             public SpecificUnitTranslationProvider(Unit unit) => Unit = unit;
 
