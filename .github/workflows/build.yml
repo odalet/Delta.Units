@@ -35,12 +35,12 @@ jobs:
       with:
         dotnet-version: '6.0.x'
     - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9.11
+      uses: gittools/actions/gitversion/setup@v0.9.15
       with:
           versionSpec: '5.x' 
     - name: Use GitVersion
       id: gitversion # step id used as reference for output values
-      uses: gittools/actions/gitversion/execute@v0.9.11
+      uses: gittools/actions/gitversion/execute@v0.9.15
     - name: Install SonarScanner
       if: ${{ github.actor != 'dependabot[bot]' }}
       run: dotnet tool install --global dotnet-sonarscanner
