@@ -38,7 +38,7 @@
     We explicitly reference a recent version of Microsoft.NET.Test.Sdk, because xunit.runner.visualstudio 
     depends on version 15 which is achingly slow!
     -->
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Microsoft.CodeCoverage" Version="17.7.2" />
     <PackageReference Include="xunit" Version="2.6.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3">
